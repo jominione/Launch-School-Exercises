@@ -1,0 +1,18 @@
+# Write a function that takes one integer argument and returns True when
+# the number's absolute value is odd, False otherwise.
+
+# Solution:
+
+def odd(num):
+    return abs(num) % 2 == 0
+
+num1 = -123
+num2 = -12
+
+result1 = odd(num1)
+result2 = odd(num2)
+
+# Examples:
+
+print(result1)
+print(result2)
