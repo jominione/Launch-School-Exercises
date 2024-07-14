@@ -1,0 +1,10 @@
+# Write a function that checks whether a string starts with a prefix.
+
+# Solution:
+
+def starts_with(text, prefix):
+    return text.startswith(prefix)
+
+print(starts_with("launch", "la"))
+print(starts_with("school", "sah"))
+print(starts_with("school", "sch"))

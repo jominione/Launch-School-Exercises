@@ -1,0 +1,10 @@
+# Use Python's string methods on the string 'Captain Ruby' to create a string
+# with the value 'Captain Python'.
+
+# Solution:
+
+text = 'Captain Ruby'
+word_list = text.split(' ')
+word_list[1] = 'Python'
+result = ' '.join(word_list)
+print(result)

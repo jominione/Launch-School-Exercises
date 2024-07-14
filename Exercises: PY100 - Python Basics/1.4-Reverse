@@ -1,0 +1,18 @@
+# Is there a method to reverse a string, for example turning 'hello' into
+# 'olleh'?
+
+# Solution: There is no built-in method to reverse a string but there are
+# a number of ways to get same result. You can create a new string by slicing.
+# Alternatively splitting string into list of characters using list constructor
+# and then employ list method .reverse() to mutate and reverse order of 
+# list and then list using .join() method.
+
+string = 'hello'
+
+print(string[::-1])
+
+split = list(string)
+split.reverse()
+result = ''.join(split)
+
+print(result)

@@ -1,0 +1,9 @@
+# Rewrite car as a nested list containing the key/value pairs.
+
+# Solution:
+
+car = [
+    ['type', 'sedan'],
+    ['color', 'blue'],
+    ['year', 2003],
+]

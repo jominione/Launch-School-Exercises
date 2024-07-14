@@ -1,0 +1,11 @@
+# Write a function that counts the number of occurrences of a substring
+# in a string.
+
+# Solution:
+
+def count_substrings(text, substring):
+    return len(text.split(substring)) - 1
+
+print(count_substrings("lemon lemon lemon", "lemon"))
+print(count_substrings("laLAlaLA", "la"))
+print(count_substrings("launch", "uno"))

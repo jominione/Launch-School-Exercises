@@ -1,0 +1,9 @@
+# Determine whether Python has a method to lowercase a string, for example
+# converting 'Aloha, World!' into 'aloha, world!'.
+
+# Solution: Python has built-in string method lower that will conver a string
+# into lowercase
+
+string =  'Aloha, World!'
+
+print(string.lower())

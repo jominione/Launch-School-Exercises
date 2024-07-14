@@ -1,0 +1,19 @@
+# What will the following code do and why? Don't run it until you have tried
+# to answer.
+
+a = 1
+
+def my_function():
+    a = 2
+
+my_function()
+print(a)
+
+# Solution: 1.
+
+# When my_function is invoked it detects that a is initialised to 2 but 
+# this is only accessible locally. It completes the block of code returning 
+# None.
+
+# When print(a) is invoked it accesses variable a initialised at the global
+# level printing the value 1.

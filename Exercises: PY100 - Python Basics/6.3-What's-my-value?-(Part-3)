@@ -1,0 +1,19 @@
+# What will the followign code do and why? Don't run it until you have tried
+# to answer.
+
+def my_function():
+    a = 1
+
+    if True:
+        print(a)
+
+my_function()
+
+# Solution: 1. When my_function is invoked it will print a which is initialised
+# inside the my_function and has a local scope.
+
+# Variables initialised in the same scope where a block begins can be accessed
+# inside the block. In our case, the variable a is initialised within the
+# function my_function and then accessed inside the if statement block.
+# Therefore, the print(a) statement on line 5 outputs the value 1 when
+# my_function is invoked.

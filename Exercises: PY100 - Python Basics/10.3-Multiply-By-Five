@@ -1,0 +1,15 @@
+# When the user inputs 10, we expect the program to print 'The result is
+# 50!', but that's not the output we see. Why not?
+
+def multiply_by_five(n):
+    return n * 5
+
+print("Hello! WHich number would you like to multiply by 5?")
+number = input()
+
+print(f"The result is {multiply_by_five(number)}!")
+
+# Solution: The input functions a string as value so when multiply_by_five
+# is invoked it will use string operation. To return a numerical value
+# you need to use explicit type conversiion int() on the argument n to 
+# conver the user input to an integer before performing the multiplication.

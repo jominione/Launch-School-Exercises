@@ -1,0 +1,33 @@
+# Our predict_weather function should output a message indicating whether
+# a sunny or cloudy day lies ahead. However, the output is the same every
+# time the function is invoked. Why? Fix the code so that it behaves as
+# expected.
+
+# import random
+# 
+# def predict_weather():
+#     sunshine = random.choice(['True', 'False'])
+# 
+#     if sunshine:
+#         print("Today's weather will be sunny!")
+#     else:
+#         print("Today's weather will be cloudy!")
+
+# Solution: In order for the function to behave as expected, we should assign
+# sunshine to the boolean True or False instead of the string 'True' or
+# 'False'. random.choice returns a element of the list argument given to
+# it, not a list of a single element. There is another random method,
+# random.choices (not to be confused with random.choice) that instead returns
+# a list.
+
+import random
+
+def predict_weather():
+    sunshine = random.choice([True, False])
+
+    if sunshine:
+        print("Today's weather will be sunny!")
+    else:
+        print("Today's weather will be cloudy!")
+
+print(predict_weather())

@@ -1,0 +1,10 @@
+# Create a dictionary that contains the following data, and assign it to
+# variable named car.
+
+# Solution:
+
+car = {
+    'type': 'sedan',
+    'color': 'blue',
+    'mileage': 80_000,
+}

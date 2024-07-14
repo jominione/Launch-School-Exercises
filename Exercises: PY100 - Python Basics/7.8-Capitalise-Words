@@ -1,0 +1,17 @@
+# Write code that capitalises the words in the string 'launch school tech
+# & talk', so that you get the string 'Launch School Tech & Talk'.
+
+# Solution:
+
+def capitalise_words(text):
+    words = text.split(' ')
+    capitalise = []
+
+    for word in words:
+        capitalise.append(word.capitalize())
+
+    return ' '.join(capitalise)
+
+text = 'launch school tech & talk'
+print(capitalise_words(text))
+print(text.title())

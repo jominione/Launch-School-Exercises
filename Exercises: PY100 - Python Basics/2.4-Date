@@ -1,0 +1,9 @@
+# Using the datetime module in Python, how would you optain the current
+# date and time?
+
+# Solution: You can achieve this using the datetime.datetime.now method:
+
+from datetime
+
+current_datetime = datetime.datetime.now()
+print(current_datetime)

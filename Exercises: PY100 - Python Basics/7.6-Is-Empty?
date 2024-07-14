@@ -1,0 +1,10 @@
+# Write a function that checks whether a string is empty or not. For example:
+
+# Solution:
+
+def is_empty(text):
+    return text == ''
+
+print(is_empty('mars'))
+print(is_empty('  '))
+print(is_empty(''))

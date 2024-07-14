@@ -1,0 +1,13 @@
+# Locate the documentation for the list built-in object in Python
+# Documentation.
+
+# How can we access the second element ('and') in the list 
+# ['fish', 'and', 'chips']?
+
+# Solution: You can find the documentation for list built-in function here
+# https://docs.python.org/3/library/stdtypes.html#list.
+
+# You can access the second element using indexing:
+
+list = ['fish', 'and', 'chips']
+list[1]                            # 'and'

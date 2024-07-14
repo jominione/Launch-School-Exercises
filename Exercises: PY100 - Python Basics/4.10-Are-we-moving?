@@ -1,0 +1,18 @@
+# Determine what the following code snippet prints. First solve it in your
+# head or on paper, then run it in your Python environment to check the result.
+
+# Solution:
+
+speed = 0
+acceleration = 24
+braking_force = 19
+is_moving = breaking_force < acceleration and (speed > 0 or acceleration > 0)
+print(is_moving)        # True
+
+# Bonus question: Do we need the parentheses in the boolean expression or
+# could we have written the following?:
+
+is_moving = breaking_force < acceleration and speed > 0 or acceleration > 0
+
+# Solution: Precedent of evaluating boolean statements is to start left
+# to right so you evaluate and then or. Here the output changes to False.

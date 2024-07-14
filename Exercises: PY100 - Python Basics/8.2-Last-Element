@@ -1,0 +1,12 @@
+# Write a function that returns the last element of a list provided as an
+# argument.
+
+# Be sure to handle the case where the input list is empty.
+
+# Solution:
+
+def last(lst):
+    return lst[-1] if lst else None
+
+print(last(['Earth', 'Moon', 'Mars']))
+print(last([]))

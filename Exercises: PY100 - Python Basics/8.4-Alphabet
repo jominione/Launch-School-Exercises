@@ -1,0 +1,8 @@
+# Split the string alphabet into a list of characters.
+
+alphabet = 'abcdefghijklmnopqrstuvwxyz'
+
+# Solution:
+
+lst = list(alphabet)
+print(lst)

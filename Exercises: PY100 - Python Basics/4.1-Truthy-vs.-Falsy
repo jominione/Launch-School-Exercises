@@ -1,0 +1,13 @@
+# Without looking at your notes or the official documentation, try to recall
+# all the values that count as falsy in Python.
+
+# Solution
+
+{}
+[]
+''
+()
+None
+0
+set()
+range(0)

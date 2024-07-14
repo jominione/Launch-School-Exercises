@@ -1,0 +1,29 @@
+# Magdalena has just adopted a new pet! She wants to add her new dog, Bowser,
+# to the pets dictionary. After doing so, she realises that her dogs Sparky
+# and Fido have been mistakenly removed. Help Magdalena fix her code so
+# that all three of her dogs' names will be associated with the key 'dog'
+# in the pets dictionary.
+
+pets = { 'cat': 'pepe', 'dog': ['sparky', 'fido'], 'fish': 'oscar'}
+
+pets = pets['dog'].append('bowser')
+
+print(pets)
+
+# Solution: Magdalena used element reassignment to re-assign the value
+# associated with the key 'dog'. Instead, she intended to access the list
+# of dog names associated with the key 'dog' and add an element to it.
+
+# Using element reference, we can access the value associated with the key
+# 'dog'.
+
+# Because the returned value is a list, we can use the list.append method
+# to add an additional element (in this case, the string 'bowser') to the
+# end of the list, achieving the desired result.
+
+# What's wrong with using pets = pets['dog'].append('bowser')?
+
+# The append() method itself returns None, not the modified list. Assignment 
+# to pets: pets = pets['dog'].append('bowser') assigns the result of 
+# pets['dog'].append('bowser') to pets. Since append() returns None, pets 
+# becomes None.

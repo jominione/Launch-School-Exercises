@@ -1,0 +1,21 @@
+# What will the following code do and why? Don't run it until you have tried
+# to answer.
+
+a = 1
+
+def my_function():
+    global a
+    a = 2
+
+my_function()
+print(a)
+
+# Solution: 2.
+
+# a is initialised at the global level with value of 1. In my_function
+# the global keyword tells the function to assume that a refers to the global
+# variable a. This means any operation variable inside this function will
+# affect the global variable a, not a local one.
+
+# Once my_function is invoked this reassigns the global variable and value
+# of global a has changed to 2 and prints value 2.

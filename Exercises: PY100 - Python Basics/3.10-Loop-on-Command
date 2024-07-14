@@ -1,0 +1,11 @@
+# Modify the following code so the loop continues iterating until the inputs
+# 'yes'.
+
+# Solution:
+
+while True:
+    print('Should I stop looping?')
+    answer = input()
+    if str(answer) == 'yes':
+        break
+    print('Incorrect answer. Please answer "yes".')

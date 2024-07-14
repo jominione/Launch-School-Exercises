@@ -1,0 +1,4 @@
+# Using the official Python documentation, can you determine how to check
+# whether a string contains a specific substring?
+
+# Solution: You can use the in operator.

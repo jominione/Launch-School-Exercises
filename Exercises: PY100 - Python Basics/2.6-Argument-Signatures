@@ -1,0 +1,5 @@
+# How many arguments does the str.join method expect? What happens if you
+# it with fewer or more arguments?
+
+# Solution: str.join method requires one argument. If you provide
+# no arguments or more than one it will raise a TypeError.

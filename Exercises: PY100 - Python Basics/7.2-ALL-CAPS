@@ -1,0 +1,7 @@
+# Convert the string 'confetti floating everywhere' to all upper case.
+
+# Solution:
+
+text = 'confetti floating everywhere'
+result = text.upper()
+print(result)
