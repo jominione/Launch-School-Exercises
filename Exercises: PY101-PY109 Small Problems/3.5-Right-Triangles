@@ -1,0 +1,37 @@
+# Write a function that takes a positive integer, n, as an argument and prints
+# a right triangle whose sides each have n stars. The hypotenuse of the
+# triangle (the diagonal side in the images below) should have one end at
+# the lower-left of the triangle, and the other end at the upper-right.
+
+# Solution:
+
+def triangle(n):
+    if n > 1:
+        for num in range(n, 0, -1):
+            print(' ' * int(num-1) + '*' * int(n - num))
+    elif n == 1:
+        print('*')
+
+# Example 1
+
+triangle(5)
+
+#     *
+#    **
+#   ***
+#  ****
+# *****
+
+# Example 2
+
+triangle(9)
+
+#         *
+#        **
+#       ***
+#      ****
+#     *****
+#    ******
+#   *******
+#  ********
+# *********

@@ -1,0 +1,98 @@
+# Write a function that takes a year as input and returns the century. The
+# return value should be a string that begins with the century number, and
+# ends with 'st', 'nd', 'rd', or 'th' as appropriate for that number.
+
+# New centuries begin in years that end with 01. So, the years 1901 - 2000
+# comprise the 20th century.
+
+# Solution:
+
+def century(year):
+    if year < 1000:
+        if year % 100 != 0:
+            century_string = str(int((year // 100) + 1))
+            ending = century_string[-1]
+            match ending:
+                case "1":
+                    return f"{century_string}st"
+                case "2":
+                    return f"{century_string}nd"
+                case "3":
+                    return f"{century_string}rd"
+                case _:
+                    return f"{century_string}th"
+        else:
+            century_string = str(int(year / 100))
+            ending = century_string[-1]
+            match ending:
+                case "1":
+                    return f"{century_string}st"
+                case "2":
+                    return f"{century_string}nd"
+                case "3":
+                    return f"{century_string}rd"
+                case _:
+                    return f"{century_string}th"
+    else:
+        century_string = str(int((year // 100) + 1))
+        ending = century_string[-2:]
+        if ending == '11' or ending == '12' or ending == '13':
+            return f"{century_string}th"
+        else:
+            if year % 100 != 0:
+                century_string = str(int((year // 100) + 1))
+                ending = century_string[-1]
+                match ending:
+                    case "1":
+                        return f"{century_string}st"
+                    case "2":
+                        return f"{century_string}nd"
+                    case "3":
+                        return f"{century_string}rd"
+                    case _:
+                        return f"{century_string}th"
+            else:
+                century_string = str(int(year / 100))
+                ending = century_string[-1]
+                match ending:
+                    case "1":
+                        return f"{century_string}st"
+                    case "2":
+                        return f"{century_string}nd"
+                    case "3":
+                        return f"{century_string}rd"
+                    case _:
+                        return f"{century_string}th"
+    
+# Examples:
+
+print(century(2000) == "20th")          # True
+print(century(2001) == "21st")          # True
+print(century(1965) == "20th")          # True
+print(century(256) == "3rd")            # True
+print(century(5) == "1st")              # True
+print(century(10103) == "102nd")        # True
+print(century(1052) == "11th")          # True
+print(century(1127) == "12th")          # True
+print(century(11201) == "113th")        # True
+
+# Alternative solution using ChatGPT:
+
+# def century(year):
+    # Calculate the century number
+#     century_num = (year - 1) // 100 + 1
+    
+    # Determine the suffix based on the last digit of century_num
+#     if century_num % 100 in [11, 12, 13]:
+#         suffix = "th"
+#     elif century_num % 10 == 1:
+#         suffix = "st"
+#     elif century_num % 10 == 2:
+#         suffix = "nd"
+#     elif century_num % 10 == 3:
+#         suffix = "rd"
+#     else:
+#         suffix = "th"
+    
+    # Form the century string
+#     return f"{century_num}{suffix}"

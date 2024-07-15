@@ -1,0 +1,20 @@
+# Build a program that displays when the user will retire and how many years
+# she has to work till retirement.
+
+# Solution:
+
+age = input('What is your age today? ')
+retirement = input('At what age would you like to retire? ')
+print()
+
+print(f"It's 2024. You will retire in {2024 + int(retirement) - int(age)}.")
+print(f'You have only {int(retirement) - int(age)} years of work to go!')
+
+
+# Example
+
+# What is your age today? 30
+# At what age would you like to retire? 70
+
+# It's 2024. You will retire in 2064.
+# You have only 40 years of work to go!

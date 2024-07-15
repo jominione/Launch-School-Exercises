@@ -1,0 +1,14 @@
+# Write a function that takes a number as an argument. If the argument is
+# a positive number, return the negative of that number. If the argument
+# is a negative number, return it as-is.
+
+# Solution:
+
+def negative(n):
+    return -n if n >= 0 else n
+
+# Examples:
+
+print(negative(5) == -5)
+print(negative(-3) == -3)
+print(negative(0) == 0)

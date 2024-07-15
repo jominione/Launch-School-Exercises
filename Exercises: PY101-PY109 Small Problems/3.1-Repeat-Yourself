@@ -1,0 +1,17 @@
+# Write a function that takes two arguments, a string and a positive integer,
+# then prints the string as many times as the integer indicates.
+
+# Solution:
+
+def repeat(text, n):
+    if n > 0:
+        for _ in range(n):
+            print(text)
+
+# Example:
+
+repeat('Hello', 3)
+
+# Hello
+# Hello
+# Hello

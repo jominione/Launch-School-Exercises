@@ -1,0 +1,31 @@
+# Write a function that takes a short line of text and prints it within a
+# box.
+
+# Solution:
+
+def print_in_box(text):
+    print('+-' + (len(text) * '-') + '-+')
+    print('| ' + (len(text) * ' ') + ' |')
+    print('| ' + f'{text}'         + ' |')
+    print('| ' + (len(text) * ' ') + ' |')
+    print('+-' + (len(text) * '-') + '-+')
+
+# Example 1:
+
+print_in_box('To boldly go where no one has gone before.')
+
+# +--------------------------------------------+
+# |                                            |
+# | To boldly go where no one has gone before. |
+# |                                            |
+# +--------------------------------------------+
+
+# Example 2:
+
+print_in_box('')
+
+# +--+
+# |  |
+# |  |
+# |  |
+# +--+
