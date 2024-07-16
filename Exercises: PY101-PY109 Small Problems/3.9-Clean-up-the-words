@@ -29,3 +29,27 @@ def clean_up(text):
 # Example:
 
 print(clean_up("---what's my +*& line?") == " what s my line ")
+
+# Altersolution by chatGPT:
+
+def replace_non_alphabetic(input_string):
+    result = []
+    last_was_alpha = False
+    
+    for char in input_string:
+        if char.isalpha():
+            result.append(char)
+            last_was_alpha = True
+        else:
+            if last_was_alpha:
+                result.append(' ')
+                last_was_alpha = False
+    
+    # Join the result list into a single string
+    return ''.join(result)
+
+# Test cases
+print(replace_non_alphabetic("Hello! How are you?"))  # Output: "Hello How are you"
+print(replace_non_alphabetic("I'm doing fine, thank you!"))  # Output: "Im doing fine thank you"
+print(replace_non_alphabetic("12345"))  # Output: ""
+print(replace_non_alphabetic("Hello   World"))  # Output: "Hello World"

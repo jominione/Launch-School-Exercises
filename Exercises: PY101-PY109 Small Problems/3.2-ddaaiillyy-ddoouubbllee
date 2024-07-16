@@ -24,3 +24,27 @@ print(crunch('ggggggggggggggg') == 'g')
 print(crunch('abc') == 'abc')
 print(crunch('a') == 'a')
 print(crunch(' ') == ' ')
+
+# Alternative solution from chatGPT:
+
+def collapse_duplicates(input_string):
+    if not input_string:
+        return input_string
+    
+    result = []
+    prev_char = input_string[0]
+    result.append(prev_char)
+    
+    for char in input_string[1:]:
+        if char != prev_char:
+            result.append(char)
+            prev_char = char
+    
+    return ''.join(result)
+
+# Test cases
+print(collapse_duplicates("Hello"))  # Output: "Helo"
+print(collapse_duplicates("Mississippi"))  # Output: "Misisipi"
+print(collapse_duplicates("aaaaabbbbbb"))  # Output: "ab"
+print(collapse_duplicates("a"))  # Output: "a"
+print(collapse_duplicates(""))  # Output: ""
