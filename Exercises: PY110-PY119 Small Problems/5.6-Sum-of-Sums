@@ -1,0 +1,31 @@
+# Write a function that takes a list of numbers and returns the sum of the
+# sums of each leading subsequence in that list. Examine the examples to
+# see what we mean. You may assume that the list always contains at least
+# one number.
+
+# Solution:
+
+def sum_of_sums(numbers):
+
+    sum_of_sums = 0
+    for index in range(len(numbers)):
+        sum = 0
+        for num in numbers[0:index+1]:
+            sum += num
+        
+        sum_of_sums += sum
+
+    return sum_of_sums
+
+# Examples:
+
+print(sum_of_sums([3, 5, 2]) == 21)               # True
+# (3) + (3 + 5) + (3 + 5 + 2) --> 21
+
+print(sum_of_sums([1, 5, 7, 3]) == 36)            # True
+# (1) + (1 + 5) + (1 + 5 + 7) + (1 + 5 + 7 + 3) --> 36
+
+print(sum_of_sums([1, 2, 3, 4, 5]) == 35)         # True
+# (1) + (1+2) + (1+2+3) + (1+2+3+4) + (1+2+3+4+5) --> 35
+
+print(sum_of_sums([4]) == 4)                      # True

@@ -1,0 +1,18 @@
+# Write a function that takes a string, doubles every character in the string,
+# then returns the results as a new string.
+
+# Solution:
+
+def repeater(text):
+    characters = list(text)
+    repeater = []
+    for char in characters:
+        repeater.append(char * 2)
+    result = ''.join(repeater)
+    return result
+
+# Examples:
+
+print(repeater('Hello') == "HHeelllloo")              # True
+print(repeater('Good job!') == "GGoooodd  jjoobb!!")  # True
+print(repeater('') == "")                             # True

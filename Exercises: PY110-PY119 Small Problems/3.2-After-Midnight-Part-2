@@ -1,0 +1,41 @@
+# As seen in the previous exercise, the time of day can be represented as
+# the number of minutes before or after midnight. If the number of minutes
+# is positive, the time is after midnight. If the number of minutes is 
+# negative, the time is before midnight.
+
+# Write two functions that each take a time of day in 24 hour format, and
+# return the number of minutes before and after midnight, respectively. Both
+# functions should return a value in the range of 0 through 1439.
+
+# You may not use Python's datetime module.
+
+# Disregard Daylight Savings and Standard Time and other irregularities.
+
+# Solution:
+
+def after_midnight(time):
+    if time == "24:00":
+        hours = 0
+    else:
+        hours = int(time[0:2]) * 60
+    minutes = int(time[3:5])
+    result = hours + minutes
+    return result
+
+def before_midnight(time):
+    if time == "00:00":
+        hours = 24 * 60
+    else:
+        hours = int(time[0:2]) * 60
+    minutes = int(time[3:5])
+    result = 24 * 60 - (hours + minutes)
+    return result
+
+# Examples:
+
+print(after_midnight("00:00") == 0)     # True
+print(before_midnight("00:00") == 0)    # True
+print(after_midnight("12:34") == 754)   # True
+print(before_midnight("12:34") == 686)  # True
+print(after_midnight("24:00") == 0)     # True
+print(before_midnight("24:00") == 0)    # True

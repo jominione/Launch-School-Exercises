@@ -1,0 +1,20 @@
+# Given a dictionary, return its keys sorted by the values associated with
+# each key.
+
+# Solution:
+
+def order_by_value(dictionary):
+    dict_keys = list(dictionary.keys())
+    dict_values = list(dictionary.values())
+    values_to_keys = dict(zip(dict_values, dict_keys))
+    dict_values.sort()
+    result = []
+    for key in dict_values:
+        result.append(values_to_keys[key])
+    return result
+
+# Example:
+
+my_dict = {'p': 8, 'q': 2, 'r': 6}
+keys = ['q', 'r', 'p']
+print(order_by_value(my_dict) == keys)  # True

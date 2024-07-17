@@ -1,0 +1,38 @@
+# Write a function that takes a string as an argument and returns that string
+# with a staggered capitalisation scheme. Every other character, starting
+# from the first, should be capitalised and should be followed by a lowercase
+# or non-alphabetic character. Non-alphabetic characters should not be changed,
+# but should be counted as charaters for determining when to switch between
+# upper and lower case.
+
+# Solution:
+
+def staggered_case(text):
+
+    characters = list(text)
+    staggered = []
+
+    for index in range(len(characters)):
+        if index % 2 == 0:
+            staggered.append(characters[index].upper())
+        else:
+            staggered.append(characters[index].lower())
+
+    result = ''.join(staggered)
+    return result
+    
+# Examples:
+
+string = 'I Love Launch School!'
+result = "I LoVe lAuNcH ScHoOl!"
+print(staggered_case(string) == result)  # True
+
+string = 'ALL_CAPS'
+result = "AlL_CaPs"
+print(staggered_case(string) == result)  # True
+
+string = 'ignore 77 the 4444 numbers'
+result = "IgNoRe 77 ThE 4444 nUmBeRs"
+print(staggered_case(string) == result)  # True
+
+print(staggered_case('') == "")          # True

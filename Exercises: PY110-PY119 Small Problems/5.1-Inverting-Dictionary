@@ -1,0 +1,20 @@
+# Given a dictionary where both keys and values are unique, invert this
+# dictionary so that its become values and its values become keys.
+
+# Solution:
+
+def invert_dict(dictionary):
+    result = dict(zip(dictionary.values(), dictionary.keys()))
+    return result
+
+# Example:
+
+print(invert_dict({
+          'apple': 'fruit',
+          'broccoli': 'vegetable',
+          'salmon': 'fish',
+      }) == {
+          'fruit': 'apple',
+          'vegetable': 'broccoli',
+          'fish': 'salmon',
+      })  # True

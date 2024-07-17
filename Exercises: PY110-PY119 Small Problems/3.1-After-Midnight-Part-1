@@ -1,0 +1,49 @@
+# The time of day can be representedd as the number of minutes before or
+# after midnight. If the number of minutes is positive, the time is after
+# midnight. If the number of minutes is negative, the time is before midnight.
+
+# Write a function that takes a time using this minute-based format and returns
+# the time of day in 24-hour format (hh:mm). Your function should work with
+# any integer input.
+
+# You may not use Python's datetime module.
+
+# Disregard Daylight Savings and Standard Time and other complications.
+
+# Solution:
+
+def time_of_day(number):
+    
+    minutes_excluding_days = number % (24 * 60)
+    hours = minutes_excluding_days // 60
+    minutes = minutes_excluding_days % 60
+
+    result = f'{hours:02}:{minutes:02}'
+    return result
+
+
+# Examples:
+
+print(time_of_day(0) == "00:00")        # True
+print(time_of_day(-3) == "23:57")       # True
+print(time_of_day(35) == "00:35")       # True
+print(time_of_day(-1437) == "00:03")    # True
+print(time_of_day(3000) == "02:00")     # True
+print(time_of_day(800) == "13:20")      # True
+print(time_of_day(-4231) == "01:29")    # True
+
+# Notes:
+
+# Negative Modulo:
+
+# When dealing with negative numbers, the result of the modulo operation 
+# might not be what you expect if you're coming from languages like C or Java.
+
+# Python’s modulo operation preserves the sign of the divisor (the right 
+# operand). This means that the result has the same sign as the divisor.
+
+# For example, -7 % -3 gives -1. Here, -3 is the divisor, and -1 is the 
+# remainder, which has the same sign as -3.
+
+# Similarly, 7 % -3 gives -1, because -3 is negative and the remainder is 
+# negative.

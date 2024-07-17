@@ -1,0 +1,41 @@
+# Modify the function from the previous exercise so it ignores non-alphabetic
+# characters when determining whether it should uppercase or lowercase each
+# letter. The non-alphabetic characters should still be included in the return
+# value; they just don't count when toggling the desired case.
+
+# Solution:
+
+def staggered_case(text):
+
+    characters = list(text)
+    staggered = []
+
+    count = -1
+    for char in characters:
+        if char.isalpha():
+            count += 1
+            if count % 2 == 0:
+                staggered.append(char.upper())
+            else:
+                staggered.append(char.lower())
+        else:
+            staggered.append(char)
+    
+    result = ''.join(staggered)
+    return result
+
+# Examples:
+
+string = 'I Love Launch School!'
+result = "I lOvE lAuNcH sChOoL!"
+print(staggered_case(string) == result)  # True
+
+string = 'ALL_CAPS'
+result = "AlL_cApS"
+print(staggered_case(string) == result)  # True
+
+string = 'ignore 77 the 4444 numbers'
+result = "IgNoRe 77 ThE 4444 nUmBeRs"
+print(staggered_case(string) == result)  # True
+
+print(staggered_case('') == "")          # True

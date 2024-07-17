@@ -1,0 +1,44 @@
+# Write a function that takes a string as an argument and returns True if
+# all parentheses in the string are properly balanced, False otherwise.
+# To be properly balanced, parentheses must occur in matching '(' and ')'
+# pairs.
+
+# Note that balanced pairs must start with a (, not a ).
+
+# Solution:
+
+def is_balanced(text):
+    characters = list(text)
+    brackets = []
+    for char in characters:
+        if char == '(' or char == ')':
+            brackets.append(char)
+    
+    count_front = 0
+    count_back = 0
+    
+    for bracket in brackets:
+        if bracket == "(":
+            count_front += 1
+            if count_front < count_back:
+                return False
+        else:
+            count_back += 1
+            if count_front < count_back:
+                return False
+
+    if count_front != count_back:
+        return False
+    else:
+        return True
+
+# Examples:
+
+print(is_balanced("What (is) this?") == True)        # True
+print(is_balanced("What is) this?") == False)        # True
+print(is_balanced("What (is this?") == False)        # True
+print(is_balanced("((What) (is this))?") == True)    # True
+print(is_balanced("((What)) (is this))?") == False)  # True
+print(is_balanced("Hey!") == True)                   # True
+print(is_balanced(")Hey!(") == False)                # True
+print(is_balanced("What ((is))) up(") == False)      # True

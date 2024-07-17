@@ -1,0 +1,94 @@
+# Write a function that takes a list of integers between 0 and 19 and returns
+# a list of those integers sorted based on the English word for each number.
+
+# Solution:
+
+def alphabetic_number_sort(numbers):
+    words = []
+
+    for num in numbers:
+        match num:
+            case 0:
+                words.append('zero')
+            case 1:
+                words.append('one')
+            case 2:
+                words.append('two')
+            case 3:
+                words.append('three')
+            case 4:
+                words.append('four')
+            case 5:
+                words.append('five')
+            case 6:
+                words.append('six')
+            case 7:
+                words.append('seven')
+            case 8:
+                words.append('eight')
+            case 9:
+                words.append('nine')
+            case 10:
+                words.append('ten')
+            case 11:
+                words.append('eleven')
+            case 12:
+                words.append('twelve')
+            case 13:
+                words.append('thirteen')
+            case 14:
+                words.append('fourteen')
+            case 15:
+                words.append('fifteen')
+            case 16:
+                words.append('sixteen')
+            case 17:
+                words.append('seventeen')
+            case 18:
+                words.append('eighteen')
+            case 19:
+                words.append('nineteen')
+    
+    map_number_word = dict(zip(numbers, words))
+    map_word_number = dict(zip(words, numbers))
+
+    words.sort()
+    result = []
+    for word in words:
+        result.append(map_word_number[word])
+    
+    return result
+
+# Example:
+
+input_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,
+              10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+
+expected_result = [8, 18, 11, 15, 5, 4, 14, 9, 19, 1,
+                   7, 17, 6, 16, 10, 13, 3, 12, 2, 0]
+
+print(alphabetic_number_sort(input_list) == expected_result)
+# Prints True
+
+print(alphabetic_number_sort([2, 0, 5, 3, 6, 18]))
+
+# Alternative solution by chatGPT:
+
+def sort_by_english_word(numbers):
+    # Mapping from number to English word
+    number_to_word = [
+        "zero", "one", "two", "three", "four", 
+        "five", "six", "seven", "eight", "nine", 
+        "ten", "eleven", "twelve", "thirteen", 
+        "fourteen", "fifteen", "sixteen", "seventeen", 
+        "eighteen", "nineteen"
+    ]
+    
+    # Sort numbers based on their English word
+    sorted_numbers = sorted(numbers, key=lambda x: number_to_word[x])
+    
+    return sorted_numbers
+
+numbers = [3, 1, 10, 0, 19, 7]
+sorted_numbers = sort_by_english_word(numbers)
+print(sorted_numbers)  # Output: [0, 1, 19, 7, 3, 10] sorted by words ['zero', 'one', 'ten', 'seven', 'three', 'nineteen']
