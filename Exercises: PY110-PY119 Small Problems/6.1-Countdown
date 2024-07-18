@@ -1,0 +1,22 @@
+# Our countdown to launch isn't behaving as expected. Why? Change the code
+# so that our program sucessfully counts down from 10 to 1 before launching.
+
+# Solution: Add global to counter variable in decrease function. Without
+# global keyword will tell the decrease function to reassign the global counter
+# variable and decrement by 1.
+
+# When the decrease function is called in the for loop statement the counter 
+# variable will reassign to new value returned by the decrease function for
+# each iteration of the loop.
+
+def decrease(counter):
+    global counter
+    return counter - 1
+
+counter = 10
+
+for _ in range(10):
+    print(counter)
+    decrease(counter)
+
+print('LAUNCH!')
