@@ -1,0 +1,38 @@
+# A triangle is classified as follows:
+
+# * Equilateral: All three sides have the same length.
+# * Isosceles: Two sides have the same length, while the third is different.
+# * Scalene: All three sides have different lengths.
+
+# To be a valid triangle, the sum of the lengths of the two shortest sides
+# must be greater than the length of the longest side, and every side must
+# have a length greater than 0. If either of these conditions is not satisfied,
+# the triangle is invalid.
+
+# Write a function that takes the lengths of the three sides of a triangle
+# as arguments and returns one of the following strings representing the
+# triangle's classification: 'equilateral', 'isosceles', 'scalene', or 
+# 'invalid'.
+
+# Solution:
+
+def triangle(num1, num2, num3):
+    if (not all([num1, num2, num3])) or \
+       sum(sorted([num1, num2, num3])[0:2]) <= sorted([num1, num2, num3])[2]:
+
+        return "invalid"
+
+    if num1 == num2 and num2 == num3:
+        return "equilateral"
+    elif (num1 == num2 and num2 != num3) or (num2 == num3 and num1 != num3):
+        return "isosceles"
+    else: # num1 != num2 and num1 != num3 and num2 != num3:
+        return "scalene"
+
+# Examples:
+
+print(triangle(3, 3, 3) == "equilateral")  # True
+print(triangle(3, 3, 1.5) == "isosceles")  # True
+print(triangle(3, 4, 5) == "scalene")      # True
+print(triangle(0, 3, 3) == "invalid")      # True
+print(triangle(3, 1, 1) == "invalid")      # True
