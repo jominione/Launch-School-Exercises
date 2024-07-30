@@ -42,12 +42,12 @@
 def merge_partition(partitions):
     new_merge = []
     for partition in partitions:
-        if type(partition[0][0]) != list and (len(partition) == 2):
+        if (not isinstance(partition[0][0], list)) and (len(partition) == 2):
             result = merge(partition[0], partition[1])
             new_merge.append(result)
         
         # When partition has odd number of elements.
-        elif (type(sublist) != list) and (len(partition) % 2 == 1):
+        elif (not isinstance(sublist, list)) and (len(partition) % 2 == 1):
             break
 
         else: 
