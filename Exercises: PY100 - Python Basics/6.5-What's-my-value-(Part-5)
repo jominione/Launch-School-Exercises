@@ -1,6 +1,8 @@
 # What will the following code do and why? Don't run it until you have tried
 # to answer.
 
+# Example:
+
 a = 1
 
 def my_function():
@@ -9,9 +11,10 @@ def my_function():
 
 my_function()
 
-# Solution: It will raise an UnboundLocalError.
+# Solution [Wrong]: Output 2. When my_function is invoked it will look for a in 
+# its local scope. a is defined at line 10.
 
-# Python detects that a is being assigned within the my_function function
-# and therefore treats it as a local variable. However, since we are trying
-# to print the local a variable's value before it has been assigned a value,
-# we get an error.
+# Official Solution: It will raise an UnboundedLocalError. Python detects
+# that a is being assigned within the my_function function and therefore treats
+# it as a local variable. However, since we are trying to print the local a
+# variable's value before it has been assigned a value, we get an error.

@@ -1,6 +1,8 @@
 # What will the following code do and why? Don't run it until you have tried
 # to answer.
 
+# Example:
+
 a = 1
 
 def my_function():
@@ -10,12 +12,17 @@ def my_function():
 my_function()
 print(a)
 
-# Solution: 2.
+# Solution: Output 2. The global keyword tells Python to reference a in 
+# my_function as a initialised outside of the function. So when my_function
+# is invoked it reassigns a value to 2 and print outputs 2.
 
-# a is initialised at the global level with value of 1. In my_function
-# the global keyword tells the function to assume that a refers to the global
-# variable a. This means any operation variable inside this function will
-# affect the global variable a, not a local one.
+# Official Solution: In this code, the global keyword tells the function to
+# assume that a refers to the global variable a. This means that any operation
+# on the variable a inside this function will affect the global variable a,
+# not a local one.
 
-# Once my_function is invoked this reassigns the global variable and value
-# of global a has changed to 2 and prints value 2.
+# Initially, the global a is assigned the value 1. When my_function is called,
+# it reassigns the global a to 2. So, after the function call, the value of
+# the global a has been changed to 2.
+
+# Thus, when we call print(a) after invoking my_function, it prints 2.

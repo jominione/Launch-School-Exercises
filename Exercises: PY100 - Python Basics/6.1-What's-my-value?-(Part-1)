@@ -1,13 +1,27 @@
 # What will the following code do and why? Don't run it until you have tried
 # to answer.
 
+# Example:
+
 if True:
     my_value = 20
 
 print(my_value)
 
-# Solution: 20.
+# Solution: Print 20. my_value is initialised as if condition is always met.
+# When print is invoked it outputs value of my_value.
 
-# In Python, variables initialised inside a block are accessible outside
-# of that block. Thus, the variable my_value initialised inside the if blcock
-# on line 5 can be accssed and printed on line 7.
+# Official Solution: In Python, variables initialised inside a block (like 
+# inside an if statement) are accessible outside of that block. Thus, the 
+# variable my_value initialised inside the if block on line 2 can be accessed
+# and printed on line 4. The output of the print(my_value) statement is 20.
+
+# What do you think will happen if we run the following code instead:
+
+if False:
+    my_new_value = 42
+
+print(my_new_value)
+
+# In this case, Python will raise a NameError. While my_new_value is in scope,
+# it hasn't been set to a value, so remains undefined.

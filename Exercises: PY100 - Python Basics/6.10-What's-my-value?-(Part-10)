@@ -1,6 +1,8 @@
 # What will the following code do and why? Don't run it until you have tried
 # to answer.
 
+# Example:
+
 b = [1, 2, 3]
 
 def my_function():
@@ -9,15 +11,18 @@ def my_function():
 my_function()
 print(b)
 
-# Solution: [10, 2, 3].
+# Solution: print [10, 2, 3]. Since b is not defined in scope of my_function
+# python looks for b in its lexical scope which is global. When my_function 
+# is invoked it reassigns the element of b[0] which is mutation of object 
+# b. 
 
-# This example shows how lists, being mutable objects, can be modified within
-# a function, affecting the original list in the global scope.
+# Official Solution: This example shows how lists, being mutable objects, can
+# be modified within a function, affecting the original list in the global
+# scope.
 
-# The list b is initialised on line 1 outside the function my_function.
-# Inside the function, on line 4, the first element of b is changed to 10.
-# Since b is not a local variable within my_function() but we are directly
-# referencing b from the global scope, the change b[0] = 10 impacts the
-# global variable b. Consequently, after the execution of my_function(),
-# the global list b reflects this modification, and printing b will display
-# [10, 2, 3].
+# The list b is initialised on line 1 outside the function my_function. Inside
+# the function, on line 4, the first element of b is changed to 10. Since b
+# is not a local variable within my_function() but we are directly referencing
+# b from the global scope, the change b[0] = 10 impacts the global variable b.
+# Consequently, after the execution of my_function(), the global list b 
+# reflects this modification, and printing b will display [10, 2, 3].
