@@ -1,0 +1,9 @@
+# Using the code from the previous exercise, create an instance of Cat and
+# assign it to a variable named kitty.
+
+# Solution:
+
+class Cat:
+    pass
+
+kitty = Cat()

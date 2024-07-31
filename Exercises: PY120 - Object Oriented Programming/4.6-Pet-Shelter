@@ -1,0 +1,92 @@
+# Consider the following code. Write the classes and methods that will be
+# necessary to make this code run, and log the following output.
+
+# The order of the output does not matter, so long as all of the information
+# is presented.
+
+# Solution:
+
+class Pet:
+
+    def __init__(self, species, pet_name):
+        self._species = species
+        self._pet_name = pet_name
+
+    @property
+    def species(self):
+        return self._species
+
+    @property
+    def pet_name(self):
+        return self._pet_name
+
+class Owner:
+
+    def __init__(self, name):
+        self._name = name
+
+    @property
+    def name(self):
+        return self._name
+
+    def number_of_pets(self):
+
+
+class Shelter(Pet, Owner):
+
+    adoption = {}
+
+    def __init__(self):
+
+    def adopt(self, owner, pet):
+        adoption[owner.name] = pet.species, pet.pet_name)]
+
+    def print_adoptions(self):
+        for name in adoption.keys():
+            print(f"{name} has adopted the following pets:")
+            for pet in 
+
+    def number_of_pets(self):
+
+
+# Examples:
+
+cocoa   = Pet('cat', 'Cocoa')
+cheddar = Pet('cat', 'Cheddar')
+darwin  = Pet('bearded dragon', 'Darwin')
+kennedy = Pet('dog', 'Kennedy')
+sweetie = Pet('parakeet', 'Sweetie Pie')
+molly   = Pet('dog', 'Molly')
+chester = Pet('fish', 'Chester')
+
+phanson = Owner('P Hanson')
+bholmes = Owner('B Holmes')
+
+shelter = Shelter()
+shelter.adopt(phanson, cocoa)
+shelter.adopt(phanson, cheddar)
+shelter.adopt(phanson, darwin)
+shelter.adopt(bholmes, kennedy)
+shelter.adopt(bholmes, sweetie)
+shelter.adopt(bholmes, molly)
+shelter.adopt(bholmes, chester)
+
+shelter.print_adoptions()
+# P Hanson has adopted the following pets:
+# a cat named Cocoa
+# a cat named Cheddar
+# a bearded dragon named Darwin
+
+# B Holmes has adopted the following pets:
+# a dog named Molly
+# a parakeet named Sweetie Pie
+# a dog named Kennedy
+# a fish named Chester
+
+print(f"{phanson.name} has {phanson.number_of_pets()} "
+      "adopted pets.")
+# P Hanson has 3 adopted pets.
+
+print(f"{bholmes.name} has {bholmes.number_of_pets()} "
+      "adopted pets.")
+# B Holmes has 4 adopted pets.

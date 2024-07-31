@@ -1,0 +1,18 @@
+# Create a class named Cat that prints a greeting when the greet instance
+# method is invoked. The greeting should include the name and colour of the
+# cat. use a class constant to define the colour.
+
+# Solution:
+
+class Cat:
+
+    COLOUR = 'purple'
+
+    def __init__(self, name):
+        self._name = name
+
+    def greet(self):
+        print(f"Hello! My name is {self._name} and I'm a {Cat.COLOUR} cat!")
+
+kitty = Cat('Sophie')
+kitty.greet()

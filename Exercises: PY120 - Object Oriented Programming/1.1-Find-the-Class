@@ -1,0 +1,12 @@
+# Update the following code so that, instead of printing the values, each
+# statement prints the name of the class to which it belongs.
+
+# print("Hello")
+# print(5)
+# print([1, 2, 3])
+
+# Solution:
+
+print(type("Hello"))
+print(type(5))
+print(type([1, 2, 3]))

@@ -1,0 +1,29 @@
+# Create a class named Cat that tracks the number of times a new Cat object
+# is instantiated. The total numer of Cat instances should be printed when 
+# total is invoked.
+
+# Solution:
+
+class Cat:
+
+    counter = 0
+
+    def __init__(self):
+        Cat.counter += 1
+    
+    @classmethod
+    def total(cls):
+        print(Cat.counter)
+
+# Examples:
+
+Cat.total()
+
+kitty1 = Cat()
+Cat.total()
+
+kitty2 = Cat()
+Cat.total()
+
+print(Cat())
+Cat.total()

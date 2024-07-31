@@ -1,0 +1,23 @@
+# Using the following code, add a method named identify that returns the
+# calling object.
+
+# Solution:
+
+class Cat:
+
+    def __init__(self, name):
+        self.name = name
+
+    @property
+    def name(self):
+        return self._name
+
+    @name.setter
+    def name(self, new_name):
+        self._name = new_name
+
+    def identify(self):
+        return self
+
+kitty = Cat('Sophie')
+print(kitty.identify())
