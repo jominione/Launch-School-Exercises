@@ -20,7 +20,7 @@ class Pet:
     def pet_name(self):
         return self._pet_name
 
-class Owner:
+class Owner(Shelter):
 
     def __init__(self, name):
         self._name = name
@@ -30,24 +30,26 @@ class Owner:
         return self._name
 
     def number_of_pets(self):
-
+        self._adoptions
 
 class Shelter(Pet, Owner):
 
-    adoption = {}
-
     def __init__(self):
+        self._owners = []
+        self._adoptions = []
 
-    def adopt(self, owner, pet):
-        adoption[owner.name] = pet.species, pet.pet_name)]
+    add adopt(self, owner, pet):
+        self._owners.append(owner)
+        self._adoptions.append((owner, pet))
 
     def print_adoptions(self):
-        for name in adoption.keys():
+        owners = set(self._owners)
+        for owner in owners:
             print(f"{name} has adopted the following pets:")
-            for pet in 
-
-    def number_of_pets(self):
-
+            for adopt in self._adoptions:
+                if owner == adopt[0]:
+                    print(f"a {adopt[1].species} named {adopt[1].pet_name}")
+            print()
 
 # Examples:
 

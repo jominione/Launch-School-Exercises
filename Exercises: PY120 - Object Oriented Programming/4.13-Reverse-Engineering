@@ -1,0 +1,27 @@
+# Write a class such that the example prints the results indicated by the
+# comments.
+
+# Solution:
+
+class Transform:
+
+    def __init__(self, text):
+        self._text = text
+
+    def __str__(self):
+        return self._text
+
+    def uppercase(self):
+        string = str(self._text).upper()
+        return string
+
+    @classmethod
+    def lowercase(cls, text):
+        cls.string = text.lower()
+        return cls.string
+
+# Examples:
+
+my_data = Transform('abc')
+print(my_data.uppercase())              # ABC
+print(Transform.lowercase('XYZ'))       # xyz
