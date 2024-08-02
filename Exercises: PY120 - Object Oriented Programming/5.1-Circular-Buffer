@@ -50,29 +50,22 @@ class CircularBuffer:
 
     def __init__(self, length):
         self._length = length
-        buffer = []
-        self._create_buffer()
+        self._buffer = [None] * length
         self._next_put = 0
         self._next_get = 0
 
-    def _create_buffer(self):
-        for _ in range(self._length):
-            buffer.append(None)
-    
-    def put(self):
-
-
-    def get(self, value):
-        if buffer[self._next_get]:
-            buffer[self._next_get] = None
-            if self._next_get == self._length - 1:
-                self._next_get = 0
-            else:
-                self._next_get += 1
-            return 
-        else:
-            pass
-
+    def put(self, value):
+        if self._buffer[self._next_put]: 
+            self.get()
+        self._buffer[self._next_put] = value
+        self._next_put = (self._next_put + 1) % self._length
+            
+    def get(self):
+        value = self._buffer[self._next_get]
+        if value:
+            self._buffer[self._next_get] = None
+            self._next_get = (self._next_get + 1) % self._length 
+        return value
 
 
 # Examples:

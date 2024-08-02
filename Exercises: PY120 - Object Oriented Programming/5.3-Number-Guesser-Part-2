@@ -1,0 +1,166 @@
+# In the previoius exercise, you wrote a number guessing game that determines
+# a secret number between 1 and 100, and gives the user 7 opportunities to
+# guess the number.
+
+# Update your solution to accept a low and high value when you create a 
+# GuessingGame object, and use those values to compute a secret number for
+# the game. You should also change the number of guesses allowed so the user
+# can always win if she uses a good strategy. You can compute the number of
+# guess with:
+
+# import math
+
+# number_of_guesses = int(math.log2(high - low + 1)) + 1
+# "high" is the highest number in the range
+# "low" is the lowest number in the range
+
+# Note that a game object should start a new game with a new number to guess
+# with each call to play.
+
+# Solution:
+
+import math, random
+
+class GuessingGame:
+    
+    def __init__(self, low, high):
+        self._low = low
+        self._high = high
+        self._guesses = 0
+        self._limit = self._number_of_guesses()
+
+    def _number_of_guesses(self):
+        result = int(math.log2(self._high - self._low + 1)) + 1
+        return result
+
+    def _get_guess(self):
+        while True:
+            try:
+                guess = int(input(f"Enter a number between {self._low} and" + \
+                                  f" {self._high}: "))
+                if guess in range(self._low, self._high):
+                    self._guess = guess
+                    return
+                else:
+                    print(f"Invalid guess. Enter a number between " + \
+                          f"{self._low} and {self._high}: ")
+            
+            except ValueError:
+                print(f"Invalid guess. Enter a number between {self._low} " + \
+                      f"and {self._high}: ")
+
+    def play(self):
+        
+        value = random.randint(self._low, self._high)
+        remaining = self._limit - self._guesses
+        print(f"You have {remaining} guesses remaining.")
+
+        while self._guesses < self._limit:
+            self._get_guess()
+
+            if self._guess < value:
+                self._guesses += 1
+                print("Your guess is too low.")
+                remaining = self._limit - self._guesses
+                print(f"You have {remaining} guesses remaining.")
+
+            elif self._guess > value:
+                self._guesses += 1
+                print("Your guess is too high.")
+                remaining = self._limit - self._guesses
+                print(f"You have {remaining} guesses remaining.")
+
+            else:
+                print("That's the number!")
+                print()
+                print("You won!")
+                self._guesses = 0
+                return
+        
+        print("You have no more guesses. You lost!")
+        self._guesses = 0
+
+
+# Examples:
+
+game = GuessingGame(501, 1500)
+game.play()
+
+# You have 10 guesses remaining.
+# Enter a number between 501 and 1500: 104
+# Invalid guess. Enter a number between 501 and 1500: 1000
+# Your guess is too low.
+
+# You have 9 guesses remaining.
+# Enter a number between 501 and 1500: 1250
+# Your guess is too low.
+
+# You have 8 guesses remaining.
+# Enter a number between 501 and 1500: 1375
+# Your guess is too high.
+
+# You have 7 guesses remaining.
+# Enter a number between 501 and 1500: 80
+# Invalid guess. Enter a number between 501 and 1500: 1312
+# Your guess is too low.
+
+# You have 6 guesses remaining.
+# Enter a number between 501 and 1500: 1343
+# Your guess is too low.
+
+# You have 5 guesses remaining.
+# Enter a number between 501 and 1500: 1359
+# Your guess is too high.
+
+# You have 4 guesses remaining.
+# Enter a number between 501 and 1500: 1351
+# Your guess is too low.
+
+# You have 3 guesses remaining.
+# Enter a number between 501 and 1500: 1355
+# That's the number!
+
+# You won!
+
+game.play()
+# You have 10 guesses remaining.
+# Enter a number between 501 and 1500: 1000
+# Your guess is too high.
+
+# You have 9 guesses remaining.
+# Enter a number between 501 and 1500: 750
+# Your guess is too low.
+
+# You have 8 guesses remaining.
+# Enter a number between 501 and 1500: 875
+# Your guess is too high.
+
+# You have 7 guesses remaining.
+# Enter a number between 501 and 1500: 812
+# Your guess is too low.
+
+# You have 6 guesses remaining.
+# Enter a number between 501 and 1500: 843
+# Your guess is too high.
+
+# You have 5 guesses remaining.
+# Enter a number between 501 and 1500: 820
+# Your guess is too low.
+
+# You have 4 guesses remaining.
+# Enter a number between 501 and 1500: 830
+# Your guess is too low.
+
+# You have 3 guesses remaining.
+# Enter a number between 501 and 1500: 835
+# Your guess is too low.
+
+# You have 2 guesses remaining.
+# Enter a number between 501 and 1500: 836
+# Your guess is too low.
+
+# You have 1 guess remaining.
+# Enter a number between 501 and 1500: 837
+# Your guess is too low.
+
+# You have no more guesses. You lost!

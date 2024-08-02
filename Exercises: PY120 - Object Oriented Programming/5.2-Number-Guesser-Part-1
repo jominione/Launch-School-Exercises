@@ -1,0 +1,123 @@
+# Create an object-oriented number guessing class for numbers in the range
+# 1 to 100, with a limit of 7 guesses per game. The game should play like
+# in the example.
+
+# Note that a game object should start a new game with a new number to guess
+# with each call to play.
+
+# Solution:
+
+import random
+
+class GuessingGame:
+    
+    LIMIT = 7
+
+    def __init__(self):
+
+        self._guesses = 0
+
+    def _get_guess(self):
+        while True:
+            try:
+                guess = int(input("Enter a number between 1 and 100: "))
+                if guess in range(1, 100):
+                    self._guess = guess
+                    return
+                else:
+                    print("Invalid guess. Enter a number between 1 and 100: ")
+            
+            except ValueError:
+                print("Invalid guess. Enter a number between 1 and 100: ")
+
+    def play(self):
+        
+        value = random.randint(1, 100)
+        remaining = GuessingGame.LIMIT - self._guesses
+        print(f"You have {remaining} guesses remaining.")
+        
+        while self._guesses < GuessingGame.LIMIT:
+            self._get_guess()
+
+            if self._guess < value:
+                self._guesses += 1
+                print("Your guess is too low.")
+                remaining = GuessingGame.LIMIT - self._guesses
+                print(f"You have {remaining} guesses remaining.")
+
+            elif self._guess > value:
+                self._guesses += 1
+                print("Your guess is too high.")
+                remaining = GuessingGame.LIMIT - self._guesses
+                print(f"You have {remaining} guesses remaining.")
+
+            else:
+                print("That's the number!")
+                print()
+                print("You won!")
+                self._guesses = 0
+                return
+        
+        print("You have no more guesses. You lost!")
+        self._guesses = 0
+
+# Example:
+
+game = GuessingGame()
+game.play()
+
+# You have 7 guesses remaining.
+# Enter a number between 1 and 100: 104
+# Invalid guess. Enter a number between 1 and 100: 50
+# Your guess is too low.
+
+# You have 6 guesses remaining.
+# Enter a number between 1 and 100: 75
+# Your guess is too low.
+
+# You have 5 guesses remaining.
+# Enter a number between 1 and 100: 85
+# Your guess is too high.
+
+# You have 4 guesses remaining.
+# Enter a number between 1 and 100: 0
+# Invalid guess. Enter a number between 1 and 100: 80
+# Your guess is too low.
+
+# You have 3 guesses remaining.
+# Enter a number between 1 and 100: 81
+# That's the number!
+
+# You won!
+
+# game.play()
+
+# You have 7 guesses remaining.
+# Enter a number between 1 and 100: 50
+# Your guess is too high.
+
+# You have 6 guesses remaining.
+# Enter a number between 1 and 100: 25
+# Your guess is too low.
+
+# You have 5 guesses remaining.
+# Enter a number between 1 and 100: 37
+# Your guess is too high.
+
+# You have 4 guesses remaining.
+# Enter a number between 1 and 100: 31
+# Your guess is too low.
+
+# You have 3 guesses remaining.
+# Enter a number between 1 and 100: 34
+# Your guess is too high.
+
+# You have 2 guesses remaining.
+# Enter a number between 1 and 100: 32
+# Your guess is too low.
+
+# You have 1 guess remaining.
+# Enter a number between 1 and 100: 32
+# Your guess is too low.
+
+# You have no more guesses. You lost!
