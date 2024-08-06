@@ -1,0 +1,10 @@
+# Use a generator expression to yield each character of a string in reverse
+# order.
+
+# Example:
+
+string = "hello"
+
+reverse_string = list(char for char in string[::-1])
+
+print(reverse_string)

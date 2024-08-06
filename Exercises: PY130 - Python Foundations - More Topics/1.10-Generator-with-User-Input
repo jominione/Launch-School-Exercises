@@ -1,0 +1,14 @@
+# Create a generator function that yields user input strings until the word
+# "stop" is entered.
+
+def user_input_generator():
+    while True:
+        user_input = input("Enter a string (or 'stop' to end): ")
+        if user_input.lower() == "stop":
+            break
+        yield user_input
+
+# Example:
+
+for input_string in user_input_generator():
+    print(f"You entered: {input_string}")

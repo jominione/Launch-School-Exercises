@@ -1,0 +1,20 @@
+# Create a list where each number from the original list is squared using
+# the map method.
+
+data = [1, 2, 3, 4, 5]
+
+def square(n):
+    return n ** 2
+
+squared_list = list(map(square, data))
+
+# Example:
+
+print(squared_list)
+
+# squared_list = [1, 4, 9, 16, 25]
+
+
+squared_list2 = list(map(lambda x: x ** 2, data))
+
+print(squared_list2)

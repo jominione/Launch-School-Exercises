@@ -1,0 +1,10 @@
+# Create a generator function that yields numbers from 1 to 5.
+
+# Solution:
+
+def generate_numbers():
+    for x in range(1, 6):
+        yield x
+
+for num in generate_numbers():
+    print(num)

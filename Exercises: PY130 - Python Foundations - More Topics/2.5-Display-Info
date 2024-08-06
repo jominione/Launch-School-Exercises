@@ -1,0 +1,29 @@
+# Write a function display_info that a positional-only parameter data, and
+# keyword-only parameters reverse and uppercase.
+
+# Solution:
+
+def display_info(data, *, reverse=False, uppercase=False):
+    if uppercase and reverse:
+        uppercase_data = data.upper()
+        characters = list(uppercase_data)
+        characters.reverse()
+        result = ''.join(characters)
+        return result
+    elif uppercase:
+        result = data.upper()
+        return result
+    elif reverse:
+        characters = list(data)
+        characters.reverse()
+        result = ''.join(characters)
+        return result
+    else:
+        return data
+
+# Example:
+
+print(display_info("Launch", reverse=True)) # hcnuaL
+print(display_info("School", uppercase=True)) # SCHOOL
+print(display_info("cat", uppercase=True, reverse=True)) # TAC
+print(display_info("cat"))

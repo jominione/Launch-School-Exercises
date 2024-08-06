@@ -1,0 +1,14 @@
+# Use reduce to concatenate a list of strings into a single string.
+
+# Solution:
+
+from functools import reduce
+
+data = ["Launch", "School", "is", "great"]
+data2 = ["I", "am", "working", "on", "the", "PY130", "course"]
+
+text1 = str(reduce(lambda x, y: x + y, data))
+text2 = str(reduce(lambda x, y: x + y, data2))
+
+print(text1)
+print(text2)

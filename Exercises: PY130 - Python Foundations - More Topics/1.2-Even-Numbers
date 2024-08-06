@@ -1,0 +1,18 @@
+# Obtain only the even numbers from a list using the filter function.
+
+# Solution:
+
+data = [1, 2, 3, 4, 5]
+
+def even(x):
+    if x % 2 == 0:
+        return x
+    else:
+        pass
+
+even_numbers = list(filter(even, data))
+print(even_numbers)
+
+even_numbers2 = list(filter(lambda x: x % 2 == 0, data))
+
+print(even_numbers2)

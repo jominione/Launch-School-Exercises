@@ -1,0 +1,15 @@
+# Use nested generated expressions to create a flat list of numbers from a
+# list of lists.
+
+# Solution:
+
+# Outer list (list of lists with some None values)
+matrix = [
+    [1, 2, 3],    # Inner list 1
+    [4, None, 6], # Inner list 2
+    [7, 8, None]  # Inner list 3
+]
+
+flattened = list((x for inner in matrix for x in inner if x is not None))
+
+print(flattened)

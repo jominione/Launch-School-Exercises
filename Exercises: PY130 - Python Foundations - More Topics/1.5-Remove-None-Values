@@ -1,0 +1,8 @@
+# Remove all None values from a list using the filter method.
+
+# Solution:
+
+data = [1, None, 2, None, 3, None, 4]
+
+removed = list(filter(lambda x: x != None, data))
+print(removed)
