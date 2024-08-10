@@ -46,101 +46,152 @@ class RomanNumeral:
         return self._number
     
     def to_roman(self):
-        thousand = self.number // 1000
-        hundred = self.number // 100
-
+        thousands = (self.number // 1000) * 1000
+        hundreds = ((self.number - thousands) // 100) * 100
+        tens = ((self.number - thousands - hundreds) // 10) * 10
+        ones = self.number - thousands - hundreds - tens
+        roman_numeral = ''
+        match thousands:
+            case 1000:
+                roman_numeral += 'M'
+            case 2000:
+                roman_numeral += 'MM'
+            case 3000:
+                roman_numeral += 'MMM'
+        match hundreds:
+            case 100:
+                roman_numeral += 'C'
+            case 200:
+                roman_numeral += 'CC'
+            case 300:
+                roman_numeral += 'CCC'
+            case 400:
+                roman_numeral += 'CD'
+            case 500:
+                roman_numeral += 'D'
+            case 600:
+                roman_numeral += 'DC'
+            case 700:
+                roman_numeral += 'DCC'
+            case 800:
+                roman_numeral += 'DCCC'
+            case 900:
+                roman_numeral += 'CM'
+        match tens:
+            case 10:
+                roman_numeral += 'X'
+            case 20:
+                roman_numeral += 'XX'
+            case 30:
+                roman_numeral += 'XXX'
+            case 40:
+                roman_numeral += 'XL'
+            case 50:
+                roman_numeral += 'L'
+            case 60:
+                roman_numeral += 'LX'
+            case 70:
+                roman_numeral += 'LXX'
+            case 80:
+                roman_numeral += 'LXXX'
+            case 90:
+                roman_numeral += 'XC'
+        match ones:
+            case 1:
+                roman_numeral += 'I'
+            case 2:
+                roman_numeral += 'II'
+            case 3:
+                roman_numeral += 'III'
+            case 4:
+                roman_numeral += 'IV'
+            case 5:
+                roman_numeral += 'V'
+            case 6:
+                roman_numeral += 'VI'
+            case 7:
+                roman_numeral += 'VII'
+            case 8:
+                roman_numeral += 'VIII'
+            case 9:
+                roman_numeral += 'IX'
+        
+        return roman_numeral
 
 # Examples:
 
 import unittest
 
 class RomanNumeralsTest(unittest.TestCase):
-    @unittest.skip
+
     def test_1(self):
         number = RomanNumeral(1)
         self.assertEqual(number.to_roman(), "I")
 
-    @unittest.skip
     def test_2(self):
         number = RomanNumeral(2)
         self.assertEqual(number.to_roman(), "II")
 
-    @unittest.skip
     def test_3(self):
         number = RomanNumeral(3)
         self.assertEqual(number.to_roman(), "III")
 
-    @unittest.skip
     def test_4(self):
         number = RomanNumeral(4)
         self.assertEqual(number.to_roman(), "IV")
 
-    @unittest.skip
     def test_5(self):
         number = RomanNumeral(5)
         self.assertEqual(number.to_roman(), "V")
 
-    @unittest.skip
     def test_6(self):
         number = RomanNumeral(6)
         self.assertEqual(number.to_roman(), "VI")
 
-    @unittest.skip
     def test_9(self):
         number = RomanNumeral(9)
         self.assertEqual(number.to_roman(), "IX")
 
-    @unittest.skip
     def test_27(self):
         number = RomanNumeral(27)
         self.assertEqual(number.to_roman(), "XXVII")
 
-    @unittest.skip
     def test_48(self):
         number = RomanNumeral(48)
         self.assertEqual(number.to_roman(), "XLVIII")
 
-    @unittest.skip
     def test_59(self):
         number = RomanNumeral(59)
         self.assertEqual(number.to_roman(), "LIX")
 
-    @unittest.skip
     def test_93(self):
         number = RomanNumeral(93)
         self.assertEqual(number.to_roman(), "XCIII")
 
-    @unittest.skip
     def test_141(self):
         number = RomanNumeral(141)
         self.assertEqual(number.to_roman(), "CXLI")
 
-    @unittest.skip
     def test_163(self):
         number = RomanNumeral(163)
         self.assertEqual(number.to_roman(), "CLXIII")
 
-    @unittest.skip
     def test_402(self):
         number = RomanNumeral(402)
         self.assertEqual(number.to_roman(), "CDII")
 
-    @unittest.skip
     def test_575(self):
         number = RomanNumeral(575)
         self.assertEqual(number.to_roman(), "DLXXV")
 
-    @unittest.skip
     def test_911(self):
         number = RomanNumeral(911)
         self.assertEqual(number.to_roman(), "CMXI")
 
-    @unittest.skip
     def test_1024(self):
         number = RomanNumeral(1024)
         self.assertEqual(number.to_roman(), "MXXIV")
 
-    @unittest.skip
     def test_3000(self):
         number = RomanNumeral(3000)
         self.assertEqual(number.to_roman(), "MMM")
