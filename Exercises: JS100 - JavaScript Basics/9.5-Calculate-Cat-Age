@@ -1,0 +1,29 @@
+// Implement a function catAge that takes a number of human years as input 
+// and converts them into cat years. Cat years are calculated as follows:
+
+// * The first human year corresponds to 15 cat years.
+// * The second human year corresponds to 9 cat years.
+// * Every subsequent human year corresponds to 4 cat years.
+
+// For example:
+
+console.log(catAge(0)); // 0
+console.log(catAge(1)); // 15
+console.log(catAge(2)); // 24
+console.log(catAge(3)); // 28
+console.log(catAge(4)); // 32
+
+// Solution:
+
+function catAge(years) {
+  let catYears = 0
+  if (years === 0) {
+    return catYears;
+  } else if (years === 1) {
+    return catYears = 15;
+  } else if (years === 2) {
+    return catYears = 24;
+  } else {
+    return catYears = (24 + (years-2)*4);
+  }
+}

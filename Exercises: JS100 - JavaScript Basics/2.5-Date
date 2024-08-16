@@ -1,0 +1,6 @@
+// Find out what Date.now() returns.
+
+// Solution:
+
+console.log(Date.now());  // => 1723744609628
+// => Returns the number of milliseconds since midnight Jan 1, 1970

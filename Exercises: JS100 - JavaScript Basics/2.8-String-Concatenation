@@ -1,0 +1,5 @@
+// Find out how we can join two or more strings together.
+
+// Solution: Both the String.prototype.concat() method and the + operator 
+// concatenate two or more strings, returning a new string.
+

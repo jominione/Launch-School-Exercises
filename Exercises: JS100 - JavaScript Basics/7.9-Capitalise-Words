@@ -1,0 +1,16 @@
+// Write code that capitalizes the words in the string 'launch school tech 
+// & talk', so that you get the string 'Launch School Tech & Talk'.
+
+// Solution:
+
+let string = 'launch school tech & talk';
+let splitString = string.split(' ')
+let capitalise = []
+
+for (i=0; i < splitString.length; i++) {
+  capitalise[i] = splitString[i][0].toUpperCase() + splitString[i].slice(1);
+}
+
+let result = capitalise.join(' ')
+
+console.log(result)

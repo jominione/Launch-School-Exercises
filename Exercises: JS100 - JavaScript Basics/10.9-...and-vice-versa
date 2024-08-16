@@ -1,0 +1,20 @@
+// Write code that does the reverse, starting from a nested array of pairs 
+// and building an object.
+
+let nestedArray = [['title', 'Duke'], ['name', 'Nukem'], ['age', 33]];
+
+// Expected output:
+// { title: 'Duke', name: 'Nukem', age: 33 }
+
+// Solution:
+
+let person = {}
+for (i=0; i < nestedArray.length; i++) {
+  person[nestedArray[i][0]] = nestedArray[i][1];
+}
+
+// Alternative Solution:
+
+let person = Object.fromEntries(nestedArray);
+
+console.log(person);

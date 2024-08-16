@@ -1,0 +1,22 @@
+// What will the following code log to the console and why? Don't run it until 
+// you have tried to answer.
+
+// Example:
+
+if (true) {
+  let myValue = 20;
+}
+
+console.log(myValue);
+
+// Solution:
+
+// Will raise a ReferencError because myValue when initialised in the block
+// it has block scope and not visible outside of the block. So when console.log
+// calls myValue it looks for its value in global space but it has not been
+// initialised yet.
+
+// Variables declared with let are block scoped. This means that when we 
+// declare the variable myValue within a block on line 2, that variable is 
+// not accessible outside of the block on line 5, and a ReferenceError is 
+// raised.

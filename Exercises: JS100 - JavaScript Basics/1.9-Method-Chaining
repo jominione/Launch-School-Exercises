@@ -1,0 +1,11 @@
+// Given the following tweet:
+
+let tweet = 'Starting to get the hang of it... #javascript #launchschool';
+
+// What will the following statements evaluate to?
+
+// Solution:
+
+console.log(tweet.split(' '));                      //  => Array
+console.log(tweet.split(' ').reverse());            //  => Reverse Array
+console.log(tweet.split(' ').reverse().join(' '));  //  => tweet in reverse

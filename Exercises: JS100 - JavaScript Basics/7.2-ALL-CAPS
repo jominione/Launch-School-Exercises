@@ -1,0 +1,8 @@
+// Take the string 'confetti floating everywhere' and transform it to upper 
+// case.
+
+// Solution:
+
+let string = 'confetti floating everywhere';
+
+console.log(string.toUpperCase());

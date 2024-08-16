@@ -1,0 +1,12 @@
+// Write a while loop that logs all odd natural numbers between 1 and 40.
+
+// Solution:
+
+let number = 1
+
+while (number < 41) {
+  if (number % 2 == 1) {
+    console.log(number);
+  }
+  number++;
+}

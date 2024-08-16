@@ -1,0 +1,4 @@
+// Is there a method to capitalise a string, for example turning 'mountain'
+// into 'Mountain'?
+
+// Solution: No, there is no in-built function to capitalise a string.

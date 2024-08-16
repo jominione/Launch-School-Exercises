@@ -1,0 +1,4 @@
+// Without looking at your notes or MDN, try to recall all values that count 
+// as falsy in JavaScript.
+
+// Solution: 0, -0, "0", 0n, undefined, null, false, NaN, ' ' or " ".

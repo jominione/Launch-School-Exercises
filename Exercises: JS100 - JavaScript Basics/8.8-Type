@@ -1,0 +1,13 @@
+// How can you check whether a variable holds a value that is an array? For 
+// example, imagine you start writing a function and want to check whether 
+// its argument is an array:
+
+// Solution:
+
+function filter(input) {
+  Array.isArray(input);
+}
+
+// Note that the typeof operator returns 'object' for arrays, because arrays 
+// are objects. Therefore it does not distinguish between arrays and other 
+// objects.

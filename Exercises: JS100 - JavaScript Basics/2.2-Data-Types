@@ -1,0 +1,9 @@
+// Without looking into your notes, try to remember which primitive data types
+// are defined in JavaScript. Then find this information on MDN.
+
+// Solution:
+
+// Primitive data types: String, Number, Boolean, Undefined, Null, Symbol, 
+// BigInt.
+
+// See: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures.

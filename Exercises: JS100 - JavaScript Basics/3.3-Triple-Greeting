@@ -1,0 +1,9 @@
+// Write a loop that logs greeting three times.
+
+let greeting = 'Aloha!';
+
+// Solution:
+
+for (let i = 1; i <= 3; i += 1) {
+  console.log(greeting);
+}
