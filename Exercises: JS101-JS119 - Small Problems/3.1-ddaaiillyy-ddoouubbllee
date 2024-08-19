@@ -1,0 +1,25 @@
+// Write a function that takes a string argument and returns a new string 
+// that contains the value of the original string with all consecutive 
+// duplicate characters collapsed into a single character.
+
+// Examples:
+
+console.log(crunch('ddaaiillyy ddoouubbllee'));    // "daily double"
+console.log(crunch('4444abcabccba'));              // "4abcabcba"
+console.log(crunch('ggggggggggggggg'));            // "g"
+console.log(crunch('a'));                          // "a"
+console.log(crunch(''));                           // ""
+
+// Solution:
+
+function crunch(text) {
+  if (text.length === 0) return '';
+  let characters = text.split('');
+  let result = characters[0];
+  for (i = 0; i < characters.length - 1; i++) {
+    if (characters[i] !== characters[i+1]) {
+      result += characters[i+1];
+    }
+  }
+  return result;
+}

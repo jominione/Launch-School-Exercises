@@ -1,0 +1,11 @@
+// Build a program that logs when the user will retire and how many more years 
+// the user has to work until retirement.
+
+// Example:
+
+let readLineSync = require('readline-sync');
+let age = parseInt(readLineSync.question('What is your age? '));
+let retireAge = parseInt(readLineSync.question('At what age would you ' +
+                                               'like to retire? '));
+console.log(`It's 2017. You will retire in ${2017 + retireAge - age}.`);
+console.log(`You only have ${retireAge - age} years of work to go!`);

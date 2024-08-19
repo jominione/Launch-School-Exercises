@@ -1,0 +1,23 @@
+// Write a function that takes a non-empty string argument and returns the 
+// middle character(s) of the string. If the string has an odd length, you 
+// should return exactly one character. If the string has an even length, 
+// you should return exactly two characters.
+
+// Examples:
+
+console.log(centerOf('I Love JavaScript')); // "a"
+console.log(centerOf('Launch School'));     // " "
+console.log(centerOf('Launch'));            // "un"
+console.log(centerOf('Launchschool'));      // "hs"
+console.log(centerOf('x'));                 // "x"
+
+// Solution:
+
+function centerOf(text) {
+  mid = Math.floor(text.length/2)
+  if ((text.length % 2) !== 0) {
+    return text[mid];
+  } else {
+    return text.substring(mid-1, mid+1);
+  }
+}
