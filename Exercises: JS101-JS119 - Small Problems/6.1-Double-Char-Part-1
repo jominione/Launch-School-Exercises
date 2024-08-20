@@ -1,0 +1,18 @@
+// Write a function that takes a string, doubles every character in the string, 
+// and returns the result as a new string.
+
+// Examples:
+
+console.log(repeater('Hello'));        // "HHeelllloo"
+console.log(repeater('Good job!'));    // "GGoooodd  jjoobb!!"
+console.log(repeater(''));             // ""
+
+// Solution:
+
+function repeater(text) {
+  let repeater = ''
+  for (let i = 0; i < text.length; i++) {
+    repeater += text[i].repeat(2);
+  }
+  return repeater;
+}

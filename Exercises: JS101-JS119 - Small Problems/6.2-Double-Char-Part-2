@@ -1,0 +1,26 @@
+// Write a function that takes a string, doubles every consonant character 
+// in the string, and returns the result as a new string. The function should 
+// not double vowels ('a','e','i','o','u'), digits, punctuation, or whitespace.
+
+// Examples:
+
+console.log(doubleConsonants('String')==="SSttrrinngg");          // "SSttrrinngg"
+console.log(doubleConsonants('Hello-World!')==="HHellllo-WWorrlldd!");    // "HHellllo-WWorrlldd!"
+console.log(doubleConsonants('July 4th')==="JJullyy 4tthh");        // "JJullyy 4tthh"
+console.log(doubleConsonants('')==="");                // ""
+
+// Solution:
+
+function doubleConsonants(text) {
+  let re = /[aeiouAEIOU\d\p{P}\s]/u;
+  let result = ''
+  for (let i = 0; i < text.length; i++) {
+    let char = text[i]
+    if (re.test(char)) {
+      result += char;
+    } else {
+      result += text[i].repeat(2);
+    }
+  }
+  return result;
+}
