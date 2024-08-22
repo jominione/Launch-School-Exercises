@@ -1,0 +1,52 @@
+// Write a function that takes a string and returns an object containing the 
+// following three properties:
+
+// * the percentage of characters in the string that are lowercase letters
+// * the percentage of characters that are uppercase letters
+// * the percentage of characters that are neither
+
+// You may assume that the string will always contain at least one character.
+
+// Hint: This exercise is a string processing problem. You can either convert 
+// the string into an array and use list processing (iteration perhaps?) to 
+// gather and tally the characters, or use regex to get the characters that 
+// match a particular pattern. Once you have the characters, you can simply 
+// get the quantity for each category, divide the quantity by the length of 
+// the string, and format the result as needed.
+
+// Examples:
+
+console.log(letterPercentages('abCdef 123'));
+// { lowercase: "50.00", uppercase: "10.00", neither: "40.00" }
+
+console.log(letterPercentages('AbCd +Ef'));
+// { lowercase: "37.50", uppercase: "37.50", neither: "25.00" }
+
+console.log(letterPercentages('123'));
+// { lowercase: "0.00", uppercase: "0.00", neither: "100.00" }
+
+// Solution:
+
+function letterPercentages(text) {
+  let lowercaseCount = 0;
+  let uppercaseCount = 0;
+  let neitherCount = 0;
+  let numChar = text.length;
+
+
+  for (let char of text) {
+    if (/[a-z]/.test(char)) {
+      lowercaseCount++;
+    } else if (/[A-Z]/.test(char)) {
+      uppercaseCount++;
+    } else {
+      neitherCount++;
+    }
+  }
+
+  return {
+    lowercase: (lowercaseCount*100/numChar).toFixed(2),
+    uppercase: (uppercaseCount*100/numChar).toFixed(2),
+    neither: (neitherCount*100/numChar).toFixed(2),
+  };
+}

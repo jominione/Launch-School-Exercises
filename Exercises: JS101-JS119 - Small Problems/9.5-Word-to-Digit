@@ -1,0 +1,38 @@
+// Write a function that takes a sentence string as an argument and returns 
+// that string with every occurrence of a "number word" — 'zero', 'one', 'two', 
+// 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine' — converted to 
+// its corresponding digit character.
+
+// Example:
+
+console.log(wordToDigit('Please call me at five five five one two three ' + 
+                        'four. Thanks.'));
+// "Please call me at 5 5 5 1 2 3 4. Thanks."
+
+// Solution:
+
+function wordToDigit(sentence) {
+  // Define the mapping from number words to digits
+  const numberWords = {
+    zero: '0',
+    one: '1',
+    two: '2',
+    three: '3',
+    four: '4',
+    five: '5',
+    six: '6',
+    seven: '7',
+    eight: '8',
+    nine: '9'
+  };
+
+  // Iterate over the mapping and replace each number word with its digit
+
+  for (const [word, digit] of Object.entries(numberWords)) {
+    // Create a global regular expression to replace all occurrences
+    const re = new RegExp(`\\b${word}\\b`, 'gi');
+    sentence = sentence.replace(re, digit);
+  }
+
+  return sentence;
+}

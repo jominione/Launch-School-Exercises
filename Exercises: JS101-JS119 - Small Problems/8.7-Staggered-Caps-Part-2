@@ -1,0 +1,34 @@
+// Modify the function from the previous exercise so it ignores non-alphabetic 
+// characters when determining whether it should uppercase or lowercase each 
+// letter. The non-alphabetic characters should still be included in the return 
+// value; they just don't count when toggling the desired case.
+
+// Example:
+
+console.log(staggeredCase("I Love Launch School!") === "I lOvE lAuNcH sChOoL!");
+console.log(staggeredCase("ALL CAPS") === "AlL cApS");
+console.log(
+  staggeredCase("ignore 77 the 444 numbers") === "IgNoRe 77 ThE 444 nUmBeRs"
+);
+
+// Solution:
+
+function staggeredCase(text) {
+  let result = '';
+  let shouldUpperCase = true;
+
+  for (let char of text) {
+    if (/[a-zA-Z]/.test(char)) { // Check if the character is an alphabetic letter
+      if (shouldUpperCase) {
+        result += char.toUpperCase();
+      } else {
+        result += char.toLowerCase();
+      }
+      shouldUpperCase = !shouldUpperCase; // Toggle case for the next letter
+    } else {
+      result += char; // Add non-alphabetic characters as they are
+    }
+  }
+
+  return result;
+}
