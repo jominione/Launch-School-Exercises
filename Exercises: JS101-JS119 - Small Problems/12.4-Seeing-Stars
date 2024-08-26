@@ -1,0 +1,57 @@
+// Write a function that displays an 8-pointed star in an NxN grid, where 
+// N is an odd integer that is supplied as an argument to the function. The 
+// smallest such star you need to handle is a 7x7 grid (i.e., when N is 7).
+
+// Examples:
+
+star(7);
+// logs
+// *  *  *
+//  * * *
+//   ***
+// *******
+//   ***
+//  * * *
+// *  *  *
+
+star(9);
+// logs
+// *   *   *
+//  *  *  *
+//   * * *
+//    ***
+// *********
+//    ***
+//   * * *
+//  *  *  *
+// *   *   *
+
+// Solution:
+
+function star(odd) {
+
+let spaces = Math.floor(odd/2);
+let lines = Math.floor(odd/2);
+
+// log top;
+for (let i = 0; i < lines; i++) {
+  console.log(
+              `${' '.repeat(i)}${'*'.repeat(1)}${' '.repeat(spaces - 1 - i)}` +
+              `${'*'.repeat(1)}` +
+              `${' '.repeat(spaces - 1 - i)}${'*'.repeat(1)}${' '.repeat(i)}`
+             )
+}
+
+// log mid;
+console.log(`${'*'.repeat(odd)}`);
+
+// log bottom;
+for (let i = lines; i > 0; i--) {
+  console.log(
+              `${' '.repeat(i-1)}${'*'.repeat(1)}${' '.repeat(spaces - i)}` +
+              `${'*'.repeat(1)}` +
+              `${' '.repeat(spaces - i)}${'*'.repeat(1)}${' '.repeat(i-1)}`
+             )
+}
+
+}

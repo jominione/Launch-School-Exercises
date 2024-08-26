@@ -1,0 +1,38 @@
+// We wrote a neutralize function that removes negative words from sentences. 
+// However, it fails to remove all of them. What does happen? How would you 
+// fix this problem?
+
+// Solution:
+
+// The problem arises when you remove a word from the word array using slice.
+// Because two negative words were next to each other in the array, when the 
+// function removed the first negative word it changed the index of the array
+// so that it skipped the next element and moved on to the element after the
+// second negative word.
+
+// To rectify, instead of mutating words array by removing negative words 
+// create a new array of words that exclude the negative words by using push
+// method.
+
+function neutralize(sentence) {
+  let words = sentence.split(" ");
+  let result = [];
+  words.forEach(word => {
+ //    if (isNegative(word)) {
+ //      const index = words.indexOf(word);
+ //      words.splice(index, 1);
+    if (!isNegative(word)) {
+      result.push(word);
+    }
+  });
+//   return words.join(" ");
+  return result.join(" ");
+};
+
+function isNegative(word) {
+  return ["dull", "boring", "annoying", "chaotic"].includes(word);
+}
+
+console.log(
+  neutralize("These dull boring cards are part of a chaotic board game.")
+);

@@ -21,7 +21,7 @@
 // 9007199254740991. Any integer larger than that value loses accuracy. For 
 // instance, the following code outputs 1, not 2 as you may expect:
 
-console.log(Number.MAX_SAFE_INTEGER + 2 - Number.MAX_SAFE_INTEGER);
+// console.log(Number.MAX_SAFE_INTEGER + 2 - Number.MAX_SAFE_INTEGER);
 
 // We'll be working with much larger numbers in this problem. Fortunately, 
 // JavaScript now supports a BigInt type that lets you work with massive 
@@ -39,31 +39,30 @@ console.log(findFibonacciIndexByLength(2n))// === 7n);    // 1 1 2 3 5 8 13
 console.log(findFibonacciIndexByLength(3n))// === 12n);   // 1 1 2 3 5 8 13 21 34 55 89 144
 console.log(findFibonacciIndexByLength(10n))// === 45n);
 console.log(findFibonacciIndexByLength(16n))// === 74n);
-console.log(findFibonacciIndexByLength(100n))// === 476n);
-console.log(findFibonacciIndexByLength(1000n))// === 4782n);
-console.log(findFibonacciIndexByLength(10000n))// === 47847n);
+// console.log(findFibonacciIndexByLength(100n))// === 476n); // Takes too long to run.
+// console.log(findFibonacciIndexByLength(1000n))// === 4782n);
+// console.log(findFibonacciIndexByLength(10000n))// === 47847n);
 
 // The last example may take a minute or so to run.
 
 function findFibonacciIndexByLength(digits) {
 
-  const memo = {};
-
   function fibonacci(n) {
-    if (n in memo) {
-      return memo[n];
+    if (n <= 2) {
+      return 1
     }
-    if (n < 3) { return 1; }
-    let result = fibonacci(n - 1) + fibonacci(n - 2);
-    memo[n] = result;
-    return result;
+    let a = 1, b = 1;
+    for (let i = 2; i < n; i++) {
+      [a, b] = [b, a + b];
+    }
+    return b;
   }
   
-  let num = 2;
+  let num = 1;
   let len = 1;
-  do {
-    len = fibonacci(num).toString().length;
+  while (len < digits) {
     num++;
-  } while (len < digits)
-  return num + 1;
+    len = fibonacci(num).toString().length;
+  } 
+  return num;
 }

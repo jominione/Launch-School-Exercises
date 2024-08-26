@@ -22,19 +22,13 @@ console.log(substrings('abcde'));
 // Solution:
 
 function substrings(text) {
-
-  function leadingSubstrings(text) {
-    let result = [];
-    for (let i = 0; i < text.length; i++) {
-      result.push(text.substring(0, i+1));
-    }
-    return result;
-  }
-
   let result = [];
-  for (let i = 0; i < text.length; i++) {
-    result.push(leadingSubstrings(text.substring(i)));
-  }
-  return result;
 
+  for (let i = 0; i < text.length; i++) {
+    for (let j = i + 1; j <= text.length; j++) {
+      result.push(text.substring(i, j));
+    }
+  }
+
+  return result;
 }

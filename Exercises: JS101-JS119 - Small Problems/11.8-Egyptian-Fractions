@@ -42,33 +42,37 @@ const Fraction = require('fraction.js');
 
 function egyptian(frac) {
 
-  let denominators = [];
-  let counter = 1;
-  
-  while (true) {
-    if (Fraction(1 , counter) > frac) {
-      counter += 1;
-    } else if (frac > 0) {
-      frac -= Fraction(1, counter);
-      denominators.push(counter);
-      counter += 1;
-    } else if (frac < 0) {
-      frac += Fraction(1 , counter);
-      denominators.pop();
-      counter += 1;
-    } else {
-      break;
+  let result = [];
+  // This variable keeps track of the maximum denominator used so far
+  let maxDenominator = 0;
+
+  while (!frac.equals(0)) {
+    // Find the smallest unit fraction greater than or equal to the current fraction
+    let unitDenominator = Math.ceil(frac.d / frac.n);
+
+    // Ensure unitDenominator is greater than any previously used denominator
+    if (unitDenominator <= maxDenominator) {
+      unitDenominator = maxDenominator + 1;
     }
+
+    result.push(unitDenominator);
+    maxDenominator = unitDenominator; // Update the maxDenominator
+
+    // Subtract this unit fraction from the current fraction
+    frac = frac.sub(new Fraction(1, unitDenominator));
   }
-  return denominators;
+
+  return result;
 }
 
-function unegyptian(egyptian) {
-  let sum = 0;
-  for (let denom of egyptian) {
-    sum += Fraction(1 / denom);
+function unegyptian(fractions) {
+  let sum = new Fraction(0);
+
+  for (let denom of fractions) {
+    sum = sum.add(new Fraction(1, denom));
   }
-  return sum;
+
+  return sum.toFraction();
 }
 
 // Example:
