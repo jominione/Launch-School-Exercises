@@ -47,3 +47,16 @@ console.log(median(quarter1ExamScores) === 89.5);
 console.log(median(quarter2ExamScores) === 89.5);
 console.log(median(quarter3ExamScores) === 87);
 console.log(median(quarter4ExamScores) === 89.5);
+
+// Discussion:
+
+// Array.prototype.sort()'s default sort order is according to string Unicode 
+// code points, even for numeric values. 
+
+// This means that some of the arrays in our code were not sorted as we 
+// assumed, and as a result, some of the median scores were calculated 
+// incorrectly.
+
+// The solution is to provide a callback function to sort(), and use the 
+// callback to dictate the manner in which we want the elements of the array 
+// to be sorted.

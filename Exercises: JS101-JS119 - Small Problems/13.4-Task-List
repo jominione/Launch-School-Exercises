@@ -68,3 +68,19 @@ displayTaskList();
 
 // Instead of using delete to remove the first element of an element use splice
 // or shift instead.
+
+// Discussion:
+
+// Recall that arrays are objects. The delete operator is used to remove a 
+// property from an object. When delete is used to remove an array element, 
+// an empty slot remains in its place in the array. The length of the array 
+// remains the same, and using bracket notation with the deleted item's index 
+// will return undefined. Using delete with an array can therefore lead to 
+// unexpected results and should generally be avoided.
+
+// The Array.prototype.shift() method provides the behavior appropriate for 
+// our code. It removes the first element of an array, shifts the values at 
+// consecutive indexes down, and updates the length of the array.
+
+// Another very useful method for deleting array elements is 
+// Array.prototype.splice().

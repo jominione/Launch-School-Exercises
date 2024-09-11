@@ -28,14 +28,34 @@
 // The array of words has not been initialised. To initialise the array must
 // be assigned to a variable.
 
-let ladder = ''
+let ladder = '';
 
-let words = ['head', 'heal', 'teal', 'tell', 'tall', 'tail'];
-words.forEach(word => {
+['head', 'heal', 'teal', 'tell', 'tall', 'tail'].forEach(word => {
   if (ladder !== '') {
     ladder += '-'
   }
   ladder += word;
-})
+});
 
-console.log(ladder)  // expect: head-heal-teal-tell-tall-tail
+console.log(ladder);  // expect: head-heal-teal-tell-tall-tail
+
+// Solution:
+
+// This behavior is because JavaScript performs Automatic Semicolon Insertion, 
+// which results in the first three lines being parsed as:
+
+// let ladder = ''['head', ... ].forEach()
+// Because the statement on line 1 is not explicitly terminated with a 
+// semicolon, the array on line 3 is not parsed as an array, but as an accessor 
+// on the empty string. Since the empty string does not contain such a 
+// property, the result is undefined, which causes forEach to raise an error.
+
+// Bugs like these are the reason why, in the Stylish JavaScript, we recommend 
+// that you always use semicolons when appropriate:
+
+// Semicolons should always terminate a statement. With no semicolon to 
+// separate them, JavaScript sometimes sees the next statement as part of 
+// the former statement, which leads to undesired behavior.
+// By the way: did you notice that we didn't use any other semicolons? Only 
+// the one on line 1 causes a problem. Automatic semicolon insertion works 
+// as intended on the remaining lines.

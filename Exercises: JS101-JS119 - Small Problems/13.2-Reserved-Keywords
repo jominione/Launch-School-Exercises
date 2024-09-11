@@ -39,3 +39,31 @@ function isReserved(name) {
   }
   return false;
 }
+
+// Alternative Solution:
+
+function isReserved(name) {
+  return RESERVED_KEYWORDS.some(reserved => name === reserved);
+}
+
+// Discussion:
+
+// Recall that Array.prototype.forEach executes the callback function once 
+// for each element of the array, and in the end always returns undefined. 
+// The return value of the callback is ignored, so our return statement does 
+// not have any impact. If you want to return early and with a different value 
+// than undefined, you need to iterate differently, for example using a for 
+// loop.
+
+// You can check out the documentation for forEach on MDN.
+
+// In the second solution we are using the Array.prototype.some() method which 
+// checks whether at least one element in the given array passes the test 
+// implemented by the provided function. You can read more about this method 
+// on MDN.
+
+// Another Solution:
+
+function isReserved(name) {
+  return RESERVED_KEYWORDS.includes(name);
+} 

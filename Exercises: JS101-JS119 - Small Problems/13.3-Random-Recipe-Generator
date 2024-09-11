@@ -61,3 +61,16 @@ let dish = random(ingredients, 3).concat(random(spices, 2), random(extras, 1));
 
 console.log('How about: ' + dishName.join(' '));
 console.log('You need: ' + dish.join(', '));
+
+// Discussion:
+
+// On lines 41 and 42 we tried to concatenate arrays with +, which does not 
+// work as we might expect in JavaScript. The binary + operator is either 
+// an arithmetic operator adding two numerical values, or a string operator 
+// concatenating two strings. When we apply it to two arrays, JavaScript will 
+// convert the arrays into strings, and then concatenate those strings. So 
+// dish and dishName are strings. This is why invoking join on them raises 
+// an error: join is not a method defined for strings.
+
+// To concatenate arrays, we can use the Array.prototype.concat() method, 
+// as seen in our solution code.

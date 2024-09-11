@@ -39,9 +39,9 @@
 //   return range(0, end);
 // }
 
-function range(start, end) {
+function range(start, end = -1) {
   let range = [];
-  if (end === undefined) {
+  if (end === -1) {
     end = start;
     start = 0;
   }
@@ -56,3 +56,18 @@ function range(start, end) {
 
 console.log(range(10, 20));
 console.log(range(5));
+
+// Discussion:
+
+// In our original code, we have defined two range functions. One function 
+// signature expects two arguments, and one expects only a single argument. 
+// But JavaScript does not support function overloading (the ability to utilize 
+// multiple functions of the same name with different signatures). So with 
+// the second definition of range, the first one is overridden. That is, it 
+// is always range(end) on lines 11-13 that is executed, no matter how many 
+// arguments you provide. So when we call range(10, 20) on line 17, the 
+// parameter end is assigned to 10, and the second argument, 20, is ignored. 
+// The function then executes its body, line 12, calling itself again, this 
+// time with two arguments, 0 and 10. Since our program only recognizes the 
+// range function on lines 11-13, the function will continue to call itself 
+// repeatedly until the stack size is exceeded.

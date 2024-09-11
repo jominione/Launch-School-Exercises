@@ -99,3 +99,15 @@ targetRoll(myCharacter.education);
 // Your character succeeds.
 // --> 16
 // Your character succeeds.
+
+// Discussion:
+
+// In switch statements, JavaScript executes the statement associated with 
+// the first case expression that matches. Then, it will continue executing 
+// all subsequent statements, until it comes across a break statement. Since 
+// we did not include any break statements in our original code, when the 
+// value of result is 1, all statements will be executed: automaticFail(), 
+// automaticSuccess(), as well as the default statement.
+
+// If this sounds only vaguely familiar, review the Switch Statement section 
+// in the JavaScript book or the MDN page on switch.

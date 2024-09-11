@@ -53,3 +53,13 @@ addMember('Rachel Garcia', '232-1191');
 addMember('Earl 5mith', '331-9191');
 
 console.log(memberDirectory);
+
+// Discussion:
+
+// Recall that when using regular expressions, the \w character class shortcut 
+// matches not only alphabetic characters (a-z, A-Z), but also digits (0-9) 
+// and the underscore (_). This isn't the behavior intended for our code.
+
+// The solution instead uses a range of alphabetic characters in a character 
+// class and appends the i flag on to the end of the regular expression, so 
+// that matches are case-insensitive.

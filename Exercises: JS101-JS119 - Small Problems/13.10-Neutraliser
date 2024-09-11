@@ -36,3 +36,44 @@ function isNegative(word) {
 console.log(
   neutralize("These dull boring cards are part of a chaotic board game.")
 );
+
+// Discussion:
+
+// The code prints These boring cards are part of a board game. when we should 
+// see These cards are part of a board game. instead. This is because the 
+// splice operation on line 7 mutates the words array in the middle of the 
+// iteration. This mutation causes boring to be skipped.
+
+// At index 0, nothing interesting happens. When the iteration is at index 1, 
+// the element is "dull". Since it counts as negative, it is deleted from 
+// the array. As a consequence, each subsequent word is shifted one position 
+// to the left. In particular, the word that was previously at position 2, 
+// "boring", is now at position 1. So in the next step, when the iteration 
+// is at index 2, it finds "cards". Our mutation of the array caused it to 
+// skip "boring".
+
+// Alternative Solution:
+
+function neutralize(sentence) {
+  let words = sentence.split(" ");
+
+  return words.filter(word => !isNegative(word)).join(" ");
+};
+
+function isNegative(word) {
+  return  ["dull", "boring", "annoying", "chaotic"].includes(word);
+}
+
+console.log(
+  neutralize("These dull boring cards are part of a chaotic board game.")
+);
+
+// To fix the bug we have used Array.prototype.filter() method. If the callback 
+// function returns true, the element is added in the new array, otherwise 
+// it is not. For that reason, since isNegative(word) will return false if 
+// the word is not negative we use bang prefix ! to convert that to true. 
+// Finally, we chain join(" ") method and return the final string from the 
+// function.
+
+// While iterating over an array, avoid mutating it from within the block. 
+// Instead you can use the Array methods filter.
