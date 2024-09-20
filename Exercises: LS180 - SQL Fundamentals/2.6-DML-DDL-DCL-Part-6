@@ -1,0 +1,13 @@
+-- Does the following statement use the DDL or DML component of SQL?
+
+UPDATE things
+SET material = 'plastic'
+WHERE item = 'Cup';
+
+-- Solution: DML. UPDATE changes the value in rows therefore it is part
+-- of the DML sub-language since it modifies the data and not the structure
+-- of the data.
+
+-- UPDATE modifies specific rows of data in a database. Therefore, it is part
+-- of the DML sublanguage since it manipulates the data and not the structure
+-- of the data.

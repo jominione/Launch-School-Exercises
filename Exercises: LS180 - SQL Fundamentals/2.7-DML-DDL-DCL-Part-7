@@ -1,0 +1,8 @@
+-- Does the following statement use the DDL, DML, or DCL component of SQL?
+
+\d things
+
+-- Solution: None. It is a command line command.
+
+-- \d is a psql meta-command is not part of SQL. As such, it is not part of
+-- any SQL sublanguage.

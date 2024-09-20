@@ -1,0 +1,9 @@
+-- Write a query to retrieve the customer data for every customer who currently 
+-- subscribes to at least one service.
+
+-- Solution:
+
+SELECT DISTINCT customers.*
+FROM customers
+JOIN customers_services
+ON customers.id = customers_services.customer_id;

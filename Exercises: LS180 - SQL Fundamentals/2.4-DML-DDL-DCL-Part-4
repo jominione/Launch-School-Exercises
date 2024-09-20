@@ -1,0 +1,12 @@
+-- Does the following statement use the DDL or DML component of SQL?
+
+ALTER TABLE things
+DROP CONSTRAINT things_item_key;
+
+-- Solution: DDL. ALTER TABLE and DROP CONSTRAINT alters the data structure
+-- of the SQL statement and does not change the contents or data of the table
+-- itself so it is DDL.
+
+-- ALTER TABLE modifies the characteristics and attributes of a table. It
+-- does not actually manipulate any data definitions. As such, ALTER TABLE
+-- statements are part of the DDL sublanguage.

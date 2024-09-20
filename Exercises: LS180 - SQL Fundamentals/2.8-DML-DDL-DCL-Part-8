@@ -1,0 +1,10 @@
+-- Does the following statement use the DDL or DML component of SQL?
+
+DELETE FROM things WHERE item = 'Cup';
+
+-- Solution: DML. DELETE deletes rows of data from the things table and such
+-- is part of DML sublanguage.
+
+-- DELETE statements delete specific rows of data in a database. Therefore,
+-- it is part of the DMBL sublanguage since it manipulates the data and not
+-- the structure of the data.

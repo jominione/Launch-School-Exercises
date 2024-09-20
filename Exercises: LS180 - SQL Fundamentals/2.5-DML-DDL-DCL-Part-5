@@ -1,0 +1,11 @@
+-- Does the following statement use the DDL or DML component of SQL?
+
+INSERT INTO things VALUES (3, 'Scissors', 'Metal');
+
+-- Solution: DML. INSERT INTO adds data to the things table so manipulates
+-- data. It does not alter the structure of the table or database so is DML
+-- sub-language.
+
+-- INSERT adds new rows of data into a database. Therefore, it is part of
+-- DML sublanguage since it manipulates the data and not the structure of
+-- the data.
