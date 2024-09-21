@@ -1,0 +1,43 @@
+-- For this exercise, use a scalar subquery to determine the number of bids 
+-- on each item. The entire query should return a table that has the name 
+-- of each item along with the number of bids on an item.
+
+-- Here is the expected output:
+
+
+--     name      | count
+-- --------------+-------
+-- Video Game    |     4
+-- Outdoor Grill |     1
+-- Painting      |     8
+-- Tent          |     4
+-- Vase          |     9
+-- Television    |     0
+-- (6 rows)
+
+-- Approach/Algorithm:
+
+-- Refer to the PostgreSQL documentation on scalar subqueries to solve this 
+-- exercise. Keep a few key facts in mind:
+
+-- * You may reference columns within your subquery from the outer SELECT 
+--   query. Those values will act as constants for the current subquery 
+--   evaluation.
+-- * A scalar subquery must only return one column and one row.
+
+-- Solution:
+
+SELECT name, sum(item_count.count) AS count
+FROM items
+LEFT JOIN (SELECT item_id, 1 AS count FROM bids) AS item_count
+ON items.id = item_count.item_id
+GROUP BY name;
+
+-- Note: This solution has null in count for 'Television' so not exactly
+-- correct.
+
+-- Solution from Exercises:
+
+SELECT name,
+  (SELECT count(item_id) FROM bids WHERE item_id = items.id)
+FROM items;

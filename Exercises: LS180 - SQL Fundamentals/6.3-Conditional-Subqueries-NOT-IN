@@ -1,0 +1,24 @@
+-- Write a SQL query that shows all items that have not had bids put on them. 
+-- Use the logical operator NOT IN for this exercise, as well as a subquery.
+
+-- Here is the expected output:
+
+--  Not Bid On
+-- ------------
+--  Television
+-- (1 row)
+
+-- Approach/Algorithm:
+
+-- This assignment on subqueries should be of use for this exercise. This 
+-- section on subqueries in the PostgreSQL documentation should be helpful 
+-- as well.
+
+-- The output for this exercise should also have an alias in place for the 
+-- column we need to select.
+
+-- Solution:
+
+SELECT items.name AS "Not Bid On"
+FROM items
+WHERE items.id NOT IN (SELECT item_id FROM bids);

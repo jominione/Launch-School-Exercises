@@ -1,0 +1,38 @@
+-- For this exercise, we'll make a slight departure from how we've been using 
+-- subqueries. We have so far used subqueries to filter our results using 
+-- a WHERE clause. In this exercise, we will build that filtering into the 
+-- table that we will query. Write an SQL query that finds the largest number 
+-- of bids from an individual bidder.
+
+-- For this exercise, you must use a subquery to generate a result table (or 
+-- transient table), and then query that table for the largest number of bids.
+
+-- Your output should look like this:
+
+--   max
+-- ------
+--     9
+-- (1 row)
+
+-- Approach/Algorithm:
+
+-- Here is the general form of syntax you'll want to use:
+
+-- SELECT column_name FROM
+--   (SELECT column_name FROM a_table) AS alias_name
+
+-- We can use a subquery within the FROM clause to generate a table, then 
+-- use the outer SELECT to query data from that table.
+
+-- We highly recommend that you first run the subquery by itself. That way, 
+-- you will know what column names you can use in the outer SELECT statement 
+-- and can ensure that the subquery will work as expected.
+
+-- Solution:
+
+SELECT max(count)
+FROM (
+  SELECT count(bidder_id)
+  FROM bids
+  GROUP BY bidder_id
+) AS bid_counts;
