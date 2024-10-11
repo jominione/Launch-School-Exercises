@@ -1,0 +1,33 @@
+// Using the code from the previous exercise, add a parameter to constructor 
+// that provides a name for the Cat object. Assign this parameter to a property 
+// called name and use it to log a greeting with the provided name. (You can 
+// remove the code that displays I'm a cat!.)
+
+// Expected output:
+
+// Hello! My name is Sophie!
+
+// Solution:
+
+class Cat {
+  constructor(name) {
+    this.name = name;
+    console.log(`Hello! my name is ${this.name}!`);
+  }
+}
+
+let kitty = new Cat('Sophie');
+
+// Discussion:
+
+// The Cat constructor expects one argument: name. When it is called with
+// the new keyword, it assigns the received argument to the name property
+// of the current instance. The property name can be accessed anywhere within
+// the class using this keyword.
+
+// To appease the exercise requirements, we only need to reference proeprty
+// name immediately following its initialisation. We use console.log() to
+// log "Hello! My name is Sophie" to the console. In this object, 'Sophie'
+// is dynamic, which means we used property name to print the value. 'Sophie'
+// could just as easily be 'Oliver' if that string was passed instead of
+// 'Sophie'.
