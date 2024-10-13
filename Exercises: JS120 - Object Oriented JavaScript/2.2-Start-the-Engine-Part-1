@@ -1,0 +1,46 @@
+// Change the following code so that creating a new Truck automatically invokes 
+// startEngine.
+
+// Expected Output:
+
+// Ready to go!
+// 2003
+
+// Solution:
+
+class Vehicle {
+  constructor(year) {
+    this.year = year;
+  }
+}
+
+class Truck extends Vehicle {
+  constructor(year) {
+    super(year);
+    this.startEngine();
+  }
+
+  startEngine() {
+    console.log('Ready to go!')
+  }
+}
+
+let truck = new Truck(2003);
+console.log(truck.year); // 2003
+
+// Discussion:
+
+// Wehen working with class inheritance, its possible for methods to overlap.
+// It's easy to override an inherited method.
+
+// JavaScript doesn't really have "methods" in the form that class-based 
+// languages defines them. Here, any function can be added to an object in
+// the form of a property. Thus, once we have defined startEngine in Truck
+// class, we have overriden the property from Vehicle class.
+
+// What if we want to override a property, but still have access to 
+// functionality from a parent class use a reserved word super.
+
+// When you invoke super within constructor, it appears alone and must be
+// used before the this keywor is used. However, super keyword can also be
+// used to call functions on the object's parent.

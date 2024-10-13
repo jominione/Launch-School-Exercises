@@ -1,0 +1,45 @@
+// Using the following code, create a mixin named walkMixin that contains 
+// a method named walk. This method should return Let's go for a walk! when 
+// invoked. Include walkMixin in Cat and invoke walk on kitty.
+
+// Expected Output:
+
+// Hello! My name is Sophie!
+// Let's go for a walk!
+
+// Solution:
+
+const walkMixin = {
+  walk() {
+    return "Let's go for a walk!";
+  }
+}
+
+class Cat {
+  constructor(name) {
+    this.name = name;
+  }
+
+  greet() {
+    return `Hello! My name is ${this.name}!`;
+  }
+}
+
+Object.assign(Cat.prototype, walkMixin);
+
+let kitty = new Cat("Sophie");
+console.log(kitty.greet());
+console.log(kitty.walk());
+
+// Discussion:
+
+// Mixins are typically used to contain methods that may be useful for multiple
+// classes, but not all classes. When you mix a module into a class, you're
+// allowing the class to invoke the contained methods.
+
+// We create a mixin named walkMixin that contains a method named walk. We 
+// give Cat access to this method by including walkMixin in the class's 
+// prototype.
+
+// This lets us invoke walk on any instance of Cat. In this case, if we invoke
+// kitty.walk(), then "Let's go for a walk!" will be returned.

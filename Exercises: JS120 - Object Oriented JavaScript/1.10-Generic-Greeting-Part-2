@@ -1,0 +1,37 @@
+// Using the following code, add two methods: static method genericGreeting 
+// and instance method personalGreeting. The first method should log a greeting 
+// that's generic to the class. The second method should be an instance method 
+// and log a greeting that's custom to the object.
+
+// Expected output:
+
+// Hello! I'm a cat!
+// Hello! My name is Sophie!
+
+// Solution:
+
+class Cat {
+  constructor(name) {
+    this.name = name;
+  }
+
+  static genericGreeting() {
+    console.log("Hello! I'm a cat!");
+  }
+
+  personalGreeting() {
+    console.log(`Hello! My name is ${this.name}!`);
+  }
+
+}
+
+let kitty = new Cat("Sophie");
+Cat.genericGreeting();
+kitty.personalGreeting();
+
+// Discussion:
+
+// The most notable difference between static and instance methods is that
+// static methods are called on a class (constructor function), not any
+// instance of the class. Think of static methods as generic actions a class
+// may perform.
