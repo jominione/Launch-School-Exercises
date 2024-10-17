@@ -1,0 +1,43 @@
+// Consider the following program.
+
+// Update this code so that when you run it, you see the following output:
+
+// Expected output:
+
+// My cat Pudding is 7 years old and has black and white fur.
+// My cat Butterscotch is 10 years old and has tan and white fur.
+
+// Solution:
+
+class Pet {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+}
+
+class Cat extends Pet {
+  constructor(name, age, colour) {
+    super(name, age);
+    this.colour = colour;
+  }
+
+  info() {
+    return `My cat ${this.name} is ${this.age} years old and has ${this.colour} fur.`
+  }
+}
+
+let pudding = new Cat('Pudding', 7, 'black and white');
+let butterscotch = new Cat('Butterscotch', 10, 'tan and white');
+
+console.log(pudding.info());
+console.log(butterscotch.info());
+
+// Discussion:
+
+// Since constructor method in Cat class requires arguments that differ from
+// constructor method in Pet class, we must define a constructor method for
+// Cat, and that method must be sure to call super.
+
+// Finally, we just need to define info method on Cat class that returns
+// required message.

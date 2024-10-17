@@ -1,0 +1,24 @@
+// Without calling the Cat constructor, create an object that looks and acts 
+// like a Cat instance that doesn't have a defined name.
+
+// Solution:
+
+class Cat {
+  constructor(name) {
+    this.name = name;
+  }
+  speaks() {
+    return `${this.name} says meowwww.`;
+  }
+}
+
+let fakeCat = Object.create(Cat.prototype);
+console.log(fakeCat instanceof Cat); // logs true
+console.log(fakeCat.name);           // logs undefined
+console.log(fakeCat.speaks());       // logs undefined says meowwww.
+
+// Discussion:
+
+// We are using Object.create() to create a new object htat can't be 
+// distinguished from a Cat instance. Object.create() uses an existing object 
+// as the prototype of the newly created object.

@@ -1,0 +1,33 @@
+// What will the following code log?
+
+class Something {
+  constructor() {
+    this.data = "Hello";
+  }
+
+  dupData() {
+    return this.data + this.data;
+  }
+
+  static dupData() {
+    return "ByeBye";
+  }
+}
+
+let thing = new Something();
+console.log(Something.dupData());
+console.log(thing.dupData());
+
+// Solution: Will log "ByeBye" then on new line "HelloHello".
+
+// Discussion:
+
+// Here we see two methods named dupdata in the Something class. However,
+// one is defined as dupdata, and is thus an instance method. The other has
+// static keyword in front of its name and so it is a static method. The two
+// methods are different, and are compeltely independent of each other.
+
+// Our code first creates a Something object, and then logs the result of 
+// Something.dupdata, and then thing.dupdata. The former invocation calls
+// the static method (dupdata), and so logs "ByeBye". The latter invocation
+// calls the instance method, and so prints "HelloHello".
