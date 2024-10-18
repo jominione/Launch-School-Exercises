@@ -3,7 +3,15 @@
 
 // Solution:
 
+Object.prototype.ancestors = function() {
+  let ancestor = Object.getPrototypeOf(this);
 
+  if (ancestor.hasOwnProperty('name')) {
+    return [ancestor.name].concat(ancestor.ancestors());
+  }
+
+  return ['Object.prototype'];
+};
 
 // name property added to make objects easier to identify
 const foo = {name: 'foo'};
@@ -14,7 +22,7 @@ baz.name = 'baz';
 const qux = Object.create(baz);
 qux.name = 'qux';
 
-qux.ancestors();  // returns ['baz', 'bar', 'foo', 'Object.prototype']
-baz.ancestors();  // returns ['bar', 'foo', 'Object.prototype']
-bar.ancestors();  // returns ['foo', 'Object.prototype']
-foo.ancestors();  // returns ['Object.prototype']
+console.log(qux.ancestors());  // returns ['baz', 'bar', 'foo', 'Object.prototype']
+console.log(baz.ancestors());  // returns ['bar', 'foo', 'Object.prototype']
+console.log(bar.ancestors());  // returns ['foo', 'Object.prototype']
+console.log(foo.ancestors());  // returns ['Object.prototype']

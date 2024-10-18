@@ -1,0 +1,69 @@
+// A circular buffer is a collection of objects stored in a buffer that is 
+// treated as though it is connected end-to-end in a circle. When an object 
+// is added to this circular buffer, it is added to the position that 
+// immediately follows the most recently added object, while removing an object 
+// always removes the object that has been in the buffer the longest.
+
+// This works as long as there are empty spots in the buffer. If the buffer 
+// becomes full, adding a new object to the buffer requires getting rid of 
+// an existing object; with a circular buffer, the object that has been in 
+// the buffer the longest is discarded and replaced by the new object.
+
+// Assuming we have a circular buffer with room for 3 objects, the circular 
+// buffer looks and acts like this:
+
+// |-----------------------------------------------------------------
+// | P1 | P2 | P3 | Comments
+// |-----------------------------------------------------------------
+// |    |    |    | All positions are initially empty
+// | 1  |    |    | Add 1 to the buffer
+// | 1  | 2  |    | Add 2 to the buffer
+// |    | 2  |    | Remove oldest item from the buffer (1)
+// |    | 2  | 3  | Add 3 to the buffer
+// | 4  | 2  | 3  | Add 4 to the buffer, buffer is now full
+// | 4  |    | 3  | Remove oldest item from the buffer (2)
+// | 4  | 5  | 3  | Add 5 to the buffer, buffer is full again
+// | 4  | 5  | 6  | Add 6 to the buffer, replaces oldest element (3)
+// | 7  | 5  | 6  | Add 7 to the buffer, replaces oldest element (4)
+// | 7  | 6  |    | Remove oldest item from the buffer (5)
+// | 7  |    |    | Remove oldest item from the buffer (6)
+// |    |    |    | Remove oldest item from the buffer (7)
+// |    |    |    | Remove non-existent item from the buffer (nil)
+// |-----------------------------------------------------------------
+
+// Your task is to write a CircularBuffer class in Python that implements a
+// circular buffer for arbitary objects. The class should be initialised with
+// the buffer size and provide the following methods:
+
+// * put: Add an object to the buffer
+// * get: Remove (and return) the oldest object in the buffer. Return None
+//   if the buffer is empty.
+
+// You may assume that none of the values stored in the buffer are None
+// (however, None may be used to designate empty spots in the buffer).
+
+// Examples below should display True 15 times.
+
+// Solution:
+
+// Copied from PY120 - Object Oriented Programming - Ex5.1-Buffer Class.
+
+class CircularBuffer:
+  constructor(length):
+    this._length = length
+    this._buffer = [None] * length
+    this._next_put = 0
+    this._next_get = 0
+
+  put(value):
+    if this._buffer[this._next_put]: 
+      this.get()
+    this._buffer[this._next_put] = value
+    this._next_put = (this._next_put + 1) % this._length
+          
+  get():
+    value = this._buffer[this._next_get]
+    if value:
+      this._buffer[this._next_get] = None
+      this._next_get = (this._next_get + 1) % this._length 
+    return value

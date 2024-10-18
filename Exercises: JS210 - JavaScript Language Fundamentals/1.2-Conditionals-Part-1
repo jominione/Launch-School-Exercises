@@ -1,0 +1,36 @@
+// Go over the following program. What does it log to the console at lines 
+// 7, 11, 15, and 19? Is it what you expected? Why or why not?
+
+const myBoolean = true;
+const myString = 'hello';
+const myArray = [];
+const myOtherString = '';
+
+if (myBoolean) {
+  console.log('Hello');
+}
+
+if (!myString) {
+  console.log('World');
+}
+
+if (!!myArray) {
+  console.log('World');
+}
+
+if (myOtherString || myArray) {
+  console.log('!');
+}
+
+// Solution:
+
+// Line 7 will output 'Hello' since the if condition, myBoolean, evaluates 
+// to truthy.
+
+// Line 11 will output nothing since the if condition on line 10 evaluates
+// to falsy.
+
+// Line 15 will output 'World' since if condition evaluates to truthy.
+
+// Line 19 will output '!' because the if condition is a logical expression
+// that evaluates to truthy.
