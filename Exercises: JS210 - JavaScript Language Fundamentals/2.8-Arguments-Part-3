@@ -1,0 +1,31 @@
+// What will the following code log to the console and why? Don't run the 
+// code until after you have tried to answer.
+
+let a = [1, 2, 3];
+
+function myValue(b) {
+  b[2] += 7;
+}
+
+myValue(a);
+console.log(a);
+
+// Solution: Will output [1, 2, 10].
+
+// When variable a is passed to myValue as an argument. The parameter b is
+// assigned the value of a which is an object value and points to the object 
+// in memory.
+
+// Hence, when myValue is invoked and function mutates the value of element
+// at index 2 of parameter b, it mutates the object that parameter b points
+// to. This variable a also points to the same object in memory.
+
+// The function myValue is therefore pass-by-reference.
+
+// The code logs [1, 2, 10] to the console. This is because arrays and objects,
+// in JavaScript are mutable. When the value assigned to a, an array, is passed
+// to the function online 7, a local variable is initalised (on line 3) to
+// the same array that a is assigned. Therefore, when the program executes
+// the statement b[2] += 7 on line 4, it is actually being executed on the
+// array assigned to a. Consequently, when the value of a is logged on line 8,
+// we can see the result of this mutation: [1, 2, 10].

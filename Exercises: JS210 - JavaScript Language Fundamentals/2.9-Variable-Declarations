@@ -1,0 +1,34 @@
+// What will the following code log to the console and why? Don't run the 
+// code until after you have tried to answer.
+
+console.log(a);
+
+var a = 1;
+
+// Solution: [Wrong]. Will output to console 1. When variable a is initialised 
+// with var it is hoisted to top of global context. So when console.log is 
+// executed it treats a as already initialised and defined with value 1.
+
+// Behind the scenes, the JavaScript interpreter does many things, and one
+// of them is hoisting. 
+
+// On line 3, the program initialises the variable a to a value of 1.
+// Dissecting this, there are actually two things happening here: (1) the
+// variable a is declared and, (2) a is assigned a value of 1.
+
+// Knowing this, we can now define hoisting. The JavaScript interpreter doesn't
+// "immediately" execute all of a program's code line by line. Instead it,
+// first goes over the code to find and associate variable declarations with
+// their appropriate scope. Visually, this is as if JavaScript moves (or 
+// "hoists) each variable declaration to the top of its scope. The assignment
+// operation, however, is not hoisted.
+
+// Here is the code after hoisting:
+
+// var a;
+// console.log(a);
+
+// a = 1;
+
+// Given this new code, it becomes apparent why the program logs undefined
+// on line 2: the assignment of 1 to a has not yet occurred.

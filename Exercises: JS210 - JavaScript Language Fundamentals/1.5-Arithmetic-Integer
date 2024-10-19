@@ -19,6 +19,11 @@
 // Solution:
 
 let rlsync = require('readline-sync');
-let first = rlsync.question('Enter the first number: ');
-let second = rlsync.question('Enter the second number: ');
-
+let first = Number(rlsync.question('==> Enter the first number:\n'));
+let second = Number(rlsync.question('==> Enter the second number:\n'));
+console.log(`==> ${first} + ${second} = ${first + second}`);
+console.log(`==> ${first} - ${second} = ${first - second}`);
+console.log(`==> ${first} * ${second} = ${first * second}`);
+console.log(`==> ${first} / ${second} = ${Math.floor(first / second)}`);
+console.log(`==> ${first} % ${second} = ${first % second}`);
+console.log(`==> ${first} ** ${second} = ${first ** second}`);

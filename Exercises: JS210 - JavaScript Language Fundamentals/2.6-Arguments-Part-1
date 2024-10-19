@@ -1,0 +1,24 @@
+// What will the following code log to the console and why? Don't run the 
+// code until after you have tried to answer.
+
+let a = 7;
+
+function myValue(b) {
+  b += 10;
+}
+
+myValue(a);
+console.log(a);
+
+// Solution: Will output 7.
+
+// Variable a is declared with global scope with a primitive value. In 
+// JavaScript primitive values are immutable.
+// The function myValue declares and initialises parameter b. Variable a is 
+// passed as argument to function myValue and assigned to parameter b.
+
+// When myValue is invoked any operation in the body of the function does not
+// have any effect on the value assigned to a. 
+
+// Since the value of variable a is unchanged by passing it to myValue function
+// the myValue function is pass-by-value.
