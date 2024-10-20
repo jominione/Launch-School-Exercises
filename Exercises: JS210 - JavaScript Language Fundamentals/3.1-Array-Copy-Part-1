@@ -1,0 +1,33 @@
+// Read through the code shown below. What does it log to the console at lines 
+// 6 and 10?
+
+let myArray = [1, 2, 3, 4];
+const myOtherArray = myArray;
+
+myArray.pop();
+console.log(myArray);
+console.log(myOtherArray);
+
+myArray = [1, 2];
+console.log(myArray);
+console.log(myOtherArray);
+
+// Solution: On line 6 will output [1, 2, 3] while on line 10 will output
+// [1, 2, 3].
+
+// The value logged for myOtherArray at line 6 is identical to the value logged
+// on line 5 for myArray. This is because both myArray and myOtherArray
+// reference the same array in memory. If you mutate the array with myArray,
+// you'll see the effects of that mutation with either myArray and 
+// myOtherArray. Therefore, when we pop a value from myArray on line 4, we
+// see the effect of the change in both myArray and myOtherArray.
+
+// On line 8, however, we reassign myArray to a new array, [1, 2]. 
+// Reassignments of variables never mutate the value or object that was
+// originally referenced by that variable. Instead, reassignment creates a
+// completely new value or object, and changes the variable so it references
+// that new item. The reassignment, however, does not change any other variable
+// that may be referencing the original item - the other variables still
+// reference the old item. Thus, on lines 9, we see that the array referenced
+// by myArray is now [1, 2], but the array referenced by myOtherArray on line
+// 10 still refers to [1, 2, 3].
