@@ -8,7 +8,7 @@ function logValue() {
 }
 
 // Solution: Will output to console 'Hello, world!'. Function declarations
-// are hoisted to top of the scope, in this global. SO when logValue() is
+// are hoisted to top of the scope, in this global. So when logValue() is
 // invoked it treats the function as being defined even though it occurs after
 // the invocation.
 

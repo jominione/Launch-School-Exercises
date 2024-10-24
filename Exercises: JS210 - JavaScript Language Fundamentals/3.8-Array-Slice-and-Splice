@@ -67,19 +67,46 @@ console.log(slice(arr1, 1, 3));                     // [2, 3]
 console.log(arr1);                                  // [1, 2, 3]
 
 function splice(array, start, deleteCount, ...args) {
-  let cache = slice(array, 0, arry.length);
+
   if (start > array.length) {
     start = array.length;
   }
+
   if (deleteCount > array.length - start) {
     deleteCount = array.length - start;
   }
-  if (deleteCount > 0) {
-    for (let i = start; i <= deleteCount; i++) {
-      array.pop()
-    }
+  
+  let arrayCopy = slice(array, 0, array.length);      
+  // Create a 'cache' of original array as template to 'repopulate' original 
+  // object reference i.e. reference of 'array' with remaining values + 
+  // additional values from ...args.
+  
+  let argsAdd = args.length;
+  // Number of values to add to array.
+
+  let newLength = array.length + argsAdd - deleteCount
+  // New length of array is no. of original values to delete and new values to
+  // add.
+  
+  array.length = newLength;                           
+  // Adjust length of array (without changing object reference).
+
+  for (let i = 0; i < argsAdd; i++) {
+    array[start + i] = args[i];
   }
-  return delete;
+  // Adding new values into original array from start index.
+
+  let countRemainingVal = arrayCopy.length - (start + deleteCount);
+  // Number of values remaining after deleteCount number of elements from
+  // the original array.
+
+  for (let i = 0; i < countRemainingVal; i++) {
+    array[start + argsAdd + i] = arrayCopy[start + deleteCount + i];
+  }
+  // Inserting back into original array the values of array that are remaining
+  // after delete and shifted by any values that are added.
+
+  return slice(arrayCopy, start, start + deleteCount);
 }
 
 console.log(splice([1, 2, 3], 1, 2));              // [2, 3]
