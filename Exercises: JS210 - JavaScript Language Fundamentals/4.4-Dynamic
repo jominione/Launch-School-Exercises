@@ -1,0 +1,29 @@
+// What will the following code log to the console and why? Don't run the 
+// code until after you have tried to answer.
+
+const myObject = {
+  prop1: '123',
+  prop2: '234',
+  'prop 3': '345',
+};
+
+const prop2 = '456';
+myObject['prop2'] = '456'; // prop2: '456';
+myObject[prop2] = '678';   // '456': '678'
+
+// Solution: Will output:
+
+
+console.log(myObject[prop2]); // '678'
+console.log(myObject.prop2);  // '456'
+
+// Discussion:
+
+// The difference between lines 17 and 18, alhtough they may look the same,
+// is that on line 17, the value of prop2 (the string '456') is used as the
+// key. This line does not log undefined because a property with the name
+// of '456' and a value of '678' was added to myObject on line 12 using the
+// prop2 variable. On line 18, when the 'prop2' (string literal) property
+// of myObject is accessed, the value logged ('456') is diifferent from the
+// value assigned on line 3 ('234') because this property was reassigned on
+// line 8.

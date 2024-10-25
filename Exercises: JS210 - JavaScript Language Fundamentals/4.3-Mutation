@@ -1,0 +1,32 @@
+// What will the following code log to the console and why? Don't run the 
+// code until after you have tried to answer.
+
+const array1 = ['Moe', 'Larry', 'Curly', 'Shemp', 'Harpo', 'Chico', 'Groucho', 'Zeppo'];
+const array2 = [];
+
+for (let i = 0; i < array1.length; i += 1) {
+  array2.push(array1[i]);
+}
+
+for (let i = 0; i < array1.length; i += 1) {
+  if (array1[i].startsWith('C')) {
+    array1[i] = array1[i].toUpperCase();
+  }
+}
+
+console.log(array2);
+
+// Solution: 
+
+// ['Moe', 'Larry', 'Curly', 'Shemp', 'Harpo', 'Chico', 'Groucho', 'Zeppo']
+
+
+// Discussion: The first loop copies the elements of array1 to array2 which
+// are primitive values and therefore immutable, not the object that array1 
+// points to.
+
+// The second loop mutates array1 by replacing each of the string values of
+// array1 with a copy that is all uppercase.
+
+// Since array2 points to a different object to the one that array1 points,
+// the mutation of array1 does not effect array2.

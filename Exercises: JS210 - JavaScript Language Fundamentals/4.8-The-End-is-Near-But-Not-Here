@@ -1,0 +1,34 @@
+// The penultimate function takes a string as an argument and returns the 
+// next-to-last word in the string. The function assumes that "words" are 
+// any sequence of non-whitespace characters. The function also assumes that 
+// the input string will always contain at least two words. The penultimate 
+// function in the example below does not return the expected result. Run 
+// the code below, check the current result, identify the problem, explain 
+// what the problem is, and provide a working solution.
+
+// function penultimate(string) {
+//   return string.split(' ')[-2];
+// }
+
+console.log(penultimate('last word'));                    // expected: "last"
+console.log(penultimate('Launch School is great!'));      // expected: "is"
+
+// Solution: The implementation uses negative integer to access the words
+// but unless elements have been created with those same negative integer 
+// indexes, array elements can only be accessed by positive integers.
+
+// In JavaScript, using a negative (or non-integer) index  to access an array
+// does not extract elements from the end, nor does it raise an error. Instead,
+// performing such an action usually returns undefined.
+
+// This behaviour is caused by the fact in JavaScript, Arrays are Objects.
+// By using -1 with bracket notation (e.g. myArray[-1]), we are actually
+// telling JavaScript to access the property that has a key of '-1' and return
+// the property's value.
+
+// Here is an implementation that resolve the problem:
+
+function penultimate(string) {
+  let words = string.split(' ');
+  return words[words.length-2];
+}

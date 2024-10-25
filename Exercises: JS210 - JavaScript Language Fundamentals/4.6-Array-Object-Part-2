@@ -1,0 +1,28 @@
+// A user wrote a function that takes an array as an argument and returns 
+// its average. Given the code below, the user expects the average function 
+// to return 5. Is the user's expectation correct? Why or why not?
+
+const myArray = [5, 5];
+myArray[-1] = 5;
+myArray[-2] = 5;
+
+function average(array) {
+  let sum = 0;
+
+  for (let i = -2; i < array.length; i += 1) {
+    sum += array[i];
+  }
+
+  return sum / array.length;
+}
+
+average(myArray);
+
+// Solution: The user is incorrect. The console will output 10.
+
+// Discussion: An array property with a key of anything other than a
+// non-negative integer is not counted as part of the array's length.
+
+// Therefore in the code above, array.length = 2, instead of 4 like the user
+// expected. So the expression in the return evaluates to 20 /2 and the
+// function returns 10.
