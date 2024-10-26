@@ -1,10 +1,5 @@
-const myObj = {};
-myObj[myFunc()] = 'hello';
+console.log(undefined * undefined);
+// The total value is undefinedundefinedundefinedundefinedundefined
 
-function myFunc() {
-  return 'funcProp';
-}
-
-console.log(myObj);         // 'funcProp': 'hello';
-myObj[myFunc()] = 'world'; 
-console.log(myObj);         // 'funcProp': 'world';
+var counter = 5;
+var rate = 3;

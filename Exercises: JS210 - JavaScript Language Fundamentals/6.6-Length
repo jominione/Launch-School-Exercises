@@ -1,0 +1,39 @@
+// Read through the code below. What values will be logged to the console? 
+// Can you explain these results?
+
+// Solution:
+
+const languages = ['JavaScript', 'Ruby', 'Python'];
+console.log(languages);                             // ['JavaScript', 'Ruby', 'Python']
+console.log(languages.length);                      // 3
+
+languages.length = 4;
+console.log(languages);                             // ['JavaScript', 'Ruby', 'Python', <1 empty item>]
+console.log(languages.length);                      // 4
+
+languages.length = 1;
+console.log(languages);                             // ['JavaScript']
+console.log(languages.length);                      // 1
+
+languages.length = 3;
+console.log(languages);                             // ['JavaScript', <2 empty item>]
+console.log(languages.length);                      // 3
+
+languages.length = 1;
+languages[2] = 'Python';                            
+console.log(languages);                             // ['JavaScript', <1 empty item>, 'Python']
+console.log(languages[1]);                          // undefined
+console.log(languages.length);                      // 3
+
+// Discussion:
+
+// The key takeway is that the length property can be explicitly set (recall
+// that arrays are zero-indexed). Setting the length to a value that is less
+// than the current length truncates the array; re-setting the length to a
+// higher vlaue does not bring back the truncated elements. Setting the length
+// to a value greater than the current length creates 'empty slots' in the
+// array, but the number of actual elements does not increase. Furthermore,
+// since the value of the length is always equal to the last index plus 1,
+// adding an element to index 2 of a one-element array changes the array's
+// length to 3, even though the array only has two actual elements (at indices 
+// 0 and 2).

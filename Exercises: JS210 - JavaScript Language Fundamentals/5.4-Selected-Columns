@@ -37,8 +37,8 @@ console.log(getSelectedColumns(array2, [1, 2]));  // [[2, 2], [3, 3]]; expected:
 function getSelectedColumns(numbers, cols) {
   var result = [];
 
-  for (var i = 0, length = numbers.length; i < length; i += 1) {
-    for (var j = 0, length = cols.length; j < length; j += 1) {
+  for (var i = 0; i < numbers.length; i += 1) {
+    for (var j = 0; j < cols.length; j += 1) {
       if (!result[j]) {
         result[j] = [];
       }
@@ -49,3 +49,16 @@ function getSelectedColumns(numbers, cols) {
 
   return result;
 }
+
+// Discussion: The problem is that the length variable is reassigned a new
+// value in the second loop.
+
+// The intention of declaring the variable length is to save on repetitive
+// calls to the .length property. However, we are delaring length with the
+// var keyword, which gives it function scope. As a result, the two 
+// declarations of length only create one length variable that is used in
+// both loops.
+
+// To resolve this, you can declare the variables using let. Variables declared
+// with let have block scope, so the length variable in the inner loop is
+// different from the length variable in the outer loop.

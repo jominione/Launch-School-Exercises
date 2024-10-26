@@ -1,0 +1,21 @@
+// What will the following program log to the console? Can you explain why?
+
+// Solution:
+
+const array = ['Apples', 'Peaches', 'Grapes'];
+
+array[3.4] = 'Oranges';
+console.log(array.length);                // 3
+console.log(Object.keys(array).length);   // 4
+
+array[-2] = 'Watermelon';
+console.log(array.length);                // 3
+console.log(Object.keys(array).length);   // 5
+
+// Solution: Only non-negative integer keys are counted in length while
+// for Object.keys(arr).length counts any keys that are set.
+
+// Arrays are objects with length property. Arrays can be thought of as special
+// objects that have only non-negative integer values as keys, and have an
+// extra length property that keeps track of how many such key-value pairs
+// exist in the object.

@@ -1,0 +1,19 @@
+// Read through the following code. Currently, it does not log the expected 
+// result. Explain why this happens, then refactor the code so that it works 
+// as expected.
+
+// const person = { name: 'Victor' };
+// const otherPerson = { name: 'Victor' };
+
+// Solution: When you initialise the two constant variables they point to
+// different objects in memory even though they have the same properties.
+
+// In JavaScript, every object literal creates a new object. When this object
+// is assigned to a variable, a reference to the object is stored in that
+// variable. To ensure the two variables compare equally is to have them
+// reference the same object.
+
+const person = { name: 'Victor' };
+const otherPerson = person;
+
+console.log(person === otherPerson);    // false -- expected: true
