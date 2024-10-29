@@ -1,0 +1,85 @@
+// We're putting together some information about our new company Space Design.
+// Not all roles have been filled yet. But although we have a CEO and Scrum 
+// Master, displaying them shows undefined. Why is that?
+
+// Hint: Log the team object to the console after line 24.
+
+// Solution:
+
+// Roles (salary still to be determined)
+
+const ceo = {
+  tasks: ['company strategy', 'resource allocation', 'performance monitoring'],
+  salary: 0,
+};
+
+const developer = {
+  tasks: ['turn product vision into code'],
+  salary: 0,
+};
+
+const scrumMaster = {
+  tasks: ['organize scrum process', 'manage scrum teams'],
+  salary: 0,
+};
+
+// Team -- we're hiring!
+
+const team = {};
+
+// team[ceo] = 'Kim';             // Old implementation
+// team[scrumMaster] = 'Alice';   // Old implementation
+// team[developer] = undefined;   // Old implementation
+
+team.ceo = 'Kim';                 // New implementation
+team.scrumMaster = 'Alice';       // New implementation
+team.developer = undefined;       // New implementation
+
+console.log(team);
+
+const company = {
+  name: 'Space Design',
+  team,
+  projectedRevenue: 500000,
+};
+
+console.log(`----{ ${company.name} }----`);
+// console.log(`CEO: ${company.team[ceo]}`);                      // Old implementation
+// console.log(`Scrum master: ${company.team[scrumMaster]}`);     // Old implementation
+
+console.log(`CEO: ${company.team.ceo}`);                          // New implementation
+console.log(`Scrum master: ${company.team.scrumMaster}`);         // New implementation
+console.log(`Projected revenue: $${company.projectedRevenue}`);
+
+// ----{ Space Design }----
+// CEO: undefined
+// Scrum master: undefined
+// Projected revenue: $500000
+
+// Discussion:
+
+// Property names are always strings. 
+
+// When you use bracket notation to assign or access property of object, 
+// JavaScript will treat the key as either strings or variables. If the key 
+// is a variable, JavaScript looks up the values assigned to the variable 
+// and if the values are not strings, will employ implicit type coercion to
+// convert them to strings.
+
+//  Because each of ceo and scrumMaster have already been declared as 
+// variables, in the original implementation references the variables ceo, 
+// scrumMaster, and developer the values of each are objects rather than 
+// strings.
+
+// JavaScript looks up the values assigned to those variables and since the
+// values are objects, converts them to strings.
+
+// The string represetnation of all three values is [object Object], so in 
+// the original implementation you were actually repeatedly re-assigning the
+// value of team['object Object'] with the last assignment assigned it to
+// undefined.
+
+// As a result, the value of team ended up as { '[object Object]': undefined}.
+
+// To fix, use dot notation to add each key-value pair to team object and
+// also dot notation in the template literal to access the values of team.

@@ -29,7 +29,8 @@ function transform(species) {
 
 for (let index = 0; index < species.length; index++) {
   const thisSpecies = species[index];
-  var newSpecies;
+  // var newSpecies;      // Old implementation
+  let newSpecies;         // New implementation
 
   if (isMidnight && isFullmoon && isTransformable(thisSpecies)) {
     newSpecies = transform(thisSpecies);
@@ -39,3 +40,48 @@ for (let index = 0; index < species.length; index++) {
     console.log(`Beware of the ${newSpecies}!`);
   }
 }
+
+// Discussion:
+
+// In the original implementation, we wrongly assumed that newSpecies would
+// be re-declared and initialised with undefined during each iteration of
+// our for loop. We declare newSpecies inside of a block using var.
+
+// However, var variables have function scope, so the declaration of newSpecies
+// is hoisted to the top of the function, which, in this case, is the global
+// scope.
+
+// What happens in the original implementation of the for loop:
+
+// First Iteration:
+
+// if (isMidnight && isFullmoon && isTransformable(thisSpecies)) --> true
+// where thisSpecies --> 'wolf' --> var newSpecies --> newSpecies = 'werewolf'.
+// console.log(`Beware of the ${newSpecies}!`) --> 'Beware of the werewolf!'
+
+// Second Iteration:
+
+// if (isMidnight && isFullmoon && isTransformable(thisSpecies)) --> false
+// where thisSpecies --> 'human' --> var newSpecies --> newSpecies = 'werewolf'.
+// console.log(`Beware of the ${newSpecies}!`) --> 'Beware of the werewolf!'
+
+// Third Iteration:
+
+// if (isMidnight && isFullmoon && isTransformable(thisSpecies)) --> true
+// where thisSpecies --> 'wasp' --> var newSpecies --> newSpecies = 'wasp'.
+// console.log(`Beware of the ${newSpecies}!`) --> 'Beware of the werewasp!'
+
+// Fourth Iteration:
+
+// if (isMidnight && isFullmoon && isTransformable(thisSpecies)) --> true
+// where thisSpecies --> 'squirrel' --> var newSpecies --> newSpecies = 'wasp'.
+// console.log(`Beware of the ${newSpecies}!`) --> 'Beware of the werewasp!'
+
+// The process continues analogusly for the other values in species.
+
+// To fix this, we must ensure that newSpecies is reset to undefined in each
+// iteeration. One way to do that is to change the declaration to use let
+// instead of var.
+
+// Alternatively, we could insert newSpecies = undefined; after the var 
+// declaration.

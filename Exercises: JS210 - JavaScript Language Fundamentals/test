@@ -1,5 +1,0 @@
-console.log(undefined * undefined);
-// The total value is undefinedundefinedundefinedundefinedundefined
-
-var counter = 5;
-var rate = 3;
