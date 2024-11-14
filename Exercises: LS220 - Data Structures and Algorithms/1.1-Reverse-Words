@@ -1,0 +1,76 @@
+// Problem:
+
+// You are given a sentence represented by a string str. Your objective is 
+// to reverse all the characters in each word of the sentence while ensuring 
+// that the case of each character remains unchanged. The spaces between words 
+// should be preserved as they are, and the overall order of the words in 
+// the sentence must not be altered.
+
+// You should solve the problem without using the Array#reverse method.
+
+// Rules:
+//      Explicit Requirements:
+//        - Order of words is preserved.
+//        - Each string is reversed with case of each character is preserved.
+
+//      Implicit Requirements:
+//        - 
+
+// Input:
+// - String
+
+// Output:
+// - String
+
+
+// Questions:
+// - Can there be more than one space between words?
+// - Can there be punctuation and will they be treated like characters?
+
+// Data Structures: 
+// - Array to contain collection of words in the string
+
+// Algorithm:
+// - Using string as input create array of words with separator being space.
+// - For each word in string reverse using helper function reverse.
+// - Using .join(' ') to create result string.
+
+// Algorithm for reverse helper function:
+// - For the word in array, split into characters and assign to array, chars.
+// - Set the start point to beginning of chars, index 0.
+// - Set end point at end of array, index chars.length - 1.
+// - Move start pointer after you make a swap where anchor is replaced with
+//   runner.
+// - Move end pointer after each iteration, regardless of the element.
+// - You stop the iteration when end is at the same index or has passed 
+//   the index of the start.
+
+// Test Cases:
+
+console.log(reverseWords("Hello World") === "olleH dlroW");
+console.log(reverseWords("JavaScript is fun") === "tpircSavaJ si nuf");
+console.log(reverseWords("Coding in the sun") === "gnidoC ni eht nus");
+console.log(reverseWords("Launch School") === "hcnuaL loohcS");
+
+
+// Implementation:
+
+function reverseWords(str) {
+  let words = str.split(' ');
+  for (let i = 0; i < words.length; i++) {
+    let chars = words[i].split('');
+    let start = 0;
+    let end = chars.length - 1;
+
+    while (start < end) {
+      [chars[end], chars[start]] = [chars[start], chars[end]];
+      start++;
+      end--;
+    }
+    words[i] = chars.join('');
+  }
+  let result = words.join(' ');
+  return result;
+}
+
+// Note the time complexity of this function is O(n).
