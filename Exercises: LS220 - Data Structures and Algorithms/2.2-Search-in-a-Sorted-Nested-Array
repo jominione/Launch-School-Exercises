@@ -1,0 +1,119 @@
+// Problem: In this problem, you're presented with a nested array, matrix, 
+// which has two key characteristics:
+
+// 1. Each subarray in the matrix is sorted in ascending order.
+// 2. The first element of each subarray is larger than the final element 
+//    of the preceding subarray.
+
+// Your task is to determine whether a given integer, target, exists within 
+// this nested array.
+
+// The time complexity of your solution should be O(log(M*N)).
+
+
+// Rules:
+//      Explicit Requirements:
+//        - Each subarray in the nested array is sorted in ascending order.
+//        - The first element of each subarray is larger than the final element 
+//          of the preceding subarray.
+//        - The time complexity of your solution should be O(log(M*N)).
+
+//      Implicit Requirements:
+//        - Nested array and subarrays are non-empty.
+
+// Questions:
+// - Can the nested array or subarrays be empty?
+
+// Input:
+// - Nested array of arrays of integers.
+// - Integer.
+
+// Output:
+// - Boolean.
+
+// Data Structures: 
+// - Not necessary to create data structure.
+
+// Algorithm:
+// - Two approaches.
+// - First approach convert nested array into single array however this would
+//   result in best case time complexity O(N) which whould not meet requirement 
+//   that time complexity be O(log(M*N)).
+// - Second approach involves using binary search algorithm twice.
+// - First use binary search to identify which if any subarray could contain
+//   target.
+// - Then use second binary search to identify if subarray actually contains
+//   target.
+// - Initialise leftArr as 0.
+// - Initialise rightArr as matrix.length - 1.
+// - Initialise subarray = [].
+// - Initialise left = 0.
+// - Initialise right = subarray.length - 1.
+// - While loop where leftArr <= rightArr.
+//   - Initialise midARR = Math.floor((leftArr + rightArr) / 2)
+//   - if matrix[0][0] > target or matrix[rightArr][rightArr.length - 1] <
+//     target then return result.
+//   - else if matrix[midArr][0] < target assign subarray = midArr and 
+//     leftArr = midArr + 1.
+//   - else matrix[midArr][midArr.length - 1] > target assign
+//     rightArr = midArr - 1.
+// - Second while loop where left <= right
+//   - Initialise mid = Math.floor((left + right) / 2)
+//   - if subarray[mid] === target return true.
+//   - else if subarray[mid] < target assign left = mid + 1.
+//   - else assign right = mid - 1.
+// - Return false.
+
+
+// - Given a subarray is identified that could contain target, identify if
+//   if the actual subarray contains the target.
+
+// Test Cases:
+
+console.log(findInNestedArray([[4, 8, 12], [16, 20, 24], [28, 32, 36]], 20) === true);
+console.log(findInNestedArray([[3, 6, 9], [12, 15, 18], [21, 24, 27]], 27) === true);
+console.log(findInNestedArray([[1, 3, 5], [7, 9, 11], [13, 15, 17]], 19) === false);
+console.log(findInNestedArray([[10, 20, 30], [40, 50, 60], [70, 80, 90]], 10) === true);
+console.log(findInNestedArray([[15, 25, 35], [45, 55, 65], [75, 85, 95]], 5) === false);
+
+// All test cases should return true.
+
+// Implementation:
+
+function findInNestedArray(matrix, target) {
+  let leftArr = 0;
+  let rightArr = matrix.length - 1;
+  let subarray = [];
+  let left = 0;
+  let right = subarray.length - 1;
+
+  while (leftArr <= rightArr) {
+    let midArr = Math.floor((leftArr + rightArr) / 2);
+    if ((matrix[0][0] > target) || (matrix[matrix.length - 1][matrix[matrix.length - 1].length - 1] < target)) {
+      console.log(matrix[0][0]);
+      return false;
+    } 
+    return true;
+    /* else if (matrix[midArr][0] < target) {
+      subarray = matrix[midArr];
+      leftArr = midArr + 1;
+    } else {
+      rightArr = midArr - 1;
+    } */
+  }
+
+/*
+  while (left <= right) {
+    let mid = Math.floor((left + right) / 2);
+    if (subarray[mid] === target) {
+      return true;
+    } else if (subarray[mid] < target) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+*/
+
+  return false;
+}

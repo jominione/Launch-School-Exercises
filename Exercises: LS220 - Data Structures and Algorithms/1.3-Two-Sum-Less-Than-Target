@@ -1,0 +1,84 @@
+// Problem:
+
+// In this problem, you're given an array of integers nums and a target integer 
+// target. Your objective is to find the maximum sum that can be obtained 
+// by adding two distinct elements from the array, where this sum is less 
+// than the target.
+
+// Hint 1: Consider sorting the array first.
+
+// Hint 2: After the array is sorted, you can use the start-end pointer 
+// strategy.
+
+// Rules:
+//      Explicit Requirements:
+//        - The input will be an array of integers, nums, and a target integer, 
+//          target.
+//        - You need to find the maximum value of nums[i] + nums[j] where 
+//          i != j and nums[i] + nums[j] < target.
+//        - If no such pair exists, return -1.
+
+//      Implicit Requirements:
+//        - Target is a positive integer.
+
+// Input:
+// - Array of integers.
+// - Positive Integer.
+
+// Output:
+// - Integer.
+
+
+// Questions:
+// - Can the target and numbers in array be zero or negative?
+// - Return value if array less than 2 elements is -1?
+// - Can you have non-unique integers?
+
+// Data Structures: 
+// - Array.
+
+// Algorithm:
+// - Sort array by ascending order using .sort() method.
+// - Initialise start as index 0.
+// - Initialise end as index nums.length - 1.
+// - Initialise result as -1.
+// - While loop with condition that start < end.
+// - if statement with condition nums[start] + nums[end] < target:
+//   - if true, assign result = nums[start] + nums[end] and increment start;
+//   - else decrement end;
+// - return result.
+
+// Test Cases:
+
+console.log(twoSumLessThanTarget([3, 1, 4], 5) === 4);
+console.log(twoSumLessThanTarget([8, 2, 4, 9, 5, 10, 1, 7], 16) === 15);
+console.log(twoSumLessThanTarget([5, 8, 3, 2, 1], 6) === 5);
+console.log(twoSumLessThanTarget([6, 8, 10, 12], 5) === -1);
+console.log(twoSumLessThanTarget([1, 2, 3, 4, 5], 100) === 9);
+console.log(twoSumLessThanTarget([10, 20, 30, 40, 50], 40) === 30);
+console.log(twoSumLessThanTarget([7, 4, 15, 11, 21, 9], 24) === 22);
+// All test cases should log true
+
+
+// Implementation:
+
+function twoSumLessThanTarget(nums, target) {
+  let sortedNums = nums.sort((a, b) => a - b);
+  let start = 0;
+  let end = sortedNums.length - 1;
+  let result = -1;
+
+  while (start < end) {
+    if (sortedNums[start] + sortedNums[end] < target) {
+      result = sortedNums[start] + sortedNums[end];
+      start++;
+    } else if (result < sortedNums[start] + sortedNums[end-1]) {
+      end--;
+    } else {
+      break;
+    }
+  }
+  return result;
+}
+
+// Time complexity is O(N).

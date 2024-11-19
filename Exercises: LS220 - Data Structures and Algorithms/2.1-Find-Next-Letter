@@ -1,0 +1,73 @@
+// Problem: You're given an array, chars, of lowercase English letters sorted 
+// in ascending order, and a lowercase letter, key. Your task is to find the 
+// smallest letter in chars that is lexicographically greater than key. If 
+// no such letter exists, return the first letter in chars.
+
+
+// Rules:
+//      Explicit Requirements:
+//        - chars is array of lowercase English letters sorted in ascending
+//          order.
+//        - Find smallest letter in chars that is lexicographically greater 
+//          than key.
+//        - If no such letter exists, return the first letter in chars.
+
+
+//      Implicit Requirements:
+//        - chars is always non-empty.
+//        - chars array will always contain at least one letter 
+//        - lexicographically greater than key.
+
+// Questions:
+// - Can the input array be empty?
+
+// Input:
+// - Array
+// - Integer
+
+// Output:
+// - Integer
+
+// Data Structures: 
+// - Integer
+
+// Algorithm:
+// - Could use two-pointer approach but can have a more efficient time
+//   complexity using binary search.
+// - There are two outcomes:
+//   - No letter is greater than key (chars[chars.length - 1] <= target).
+//   - There is a letter that satisfy requirements.
+// - 
+
+
+// Test Cases:
+
+console.log(findNextLetter(['b', 'd', 'f'], 'a') === 'b');
+console.log(findNextLetter(['b', 'd', 'f'], 'c') === 'd');
+console.log(findNextLetter(['b', 'd', 'f'], 'f') === 'b');
+console.log(findNextLetter(['a', 'a', 'b', 'c'], 'a') === 'b');
+console.log(findNextLetter(['c', 'f', 'j'], 'c') === 'f');
+console.log(findNextLetter(['a', 'c', 'f', 'h', 'i', 'j'], 'g') === 'h');
+// All test cases should log true.
+
+// Implementation:
+
+function findNextLetter(chars, target) {
+  let char = chars[0];
+  let left = 0;
+  let right = chars.length - 1;
+
+  while (left <= right) {
+    let mid = Math.floor((left + right) / 2);
+
+    if (chars[chars.length - 1] <= target) {
+      return char;
+    } else if (chars[mid] > target) {
+      char = chars[mid];
+      right = mid - 1;
+    } else {
+      left = mid + 1;
+    }
+  }
+  return char
+}

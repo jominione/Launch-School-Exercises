@@ -1,0 +1,99 @@
+// Problem: Imagine you're a pet owner wanting to give treats to your pets. 
+// Each pet has a specific appetite level represented by an array appetite[i], 
+// which is the minimum size of a treat the pet will be happy with. Each treat 
+// has a size represented by an array treats[j]. A pet will be satisfied if 
+// the size of the treat treats[j] is greater than or equal to its appetite 
+// level appetite[i]. Your goal is to maximize the number of satisfied pets 
+// and output the number of satisfied pets in the end.
+
+// Hint 1: We are looking for O(AlogA + TlogT) solution where A is the length 
+// of the appetite array and T is the length of the treats array.
+
+// Hint 2: Try to first sort both arrays and then use two pointers, where 
+// the first pointer points to the index 0 of appetite array and the other 
+// one points to the index 0 of treats array.
+
+// Rules:
+//      Explicit Requirements:
+//        - Each pet has a specific appetite level represented by an array 
+//          appetite[i], which is the minimum size of a treat the pet will 
+//          be happy with. 
+//        - Each treat has a size represented by an array treats[j]. 
+//        - A pet will be satisfied if the size of the treat treats[j] is 
+//          greater than or equal to its appetite level appetite[i]. 
+//        - Goal is to maximize the number of satisfied pets and output the 
+//          number of satisfied pets in the end.
+
+//      Implicit Requirements:
+//        - First parameter in function is appetite and second treats.
+//        - Both the appetite and treats arrays have at least one element.
+//        - Appetite and treats array do not have to have same length.
+//        - Array values cannot be negative.
+//        - Treats are rivalrous. Once a treat satisfies the appetite of an
+//          pet it cannot be eaten by another pet.
+
+// Questions:
+// - Is the first parameter in function appetite and second treats?
+// - Can either the appetite or treats arrays be empty?
+// - Do the appetite or treats arrays need to be equal in size?
+// - Can the values of appetite or treats be negative?
+// - Are treats rivalrous? That is, once a treat is eaten it cannot be eaten
+//   by another pet?
+
+// Input:
+// - Appetite and treats array.
+
+// Output:
+// - Positive integer representating maximum number of satisfied pets.
+
+// Data Structures: 
+// - Arrays.
+
+// Algorithm:
+// - Will utilise anchor/end approach.
+// - Sort both appetite and treats array using .sort().
+// - Initialise anchor as index 0 of appetite array.
+// - Initialise runner as index 0 of treats array.
+// - While loop with condition anchor <= appetite.length && 
+//   runner < treats.length.
+// - If treats[runner] > appetite[anchor] increment anchor by 1.
+// - Increment runner in each iteration.
+// - Return anchor.
+
+
+// Test Cases:
+
+console.log(assignTreats([3, 4, 2], [1, 2, 3]) === 2);
+console.log(assignTreats([1, 5], [5, 5, 6]) === 2);
+console.log(assignTreats([1, 2, 3], [3]) === 1);
+console.log(assignTreats([2], [1, 2, 1, 1]) === 1);
+console.log(assignTreats([4, 3, 1], [2, 1, 3]) === 2);
+console.log(assignTreats([1,2,3], [1,2,3]) === 3);
+console.log(assignTreats([4, 5, 6], [1,2,3]) === 0);
+
+// All test cases should log true.
+
+// Implementation:
+
+function assignTreats(appetite, treats) {
+  appetite.sort((a, b) => a - b);
+  treats.sort((a, b) => a - b);
+  let anchor = 0;
+  let runner = 0;
+
+  while (anchor < appetite.length && runner < treats.length) {
+    if (treats[runner] >= appetite[anchor]) {
+      anchor++;
+      runner++;
+    } else {
+      runner++;
+    }
+  }
+  return anchor;
+}
+
+// Time complexity:
+// - The .sort() has time complexity of O(AlogA) and O(TlogA)
+//   respectively.
+// - The while loop has worst-case time complexity of O(A) and O(T).
+// - So total time complexity can be simplified to ??.

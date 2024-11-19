@@ -15,28 +15,37 @@
 //        - The output should be an array containing these averages.
 
 //      Implicit Requirements:
-//        - 
+//        - k > 0.
+//        - Length of array > k.
 
 // Input:
-
+// - Array of numbers
+// - integer value k
 
 // Output:
-
+// - array containing numbers.
 
 
 // Questions:
-
+// - 
 
 
 
 // Data Structures: 
-
-
-
-
+// - Array
 
 // Algorithm:
-
+// - Will utilise anchor/runner two pointer approach.
+// - Initialise result array with empty array.
+// - The anchor pointer is initially set to the beginning of the array 
+//   (index 0).
+// - The runner pointer is initially set to k - 1 index of the array.
+// - At start of each iteration calculate mean of values between anchor and
+//   runner and add to result array.
+// - We move the anchor pointer on each iteration by incrementing the anchor.
+// - We move the runner pointer on each iteration. Runner will be incremented.
+// - We stop the iteration when the runner pointer makes it to the end of 
+// - our array.
 
 
 // Test Cases:
@@ -47,8 +56,43 @@ console.log(findAverages([10, 20, 30, 40, 50], 4)); // [ 25, 35 ]
 console.log(findAverages([5, 5, 5, 5, 5], 1));      // [ 5, 5, 5, 5, 5 ]
 console.log(findAverages([1, 3, 2, 6, -1, 4, 1, 8, 2], 5)); // [2.2, 2.8, 2.4, 3.6, 2.8]
 
-// Implementation:
+// Initial Implementation:
 
 function findAverages(nums, k) {
-  return nums;
+  let result = [];
+  let anchor = 0;
+  let runner = k - 1;
+
+  while (runner < nums.length) {
+    let sum = nums.slice(anchor, runner + 1).reduce( (a, b) => a + b);
+    let average = sum / k;
+    result.push(average);
+    anchor++;
+    runner++;
+  }
+
+  return result;
 }
+
+// Time complexity is O(n + k) which can be further optimised.
+
+// Solution Implementation - Sliding Windows Approach:
+
+function findAverages2(nums, k) {
+  let result = [];
+  let windowSum = 0;
+  let start = 0;
+
+  for (let end = 0; end < nums.length; end++) {
+    windowSum += nums[end];
+
+    if (end >= k - 1) {
+      result.push(windowSum / k);
+      windowSum -= nums[start];
+      start++;
+    }
+  }
+  return result;
+}
+
+// Time complexity is O(n).

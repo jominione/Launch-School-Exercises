@@ -1,0 +1,86 @@
+// Problem: You have an ordered array nums consisting of integers. Your task 
+// is to determine whether there are any two distinct elements in the array 
+// where one element is exactly three times the value of the other element. 
+
+// Hint 1: The anchor/runner strategy could prove to be very useful in this 
+// situation.
+
+// Hint 2: The challenge in this problem lies in the fact that the runner 
+// does not move in every iteration. Consider the moment when the runner stops 
+// moving; from that point onwards, determine how long the anchor continues 
+// to move.
+
+// Rules:
+//      Explicit Requirements:
+//        - The time complexity of the solution should be O(N).
+//        - You should not use built-in methods like filter, map, reduce, 
+//          or find.
+//        - Do not use the includes method for checking existence in the array.
+//        - Avoid using indexOf or lastIndexOf.
+
+//      Implicit Requirements:
+//        - The integers are non-negative.
+//        - The nums array will will be non-empty.
+//        - Integers will be unique.
+
+// Questions:
+// - Will the elements always be unique?
+// - Will there be non-positive integers?
+// - Can the input array be empty?
+
+// Input:
+// - Array.
+
+// Output:
+// - Boolean.
+
+// Data Structures: 
+// - Array.
+
+// Algorithm:
+// - Use anchor/runner approach.
+// - Initiate anchor at index 0.
+// - Initiate runner at index 1.
+// - Use while loop where statement is runner < nums.length.
+//   - if (nums[anchor] * 3 === nums[runner]) return true.
+//   - else if (nums[anchor] * 3 < nums[runner] && anchor + 1 < runner) 
+//     increment anchor.
+//   - else if (nums[anchor] * 3 < nums[runner] && anchor + 1 === runner) 
+//     increment anchor and runner.
+//   - else (nums[anchor] * 3 > nums[runner]) increment runner.
+// - Return false.
+
+
+// Test Cases:
+
+console.log(checkTripleMatch([1, 3, 9, 28]) === true);
+console.log(checkTripleMatch([1, 2, 4, 10, 11, 12]) === true);
+console.log(checkTripleMatch([0, 5, 7, 55]) === false);
+console.log(checkTripleMatch([4, 5, 7, 9, 13, 15, 17]) === true);
+console.log(checkTripleMatch([2, 6, 13, 54]) === true);
+console.log(checkTripleMatch([1, 5, 17, 51]) === true);
+console.log(checkTripleMatch([1, 2, 4, 8]) === false);
+
+// All test cases should log true.
+
+// Implementation:
+
+function checkTripleMatch(nums) {
+  let anchor = 0;
+  let runner = 1;
+
+  while (runner < nums.length) {
+    if (nums[anchor] * 3 === nums[runner]) {
+      return true;
+    } else if (nums[anchor] * 3 < nums[runner]) {
+      anchor++;
+    } else {
+      runner++;
+    }
+  }
+  return false;
+}
+
+// Time complexity is O(N).
+
+// Space complexity is O(1) since return output is a boolean.
