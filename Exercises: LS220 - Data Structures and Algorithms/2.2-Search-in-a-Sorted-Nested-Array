@@ -70,11 +70,11 @@
 
 // Test Cases:
 
-console.log(findInNestedArray([[4, 8, 12], [16, 20, 24], [28, 32, 36]], 20) === true);
-console.log(findInNestedArray([[3, 6, 9], [12, 15, 18], [21, 24, 27]], 27) === true);
-console.log(findInNestedArray([[1, 3, 5], [7, 9, 11], [13, 15, 17]], 19) === false);
-console.log(findInNestedArray([[10, 20, 30], [40, 50, 60], [70, 80, 90]], 10) === true);
-console.log(findInNestedArray([[15, 25, 35], [45, 55, 65], [75, 85, 95]], 5) === false);
+console.log(findInNestedArray([[4, 8, 12], [16, 20, 24], [28, 32, 36]], 20)) // === true);
+console.log(findInNestedArray([[3, 6, 9], [12, 15, 18], [21, 24, 27]], 27)) // === true);
+console.log(findInNestedArray([[1, 3, 5], [7, 9, 11], [13, 15, 17]], 19)) // === false);
+console.log(findInNestedArray([[10, 20, 30], [40, 50, 60], [70, 80, 90]], 10)) // === true);
+console.log(findInNestedArray([[15, 25, 35], [45, 55, 65], [75, 85, 95]], 5)) // === false);
 
 // All test cases should return true.
 
@@ -84,25 +84,23 @@ function findInNestedArray(matrix, target) {
   let leftArr = 0;
   let rightArr = matrix.length - 1;
   let subarray = [];
-  let left = 0;
-  let right = subarray.length - 1;
+  
 
   while (leftArr <= rightArr) {
     let midArr = Math.floor((leftArr + rightArr) / 2);
-    if ((matrix[0][0] > target) || (matrix[matrix.length - 1][matrix[matrix.length - 1].length - 1] < target)) {
-      console.log(matrix[0][0]);
-      return false;
-    } 
-    return true;
-    /* else if (matrix[midArr][0] < target) {
-      subarray = matrix[midArr];
+    subarray = matrix[midArr];
+    if (subarray[0] <= target && subarray[subarray.length - 1] >= target) {
+      break;
+    } else if (matrix[midArr][subarray.length - 1] < target) {
       leftArr = midArr + 1;
     } else {
       rightArr = midArr - 1;
-    } */
+    }
   }
 
-/*
+  let left = 0;
+  let right = subarray.length - 1;
+  
   while (left <= right) {
     let mid = Math.floor((left + right) / 2);
     if (subarray[mid] === target) {
@@ -113,7 +111,6 @@ function findInNestedArray(matrix, target) {
       right = mid - 1;
     }
   }
-*/
 
   return false;
 }
