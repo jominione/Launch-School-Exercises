@@ -1,0 +1,74 @@
+// Problem: Write a function that checks whether a given positive integer 
+// num is the result of an integer multiplied by itself, which is typically 
+// referred to as a square integer. The function should return true if num 
+// is a square integer, otherwise false. The implementation should not rely 
+// on any square root computation provided by built-in Math library.
+
+// Hint: In this problem we do not have a collection, like an array, but we 
+// still apply the binary search on a range of numbers starting from 1 (the 
+// smallest square number) to the number itself (num).
+
+// Rules:
+//      Explicit Requirements:
+//        - num is a positive integer.
+//        - square integer is an integer when multiplied by itself results
+//          in positive integer.
+//        - return true if num is a square integer, otherwise false.
+//        - Do not rely on square root computation provided by built-in Math
+//          library.
+
+//      Implicit Requirements:
+//        - 
+
+// Questions:
+
+
+
+
+// Input:
+
+
+// Output:
+
+
+
+// Data Structures: 
+
+
+
+
+
+// Algorithm:
+
+
+
+// Test Cases:
+
+console.log(isSquareInteger(1) === true);
+console.log(isSquareInteger(4) === true);
+console.log(isSquareInteger(16) === true);
+console.log(isSquareInteger(14) === false);
+console.log(isSquareInteger(25) === true);
+console.log(isSquareInteger(26) === false);
+
+// All test cases should log true.
+
+// Implementation:
+
+function isSquareInteger(num) {
+
+  let left = 0
+  let right = num;
+
+  while (left <= right) {
+    let mid = Math.floor((left + right) / 2);
+    if (mid * mid === num) {
+      return true;
+    } else if (mid * mid < num) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+  return false;
+}
