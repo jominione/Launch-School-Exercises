@@ -1,20 +1,58 @@
-console.log(findInNestedArray([[1, 3, 5], [7, 9, 11], [13, 15, 17]], 19) === false);
-console.log(findInNestedArray([[15, 25, 35], [45, 55, 65], [75, 85, 95]], 5) === false);
+class ListNode {
+  constructor(val = 0, next = null) {
+    this.val = val;
+    this.next = next;
+  }
+}
 
-function findInNestedArray(matrix, target) {
-  let leftArr = 0;
-  let rightArr = matrix.length - 1;
-  let subarray = [];
-  let left = 0;
-  let right = subarray.length - 1;
+function deleteTwos(head) {
+  let dummy = new ListNode();
+  dummy.next = head;
+  let prev = dummy;
+  let curr = head;
 
-  while (leftArr <= rightArr) {
-    let midArr = Math.floor((leftArr + rightArr) / 2);
-    if ((matrix[0][0] > target) || (matrix[matrix.length - 1][matrix[matrix.length - 1].length - 1] < target)) {
-      return false;
-    } 
-
+  while (curr) {
+    if (curr.val === 2) {
+      prev.next = curr.next;
+    } else {
+      prev = curr;
+    }
+    curr = curr.next;
   }
 
-  return false;
+  return dummy.next;
 }
+
+// Helper function to format the linked list into a string
+function stringifyList(head) {
+  let curr = head;
+  let result = "";
+  while (curr !== null) {
+    result += curr.val + " -> ";
+    curr = curr.next;
+  }
+  result += "null";
+  return result;
+}
+
+// Test case 1
+const head1 = new ListNode(1);
+head1.next = new ListNode(2);
+head1.next.next = new ListNode(3);
+head1.next.next.next = new ListNode(2);
+head1.next.next.next.next = new ListNode(4);
+
+console.log("Input: ", stringifyList(head1));
+console.log("Output:", stringifyList(deleteTwos(head1)));
+// Input:  1 -> 2 -> 3 -> 2 -> 4 -> null
+// Output: 1 -> 3 -> 4 -> null
+
+// Test case 2
+const head2 = new ListNode(2);
+head2.next = new ListNode(3);
+head2.next.next = new ListNode(2);
+
+console.log("Input: ", stringifyList(head2));
+console.log("Output:", stringifyList(deleteTwos(head2)));
+// Input:  2 -> 3 -> 2 -> null
+// Output: 3 -> null
