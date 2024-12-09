@@ -1,0 +1,39 @@
+// P - Problem: Write a function that takes two strings as arguments, determines 
+// the length of the two strings, and then returns the result of concatenating 
+// the shorter string, the longer string, and the shorter string once again. 
+// You may assume that the strings are of different lengths.
+
+//  Explicit Requirements:
+//   - Determine the length of the two strings: short and long.
+//   - Return a string that is concatenation of short, long and short string.
+//   - The two strings will be of different lengths.
+
+//  Implicit Requirements:
+//   - Strings can be empty.
+
+// E - Examples/Test Cases:
+
+console.log(shortLongShort('abc', 'defgh'));    // "abcdefghabc"
+console.log(shortLongShort('abcde', 'fgh'));    // "fghabcdefgh"
+console.log(shortLongShort('', 'xyz'));         // "xyz"
+
+// D - Data Structures: 
+// - Input: String
+// - Output: String
+// - Intermediate: NA
+
+// A - Algorithm:
+// - Compare the two strings to determine which is shorter and longer and
+//   assign to short and long variable accordingly.
+// - if str1 is shorter than return str1 + str2 + str2;
+// - else return str2 + str1 + str2;
+
+// C - Implementation/Implementing (a solution in Code):
+
+function shortLongShort(str1, str2) {
+  if (str1.length > str2.length) {
+    return str2 + str1 + str2;
+  } else {
+    return str1 + str2 + str1;
+  }
+}

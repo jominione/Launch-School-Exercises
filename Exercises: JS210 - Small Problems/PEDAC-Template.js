@@ -36,37 +36,25 @@
 //   - If you find that your algorithm doesn't work, return there FIRST if needed and THEN fix your code
 // end
 
-// Problem:
+// P - Problem:
 
+//  Explicit Requirements:
+//   - 
 
-// Rules:
-//      Explicit Requirements:
-//        - 
+//  Implicit Requirements:
+//   - 
 
-//      Implicit Requirements:
-//        - 
-
-// Questions:
-
+// E - Examples/Test Cases:
 
 
 
-// Input:
+// D - Data Structures: 
+// - Input:
+// - Output:
+// - Intermediate:
+
+// A - Algorithm:
 
 
-// Output:
-
-
-// Data Structures: 
-
-
-// Algorithm:
-
-
-
-// Test Cases:
-
-
-
-// Implementation:
+// C - Implementation/Implementing (a solution in Code):
 

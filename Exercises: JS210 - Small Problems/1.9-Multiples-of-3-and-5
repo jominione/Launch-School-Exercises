@@ -1,0 +1,46 @@
+// P - Problem: Write a function that computes the sum of all numbers between 
+// 1 and some other number, inclusive, that are multiples of 3 or 5. For 
+// instance, if the supplied number is 20, the result should be 98 (3 + 5 
+// + 6 + 9 + 10 + 12 + 15 + 18 + 20).
+
+// You may assume that the number passed in is an integer greater than 1.
+
+//  Explicit Requirements:
+//   - Compute sum of all numbers between 1 and another number (inclusive)
+//     that are multiples of 3 or 5.
+//   - The end number is always greater than 1.
+
+//  Implicit Requirements:
+//   - Input is integer.
+
+// E - Examples/Test Cases:
+
+console.log(multisum(3));       // 3
+console.log(multisum(5));       // 8
+console.log(multisum(10));      // 33
+console.log(multisum(1000));    // 234168
+
+// D - Data Structures: 
+// - Input: integer
+// - Output: integer
+// - Intermediate: NA.
+
+// A - Algorithm:
+// - Initialise a variable sum equal to value 0.
+// - Using a for loop, starting with integer of 3, check if integer is multiple
+//   of 3 or 5.
+// - If true, add to sum.
+// - Stop iteration once integer is bigger than input integer.
+// - Return sum;
+
+// C - Implementation/Implementing (a solution in Code):
+
+function multisum(num) {
+  let sum = 0;
+  for (let i = 3; i <= num; i++) {
+    if (i % 3 === 0 || i % 5 === 0) {
+      sum += i;
+    }
+  }
+  return sum;
+}

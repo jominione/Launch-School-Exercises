@@ -1,0 +1,64 @@
+// P - Problem: Write a function that takes a string argument and returns 
+// a new string that contains the value of the original string with all 
+// consecutive duplicate characters collapsed into a single character.
+
+//  Explicit Requirements:
+//   - Given a string, collapse consecutive duplicate characters into a single
+//     character.
+
+//  Implicit Requirements:
+//   - White space considered character?
+
+// E - Examples/Test Cases:
+
+console.log(crunch('ddaaiillyy ddoouubbllee'));    // "daily double"
+console.log(crunch('4444abcabccba'));              // "4abcabcba"
+console.log(crunch('ggggggggggggggg'));            // "g"
+console.log(crunch('a'));                          // "a"
+console.log(crunch(''));                           // ""
+
+// D - Data Structures: 
+// - Input: string
+// - Output: string
+// - Intermediate: Array.
+
+// A - Algorithm:
+// - Turn text into arrary of characters.
+// - Initialise filter array as empty array.
+// - Use loop to iterate through characters.
+// - Compare character against the next character.
+// - If first does not equal second then push first character to filter array.
+// - At end of iteration always push last character into filter array.
+// - Turn filter array into string.
+// - Return result.
+
+// C - Implementation/Implementing (a solution in Code):
+
+function crunch(str) {
+  let characters = str.split('');
+  let deduplicated = [];
+  for (let i = 0; i <= characters.length - 1; i++) {
+    if (characters[i] !== characters[i + 1]) {
+      deduplicated.push(characters[i]);
+    }
+  }
+  let result = deduplicated.join('');
+  return result;
+}
+
+// Alternative solution:
+
+function crunch2(text) {
+  let index = 0;
+  let crunchText = '';
+
+  while (index <= text.length - 1) {
+    if (text[index] !== text[index + 1]) {
+      crunchText += text[index];
+    }
+
+    index += 1;
+  }
+
+  return crunchText;
+}

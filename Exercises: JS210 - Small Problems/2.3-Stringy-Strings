@@ -1,0 +1,40 @@
+// P - Problem: Write a function that takes one argument, a positive integer, 
+// and returns a string of alternating '1's and '0's, always starting with 
+// a '1'. The length of the string should match the given integer.
+
+//  Explicit Requirements:
+//   - Given a positive integer, return string of alternating 1s and 0s.
+//   - String should always start with 1.
+//   - Length of string should match input integer.
+
+//  Implicit Requirements:
+//   - 
+
+// E - Examples/Test Cases:
+
+console.log(stringy(6));    // "101010"
+console.log(stringy(9));    // "101010101"
+console.log(stringy(4));    // "1010"
+console.log(stringy(7));    // "1010101"
+
+// D - Data Structures: 
+// - Input: positive integer
+// - Output: string
+// - Intermediate:
+
+// A - Algorithm:
+// - if integer is 1, return 1.
+// - else if integer is even, return string '10' multipled by integer / 2.
+// - else return string '10' multipled by integer / 2 + '1'.
+
+// C - Implementation/Implementing (a solution in Code):
+
+function stringy(int) {
+  if (int === 1) {
+    return '1';
+  } else if (int % 2 === 0) {
+    return '10'.repeat(int / 2);
+  } else {
+    return '10'.repeat(int / 2) + '1';
+  }
+}
