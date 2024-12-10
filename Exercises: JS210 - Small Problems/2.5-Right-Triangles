@@ -5,7 +5,11 @@
 // upper-right.
 
 //  Explicit Requirements:
-//   - 
+//   - Given positive integer, logs a right triangle whose sides each have
+//     n stars.
+//   - The hypotenuse of the triangle (the diagonal side in the images below) 
+//     should have one end at the lower-left of the triangle, and the other 
+//     end at the upper-right.
 
 //  Implicit Requirements:
 //   - 
@@ -33,12 +37,20 @@ triangle(9);
 // *********
 
 // D - Data Structures: 
-// - Input:
-// - Output:
-// - Intermediate:
+// - Input: integer
+// - Output: string
+// - Intermediate: na
 
 // A - Algorithm:
-
+// - Run a loop that logs white space up plus star where length is integer
+//   and on each iteration white space reduce by 1 while star increase by
+//   by 1.
+// - End loop after integer iterations.
 
 // C - Implementation/Implementing (a solution in Code):
 
+function triangle(num) {
+  for (let i = 1; i <= num; i++) {
+    console.log(' '.repeat(num - i) + '*'.repeat(i));
+  }
+}

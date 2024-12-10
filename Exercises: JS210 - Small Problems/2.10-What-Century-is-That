@@ -1,0 +1,74 @@
+// P - Problem: Write a function that takes a year as input and returns the 
+// century. The return value should be a string that begins with the century 
+// number, and ends with 'st', 'nd', 'rd', or 'th' as appropriate for that 
+// number.
+
+// New centuries begin in years that end with 01. So, the years 1901 - 2000 
+// comprise the 20th century.
+
+//  Explicit Requirements:
+//   - Input year, return the century.
+//   - Century starts with century number and ends with 'st', 'nd', 'rd', 
+//     or 'th' as appropriate for that number.
+//   - New centuries begin in years that end with 01. So, the years 1901 - 
+//     2000 comprise the 20th century.
+//   - Year divided by 100 rounded up to nearest 100, ending in 1 has 'st' 
+//     as ending, 2 has 'nd' as ending, 3 has 'rd' as ending except when the 
+//     ten's place is 1 where ending is 'th'.
+//   - Every other year ends in 'th' 
+
+
+//  Implicit Requirements:
+//   - Starting from year 1.
+
+// E - Examples/Test Cases:
+
+console.log(century(2000));        // "20th"
+console.log(century(2001));        // "21st"
+console.log(century(1965));        // "20th"
+console.log(century(256));         // "3rd"
+console.log(century(5));           // "1st"
+console.log(century(10103));       // "102nd"
+console.log(century(1052));        // "11th"
+console.log(century(1127));        // "12th"
+console.log(century(11201));       // "113th"
+
+// D - Data Structures: 
+// - Input: integer
+// - Output: string
+// - Intermediate: na.
+
+// A - Algorithm:
+// - initialise variable ending with empty string.
+// - Divide year by 100 and roundup to nearest integer, coerce to string and 
+//   assign to century.
+// - Find value by one place.
+// - Find value by ten place.
+// - If ten place is equal to 1 then ending is 'th';
+// - else if one place is equal to 1 then ending is 'st'
+// - else if one place is equal to 2 then ending is 'nd'
+// - else if one place is equal to 3 then ending is 'rd'.
+// - Concatenate ending with century.
+// - Return result.
+
+
+// C - Implementation/Implementing (a solution in Code):
+
+function century(year) {
+  let ending = "";
+  let centuryString = String(Math.ceil(year / 100));
+  let one = centuryString.slice(-1);
+  let ten = centuryString.slice(-2, -1);
+  if (ten === '1') {
+    ending = 'th';
+  } else if (one === '1') {
+    ending = 'st';
+  } else if (one === '2') {
+    ending = 'nd';
+  } else if (one === '3') {
+    ending = 'rd';
+  } else {
+    ending = 'th';
+  }
+  return centuryString + ending;
+}

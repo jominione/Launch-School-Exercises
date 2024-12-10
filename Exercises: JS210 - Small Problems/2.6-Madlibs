@@ -1,0 +1,45 @@
+// P - Problem: Madlibs is a simple game where you create a story template 
+// with "blanks" for words. You, or another player, then construct a list 
+// of words and place them into the story, creating an often silly or funny 
+// story as a result.
+
+// Create a simple madlib program that prompts for a noun, a verb, an adverb, 
+// and an adjective, and injects them into a story that you create.
+
+//  Explicit Requirements:
+//   - Create a story template that prompts for a noun, a verb, an adverb,
+//     and an adjective.
+
+//  Implicit Requirements:
+//   - Log each prompt.
+//   - Each input string should be same line as prompt.
+//   - Log output with input string to each prompt.
+
+// E - Examples/Test Cases:
+
+// Enter a noun: dog
+// Enter a verb: walk
+// Enter an adjective: blue
+// Enter an adverb: quickly
+
+// console output
+// Do you walk your blue dog quickly? That's hilarious!
+
+// D - Data Structures: 
+// - Input:
+// - Output:
+// - Intermediate:
+
+// A - Algorithm:
+
+
+// C - Implementation/Implementing (a solution in Code):
+
+let readlineSync = require('readline-sync');
+let noun = readlineSync.question('Enter a noun: ');
+let verb = readlineSync.question('Enter a verb: ');
+let adjective = readlineSync.question('Enter an adjective: ');
+let adverb = readlineSync.question('Enter an adverb: ');
+
+console.log(`Do you ${verb} your ${adjective} ${noun} ${adverb}? ` + 
+            `That's hilarious!`);
