@@ -3,7 +3,8 @@
 // (inclusive).
 
 //  Explicit Requirements:
-//   - 
+//   - Random generate Teddy's age and log to console.
+//   - Let the age be a random number between 20 and 200 (inclusive).
 
 //  Implicit Requirements:
 //   - 
@@ -13,12 +14,15 @@
 // Teddy is 69 years old!
 
 // D - Data Structures: 
-// - Input:
-// - Output:
-// - Intermediate:
+// - Input: integer
+// - Output: undefined
+// - Intermediate: na
 
 // A - Algorithm:
-
+// - 
 
 // C - Implementation/Implementing (a solution in Code):
 
+let age = Math.floor(Math.random() * (181)) + 20;
+
+console.log(`Teddy is ${age} years old!`);

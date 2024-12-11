@@ -1,0 +1,76 @@
+// P - Problem: Write a function that takes a string consisting of one or 
+// more space separated words and returns an object that shows the number 
+// of words of different sizes.
+
+// Words consist of any sequence of non-space characters.
+
+//  Explicit Requirements:
+//   - Given a string consisting of one or more space separated words and 
+//     returns an object that shows the number of words of different sizes.
+//   - Words consist of any sequence of non-space characters.
+
+//  Implicit Requirements:
+//   - Assume spaces are non-consecutive.
+
+// E - Examples/Test Cases:
+
+console.log(wordSizes('Four score and seven.'));                       
+// { "3": 1, "4": 1, "5": 1, "6": 1 }
+
+console.log(wordSizes('Hey diddle diddle, the cat and the fiddle!'));  
+// { "3": 5, "6": 1, "7": 2 }
+
+console.log(wordSizes("What's up doc?"));                              
+// { "2": 1, "4": 1, "6": 1 }
+
+console.log(wordSizes(''));                                            
+// {}
+
+// D - Data Structures: 
+// - Input: string
+// - Output: simple object
+// - Intermediate: array
+
+// A - Algorithm:
+// - create array of words from string.
+// - initialise result empty object.
+// - Loop through words and for each word determine length of word:
+//   - if word length is 0, skip to next iteration.
+//   - check if length already exists in result object.keys.
+//     - if in length object, then + 1 to value of that key.
+//     - else add length with value 1 to object.
+//   - return result.
+
+// C - Implementation/Implementing (a solution in Code):
+
+function wordSizes(sentence) {
+  let words = sentence.split(' ');
+  let result = {};
+  
+  for (let i = 0; i < words.length; i++) {
+    let length = words[i].length;
+    if (length === 0) {
+      continue;
+    }
+
+    result[length] = (result[length] || 0) + 1;
+  }
+  return result;
+}
+
+// Alternative solution:
+
+function wordSizes2(sentence) {
+  let words = sentence.split(' ');
+  let result = {};
+
+  words.forEach(word => {
+    let length = word.length;
+    if (length === 0) return; // Can't use continue/break in .forEach.
+                              // Use return to get same behaviour using return
+                              // to skip current iteration.
+    result[length] = (result[length] || 0) + 1;
+  });
+
+  return result;
+}

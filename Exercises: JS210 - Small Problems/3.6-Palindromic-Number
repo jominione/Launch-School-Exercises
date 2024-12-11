@@ -1,0 +1,36 @@
+// P - Problem: Write a function that returns true if its integer argument 
+// is palindromic, or false otherwise. A palindromic number reads the same 
+// forwards and backwards.
+
+//  Explicit Requirements:
+//   - returns true if input integer is palindromic, or false otherwise. 
+
+//  Implicit Requirements:
+//   - input integer is non-negative.
+
+// E - Examples/Test Cases:
+
+console.log(isPalindromicNumber(34543));        // true
+console.log(isPalindromicNumber(123210));       // false
+console.log(isPalindromicNumber(22));           // true
+console.log(isPalindromicNumber(5));            // true
+
+// D - Data Structures: 
+// - Input: integer
+// - Output: boolean
+// - Intermediate: string
+
+// A - Algorithm:
+// - explicit coerce integer into string.
+// - use helper function isPalindrome
+
+// C - Implementation/Implementing (a solution in Code):
+
+function isPalindrome(str) {
+  return str === str.split('').reverse().join('');
+}
+
+function isPalindromicNumber(num) {
+  let stringNumber = String(num);
+  return isPalindrome(stringNumber);
+}

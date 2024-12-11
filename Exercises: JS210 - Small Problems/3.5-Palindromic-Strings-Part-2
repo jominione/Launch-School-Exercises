@@ -1,0 +1,58 @@
+// P - Problem:
+
+//  Explicit Requirements:
+//   - Returns true if the string passed as an argument is a palindrome, or 
+//     false otherwise.
+//   - Case-insensitive, and should ignore all non-alphanumeric characters.
+//   - Can call the isPalindrome function you wrote in the previous exercise.
+
+//  Implicit Requirements:
+//   - 
+
+// E - Examples/Test Cases:
+
+console.log(isRealPalindrome('madam'));               // true
+console.log(isRealPalindrome('Madam'));               // true (case does not matter)
+console.log(isRealPalindrome("Madam, I'm Adam"));     // true (only alphanumerics matter)
+console.log(isRealPalindrome('356653'));              // true
+console.log(isRealPalindrome('356a653'));             // true
+console.log(isRealPalindrome('123ab321'));            // false
+
+// D - Data Structures: 
+// - Input: 
+// - Output: 
+// - Intermediate: 
+
+// A - Algorithm:
+// - Remove all non-alphanumeric characters from string.
+// - Create helper function, removeNonAlphanumeric:
+//   - Initialise variable of string of alphanumeric characters.
+//   - initialise empty string result variable.
+//   - for each character in string if alphanumeric includes character add
+//     to result variable.
+//   - return result.
+// - Turn characters in string to same case (all upper or all lowercase).
+// - Check if resulting string is palindrome.
+
+// C - Implementation/Implementing (a solution in Code):
+
+function removeNonAlphanumeric(str) {
+  let alphanumeric = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ' +
+                     '0123456789';
+  let result = '';
+  for (let char of str) {
+    if (alphanumeric.includes(char)) {
+      result += char;
+    }
+  }
+  return result;
+}
+
+function isPalindrome(str) {
+  return str === str.split('').reverse().join('');
+}
+
+function isRealPalindrome(str) {
+  let lowercase = removeNonAlphanumeric(str).toLowerCase();
+  return isPalindrome(lowercase);
+}

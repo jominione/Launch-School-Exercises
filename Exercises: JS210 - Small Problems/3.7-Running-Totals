@@ -1,0 +1,49 @@
+// P - Problem: Write a function that takes an array of numbers and returns 
+// an array with the same number of elements, but with each element's value 
+// being the running total from the original array.
+
+//  Explicit Requirements:
+//   - Take an array of numbers and returns an array with the same number 
+//     of elements
+//   - Each element value is running total from the original array.
+
+//  Implicit Requirements:
+//   - Input array can be empty.
+
+// E - Examples/Test Cases:
+
+console.log(runningTotal([2, 5, 13]));             // [2, 7, 20]
+console.log(runningTotal([14, 11, 7, 15, 20]));    // [14, 25, 32, 47, 67]
+console.log(runningTotal([3]));                    // [3]
+console.log(runningTotal([]));                     // []
+
+// D - Data Structures: 
+// - Input: array
+// - Output: array
+// - Intermediate:
+
+// A - Algorithm:
+// - Initialise sum variable with value 0.
+// - Initialise result variable that is empty array.
+// - Loop through elements of array and add element to sum and push sum
+//   to result.
+// - return result.
+
+// C - Implementation/Implementing (a solution in Code):
+
+/* function runningTotal(nums) {
+  let sum = 0;
+  let result = [];
+  for (let num of nums) {
+    sum += num;
+    result.push(sum);
+  }
+  return result;
+} */
+
+// Alternative solution:
+
+function runningTotal(nums) {
+  let sum = 0;
+  return nums.map( num => sum += num);
+}

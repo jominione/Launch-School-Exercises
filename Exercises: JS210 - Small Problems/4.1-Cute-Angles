@@ -1,0 +1,56 @@
+// P - Problem: Write a function that takes a floating point number 
+// representing an angle between 0 and 360 degrees and returns a string 
+// representing that angle in degrees, minutes, and seconds. You should use 
+// a degree symbol (°) to represent degrees, a single quote (') to represent 
+// minutes, and a double quote (") to represent seconds. There are 60 minutes 
+// in a degree, and 60 seconds in a minute.
+
+// Note: You can use the following constant to represent the degree symbol:
+
+const DEGREE = '\u00B0';
+
+//  Explicit Requirements:
+//   - Given a floating point number representing an angle between 0 and 360 
+//     degrees, returns a string representing that angle in degrees, minutes, 
+//     and seconds.
+//   - Use a degree symbol (°) to represent degrees, a single quote (') to 
+//     represent minutes, and a double quote (") to represent seconds.
+//   - There are 60 minutes in a degree, and 60 seconds in a minute.
+
+//  Implicit Requirements:
+//   - Add leading 0 if minutes or seconds in single digits.
+
+// E - Examples/Test Cases:
+
+// All test cases should return true
+console.log(dms(30) === "30°00'00\"");
+console.log(dms(76.73) === "76°43'48\"");
+console.log(dms(254.6) === "254°35'59\"");
+console.log(dms(93.034773) === "93°02'05\"");
+console.log(dms(0) === "0°00'00\"");
+console.log(dms(360) === "360°00'00\"" || dms(360) === "0°00'00\"");
+
+// D - Data Structures: 
+// - Input: number
+// - Output: string
+// - Intermediate:
+
+// A - Algorithm:
+// - Initiate variable degree and determine by rounding down to nearest integer.
+// - Initiate minutes and determine by getting remainder of number minus degrees
+//   and multiply by 60 and rounding down to nearest integer.
+// - Initiate seconds and determine by getting remainder of number - degrees
+//   - minutes and multiply by 60 and rounding down to nearest integer. 
+
+// C - Implementation/Implementing (a solution in Code):
+
+function dms(num) {
+  let degrees = Math.floor(num);
+  let minutes = Math.floor((num - degrees) * 60) > 10 ?
+                Math.floor((num - degrees) * 60) :
+                '0' + Math.floor((num - degrees) * 60);
+  let seconds = Math.floor((((num - degrees) * 60) - minutes) * 60) > 10 ?
+                Math.floor((((num - degrees) * 60) - minutes) * 60) :
+                '0' + Math.floor((((num - degrees) * 60) - minutes) * 60);
+  return `${degrees}${DEGREE}${minutes}'${seconds}"`;
+}

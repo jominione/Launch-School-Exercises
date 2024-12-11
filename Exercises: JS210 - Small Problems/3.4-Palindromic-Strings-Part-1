@@ -1,0 +1,35 @@
+// P - Problem: Write a function that returns true if the string passed as 
+// an argument is a palindrome, or false otherwise. A palindrome reads the 
+// same forwards and backwards. For this problem, the case matters and all 
+// characters matter.
+
+//  Explicit Requirements:
+//   - A palindrome reads the same forwards and backwards. 
+//   - Case matters and all characters matter.
+//   - Returns true if the string passed as an argument is a palindrome, or 
+//     false otherwise.
+
+//  Implicit Requirements:
+//   - 
+
+// E - Examples/Test Cases:
+
+console.log(isPalindrome('madam'));               // true
+console.log(isPalindrome('Madam'));               // false (case matters)
+console.log(isPalindrome("madam i'm adam"));      // false (all characters matter)
+console.log(isPalindrome('356653'));              // true
+
+// D - Data Structures: 
+// - Input: string
+// - Output: boolean
+// - Intermediate: string
+
+// A - Algorithm:
+// - Given string, compare successively from first and last character, if
+//   characters are equal.
+
+// C - Implementation/Implementing (a solution in Code):
+
+function isPalindrome(str) {
+  return str === str.split('').reverse().join('');
+}

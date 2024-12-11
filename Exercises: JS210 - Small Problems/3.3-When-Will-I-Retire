@@ -1,0 +1,36 @@
+// P - Problem: Build a program that logs when the user will retire and how 
+// many more years the user has to work until retirement.
+
+//  Explicit Requirements:
+//   - Logs when the user will retire.
+//   - Log how many more years the user has to work until retirement.
+
+//  Implicit Requirements:
+//   - Prompt for age.
+//   - Prompt for retirement age.
+
+// E - Examples/Test Cases:
+
+// What is your age? 30
+// At what age would you like to retire? 70
+
+// It's 2017. You will retire in 2057.
+// You have only 40 years of work to go!
+
+// D - Data Structures: 
+// - Input: integer
+// - Output: undefined
+// - Intermediate: na
+
+// A - Algorithm:
+
+
+// C - Implementation/Implementing (a solution in Code):
+
+let readlineSync = require('readline-sync');
+let age = parseInt(readlineSync.question('What is your age? '));
+let retirementAge = parseInt(readlineSync.question('At what age would you like to retire? '));
+const YEAR = 2017;
+
+console.log(`It's ${YEAR}. You will retire in ${YEAR + age}.`);
+console.log(`You have only ${retirementAge - age} years of work to go!`);
