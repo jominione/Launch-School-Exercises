@@ -43,7 +43,7 @@ function removeNonLetters(sentence) {
   return result;
 }
 
-function wordSizes(sentence) {
+function wordSizes2(sentence) {
 
   let words = removeNonLetters(sentence).split(' ');
   let result = {};
@@ -55,6 +55,21 @@ function wordSizes(sentence) {
                               // to skip current iteration.
     result[length] = (result[length] || 0) + 1;
   });
+
+  return result;
+}
+
+// Alternative solution:
+
+function wordSizes(sentence) {
+
+  let words = removeNonLetters(sentence).split(' ');
+  let result = sentence.length === 0 ? {} :
+    words.reduce((accumulator, word) => {
+      let length = word.length;
+      accumulator[length] = (accumulator[length] || 0) + 1;
+      return accumulator;
+    }, {});
 
   return result;
 }
