@@ -6,25 +6,45 @@
 // half array.
 
 //  Explicit Requirements:
-//   - 
+//   - Given an array, return an array that contains two elements, each of 
+//     which is an array.
+//   - The first half of the original array elements in the first element 
+//     of the return value, and put the second half in the second element.
+//   - If the original array contains an odd number of elements, place the 
+//     middle element in the first half array.
 
 //  Implicit Requirements:
-//   - 
+//   - Array is empty or elements are integers.
+//   - Input array is empty, the 'middle' element is 'empty'.
 
 // E - Examples/Test Cases:
 
 console.log(halvsies([1, 2, 3, 4]));       // [[1, 2], [3, 4]]
-console.log(alvsies([1, 5, 2, 4, 3]));     // [[1, 5, 2], [4, 3]]
+console.log(halvsies([1, 5, 2, 4, 3]));    // [[1, 5, 2], [4, 3]]
 console.log(halvsies([5]));                // [[5], []]
 console.log(halvsies([]));                 // [[], []]
 
 // D - Data Structures: 
-// - Input:
-// - Output:
+// - Input: array
+// - Output: nested array
 // - Intermediate:
 
 // A - Algorithm:
-
+// - If input is empty array return nested array of two empty arrays.
+// - Initialise results array as empty array.
+// - Determine if length of input array odd or even.
+//   - If odd set left array as the elements of half of length + 1 and right
+//     array as the remamining elements of input array.
+//   - if even initialise left array as first half of elements of input array
+//     and right array as remaining elements of input array.
+// - assign left and right to results array.
+// - return result.
 
 // C - Implementation/Implementing (a solution in Code):
 
+function halvsies(arr) {
+  let mid = Math.ceil(arr.length / 2);
+  let left = arr.slice(0, mid);
+  let right = arr.slice(mid);
+  return [left, right];
+}

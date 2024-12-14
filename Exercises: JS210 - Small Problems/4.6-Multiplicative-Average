@@ -1,0 +1,37 @@
+// P - Problem: Write a function that takes an array of integers as input, 
+// multiplies all of the integers together, divides the result by the number 
+// of entries in the array, and returns the result as a string with the value 
+// rounded to three decimal places.
+
+//  Explicit Requirements:
+//   - Given array of integers as input, multiplies all of the integers 
+//     together
+//   - divides the result by the number of entries in the array, and 
+//   - returns the result as a string with the value rounded to three decimal 
+//     places.
+
+//  Implicit Requirements:
+//   - Input is non-empty and at least two elements.
+
+
+// E - Examples/Test Cases:
+
+console.log(showMultiplicativeAverage([3, 5]));                   // "7.500"
+console.log(showMultiplicativeAverage([2, 5, 7, 11, 13, 17]));    // "28361.667"
+
+// D - Data Structures: 
+// - Input: array
+// - Output: number
+// - Intermediate:
+
+// A - Algorithm:
+// - run loop that calculates the product of the integers in the input array.
+// - divided by length of input array.
+// - return result as string fixed to three decimal places.
+
+// C - Implementation/Implementing (a solution in Code):
+
+function showMultiplicativeAverage(nums) {
+  let product = nums.reduce( (acc, val) => acc * val, 1);
+  return String((product / nums.length).toFixed(3));
+}

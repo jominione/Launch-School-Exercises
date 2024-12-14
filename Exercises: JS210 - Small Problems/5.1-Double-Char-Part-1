@@ -1,0 +1,25 @@
+// P - Problem: Write a function that takes a string, doubles every character 
+// in the string, and returns the result as a new string.
+
+//  Explicit Requirements:
+//   - 
+
+//  Implicit Requirements:
+//   - 
+
+// E - Examples/Test Cases:
+
+console.log(repeater('Hello'));        // "HHeelllloo"
+console.log(repeater('Good job!'));    // "GGoooodd  jjoobb!!"
+console.log(repeater(''));             // ""
+
+// D - Data Structures: 
+// - Input:
+// - Output:
+// - Intermediate:
+
+// A - Algorithm:
+
+
+// C - Implementation/Implementing (a solution in Code):
+

@@ -1,0 +1,46 @@
+// P - Problem: Write a function that counts the number of occurrences of 
+// each element in a given array. Once counted, log each element alongside 
+// the number of occurrences.
+
+//  Explicit Requirements:
+//   - 
+
+//  Implicit Requirements:
+//   - Elements are case sensitive.
+
+// E - Examples/Test Cases:
+
+const vehicles = ['car', 'car', 'truck', 'car', 'SUV', 'truck',
+                'motorcycle', 'suv', 'motorcycle', 'car', 'truck'];
+
+countOccurrences(vehicles);
+
+// console output
+// car => 4
+// truck => 3
+// SUV => 1
+// motorcycle => 2
+// suv => 1
+
+// D - Data Structures: 
+// - Input: array
+// - Output: undefined
+// - Intermediate: object
+
+// A - Algorithm:
+// - count occurence;
+// - using loop log to console element with the corresponding count of 
+//   occurence.
+
+// C - Implementation/Implementing (a solution in Code):
+
+function countOccurrences(arr) {
+  let count = arr.reduce( (acc, val) => {
+    acc[val] = (acc.hasOwnProperty(val) ? acc[val] : 0) + 1;
+    return acc;
+  }, {})
+  console.log('console output');
+  for (let key in count) {
+    console.log(`${key} => ${count[key]}`);
+  }
+}

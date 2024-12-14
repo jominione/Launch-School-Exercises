@@ -53,7 +53,7 @@ function wordSizes2(sentence) {
     if (length === 0) return; // Can't use continue/break in .forEach.
                               // Use return to get same behaviour using return
                               // to skip current iteration.
-    result[length] = (result[length] || 0) + 1;
+    result[length] = (result.hasOwnProperty(length) ? result[length] : 0) + 1;
   });
 
   return result;
@@ -67,7 +67,7 @@ function wordSizes(sentence) {
   let result = sentence.length === 0 ? {} :
     words.reduce((accumulator, word) => {
       let length = word.length;
-      accumulator[length] = (accumulator[length] || 0) + 1;
+      accumulator[length] = (accumulator.hasOwnProperty(length) ? accumulator[length] : 0) + 1;
       return accumulator;
     }, {});
 

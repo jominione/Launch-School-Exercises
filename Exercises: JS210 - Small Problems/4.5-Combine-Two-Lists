@@ -1,0 +1,41 @@
+// P - Problem: Write a function that combines two arrays passed as arguments, 
+// and returns a new array that contains all elements from both array 
+// arguments, with each element taken in alternation.
+
+// You may assume that both input arrays are non-empty, and that they have 
+// the same number of elements.
+
+//  Explicit Requirements:
+//   - Combines two arrays passed as arguments, and returns a new array that 
+//     contains all elements from both array arguments, with each element 
+//     taken in alternation.
+//   - Assume that both input arrays are non-empty
+//   - Assume that they have the same number of elements.
+
+//  Implicit Requirements:
+//   - 
+
+// E - Examples/Test Cases:
+
+console.log(interleave([1, 2, 3], ['a', 'b', 'c']));  
+// [1, "a", 2, "b", 3, "c"]
+
+// D - Data Structures: 
+// - Input: array
+// - Output: array
+// - Intermediate: na
+
+// A - Algorithm:
+// - Initialise result as empty array;
+// - run loop that push element of first array and then second array to result
+// - return result.
+
+// C - Implementation/Implementing (a solution in Code):
+
+function interleave(first, second) {
+  let result = [];
+  for (let i = 0; i < first.length; i++) {
+    result.push(first[i], second[i]);
+  }
+  return result;
+}
