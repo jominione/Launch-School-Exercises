@@ -1,0 +1,46 @@
+// P - Problem: Write a function that takes a string, doubles every consonant 
+// character in the string, and returns the result as a new string. The 
+// function should not double vowels ('a','e','i','o','u'), digits, 
+// punctuation, or whitespace.
+
+//  Explicit Requirements:
+//   - doubles every consonant character in the string, and returns the result 
+//     as a new string. 
+//   - Do not double vowels ('a','e','i','o','u'), digits, punctuation, or 
+//     whitespace.
+
+//  Implicit Requirements:
+//   - Treat characters as case-sensitive.
+
+// E - Examples/Test Cases:
+
+console.log(doubleConsonants('String'));          // "SSttrrinngg"
+console.log(doubleConsonants('Hello-World!'));    // "HHellllo-WWorrlldd!"
+console.log(doubleConsonants('July 4th'));        // "JJullyy 4tthh"
+console.log(doubleConsonants(''));                // ""
+
+// D - Data Structures: 
+// - Input: string
+// - Output: string
+// - Intermediate:
+
+// A - Algorithm:
+// - Initialise string of consonants in both lowerCase and upperCase.
+// - run loop that checks if character is in consonant string and double and 
+//   add to result variable, otherwise just add to result variable.
+// - return result.
+
+// C - Implementation/Implementing (a solution in Code):
+
+function doubleConsonants(str) {
+  const CONSONANTS = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ";
+  let result = '';
+  for (let i = 0; i < str.length; i++) {
+    if (CONSONANTS.includes(str[i])) {
+      result += str[i].repeat(2);
+    } else {
+      result += str[i];
+    }
+  }
+  return result;
+}

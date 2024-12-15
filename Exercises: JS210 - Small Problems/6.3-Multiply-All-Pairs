@@ -1,0 +1,33 @@
+// P - Problem:
+
+//  Explicit Requirements:
+//   - 
+
+//  Implicit Requirements:
+//   - 
+
+// E - Examples/Test Cases:
+
+console.log(multiplyAllPairs([2, 4], [4, 3, 1, 2]));    // [2, 4, 4, 6, 8, 8, 12, 16]
+
+// D - Data Structures: 
+// - Input:
+// - Output:
+// - Intermediate:
+
+// A - Algorithm:
+
+
+// C - Implementation/Implementing (a solution in Code):
+
+function multiplyAllPairs(arr1, arr2) {
+  let product = [];
+  for (let i = 0; i < arr1.length; i++) {
+    for (let j = 0; j < arr2.length; j++) {
+      product.push(arr1[i] * arr2[j]);
+    }
+  }
+
+  let result = product.sort( (a, b) => a - b);
+  return result;
+}

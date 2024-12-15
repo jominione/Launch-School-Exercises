@@ -1,0 +1,37 @@
+// P - Problem: Write a function that takes an integer argument and returns 
+// an array containing all integers between 1 and the argument (inclusive), 
+// in ascending order.
+
+// You may assume that the argument will always be a positive integer.
+
+//  Explicit Requirements:
+//   - Assume that the argument will always be a positive integer.
+//   - Given an integer, returns an array containing all integers between 1 
+//     and the argument (inclusive), in ascending order.
+
+//  Implicit Requirements:
+//   - 
+
+// E - Examples/Test Cases:
+
+console.log(sequence(5));    // [1, 2, 3, 4, 5]
+console.log(sequence(3));    // [1, 2, 3]
+console.log(sequence(1));    // [1]
+
+// D - Data Structures: 
+// - Input: integer
+// - Output: array
+// - Intermediate:
+
+// A - Algorithm:
+
+
+// C - Implementation/Implementing (a solution in Code):
+
+function sequence(int) {
+  let result = [];
+  for (let i = 1; i <= int; i++) {
+    result.push(i);
+  }
+  return result;
+}

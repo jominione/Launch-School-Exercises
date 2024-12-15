@@ -1,0 +1,40 @@
+// P - Problem:
+
+//  Explicit Requirements:
+//   - 
+
+//  Implicit Requirements:
+//   - 
+
+// E - Examples/Test Cases:
+
+console.log(sumOfSums([3, 5, 2]));        // (3) + (3 + 5) + (3 + 5 + 2) --> 21
+console.log(sumOfSums([1, 5, 7, 3]));     // (1) + (1 + 5) + (1 + 5 + 7) + (1 + 5 + 7 + 3) --> 36
+console.log(sumOfSums([4]));              // 4
+console.log(sumOfSums([1, 2, 3, 4, 5]));  // 35
+
+// D - Data Structures: 
+// - Input:
+// - Output:
+// - Intermediate:
+
+// A - Algorithm:
+// - sum the integers of array.
+// - create a string that is sum of sequence of value of length of array.
+//   - outer loop is sequence of length of array.
+//     - add each sequence of length to string.
+//   - inner loop is sequence of actual value for that sequence of length.
+//     - add each val to that sequence length. 
+// - sum sequence of sequence and add to result string.
+// - return result string.
+
+// C - Implementation/Implementing (a solution in Code):
+
+function sumOfSums(nums) {
+  let sequence = nums.reduce( (acc, val) => {
+    acc.join(nums.slice(0, index+1));
+    return acc;
+  }, []);
+  let sum = nums.reduce( (acc, val) => acc += val, 0);
+  return sequence;
+}

@@ -1,0 +1,30 @@
+// P - Problem: Write a function that takes a number as an argument. If the 
+// argument is a positive number, return the negative of that number. If the 
+// argument is a negative number, return it as-is.
+
+//  Explicit Requirements:
+//   - If integer is a positive number, return the negative of that number.
+//   - If integer is a negative number, return it as-is.
+
+//  Implicit Requirements:
+//   - Zero is treated as positive number.
+
+// E - Examples/Test Cases:
+
+console.log(negative(5));     // -5
+console.log(negative(-3));    // -3
+console.log(negative(0));     // -0
+
+// D - Data Structures: 
+// - Input: integer
+// - Output: integer
+// - Intermediate: string
+
+// A - Algorithm:
+
+
+// C - Implementation/Implementing (a solution in Code):
+
+function negative(int) {
+  return int < 0 ? int : Number('-' + int);
+}

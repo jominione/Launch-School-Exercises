@@ -1,0 +1,30 @@
+// P - Problem: Write a function that takes a string argument and returns 
+// a new string containing the words from the string argument in reverse order.
+
+//  Explicit Requirements:
+//   - 
+
+//  Implicit Requirements:
+//   - 
+
+// E - Examples/Test Cases:
+
+console.log(reverseSentence(''));                       // ""
+console.log(reverseSentence('Hello World'));            // "World Hello"
+console.log(reverseSentence('Reverse these words'));    // "words these Reverse"
+
+// D - Data Structures: 
+// - Input: string
+// - Output: string
+// - Intermediate: array
+
+// A - Algorithm:
+// - Split string into words.
+// - reverse order of words.
+// - return new string with order of words reversed.
+
+// C - Implementation/Implementing (a solution in Code):
+
+function reverseSentence(str) {
+  return str.split(' ').reverse().join(' ');
+}

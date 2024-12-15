@@ -1,0 +1,41 @@
+// P - Problem: Write a function that takes a non-empty string argument and 
+// returns the middle character(s) of the string. If the string has an odd 
+// length, you should return exactly one character. If the string has an even 
+// length, you should return exactly two characters.
+
+//  Explicit Requirements:
+//   - Given a non-empty string argument and returns the middle character(s) 
+//     of the string. 
+//   - If the string has an odd length, you should return exactly one 
+//     character. 
+//   - If the string has an even length, you should return exactly two 
+//     characters.
+
+//  Implicit Requirements:
+//   - Treat white character as character(s).
+
+// E - Examples/Test Cases:
+
+console.log(centerOf('I Love JavaScript')); // "a"
+console.log(centerOf('Launch School'));     // " "
+console.log(centerOf('Launch'));            // "un"
+console.log(centerOf('Launchschool'));      // "hs"
+console.log(centerOf('x'));                 // "x"
+
+// D - Data Structures: 
+// - Input: string
+// - Output: string
+// - Intermediate:
+
+// A - Algorithm:
+// - Determine length of string.
+// - If length is even return middle two characters, otherwise single 
+//   character.
+
+// C - Implementation/Implementing (a solution in Code):
+
+function centerOf(str) {
+  let len = str.length;
+  return len % 2 === 0 ? str.slice(Math.floor(len/2), Math.floor(len/2) + 2) :
+                         str.slice(len / 2, (len /2) + 1);
+}

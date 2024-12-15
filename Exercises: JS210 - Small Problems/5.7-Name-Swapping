@@ -1,0 +1,29 @@
+// P - Problem: Write a function that takes a string argument consisting of 
+// a first name, a space, and a last name, and returns a new string consisting 
+// of the last name, a comma, a space, and the first name.
+
+//  Explicit Requirements:
+//   - 
+
+//  Implicit Requirements:
+//   - 
+
+// E - Examples/Test Cases:
+
+console.log(swapName('Joe Roberts'));    // "Roberts, Joe"
+
+// D - Data Structures: 
+// - Input: string
+// - Output: array
+// - Intermediate: string
+
+// A - Algorithm:
+
+
+// C - Implementation/Implementing (a solution in Code):
+
+function swapName(name) {
+  let first = name.split(' ')[0];
+  let last = name.split(' ')[1];
+  return `${last}, ${first}`;
+}

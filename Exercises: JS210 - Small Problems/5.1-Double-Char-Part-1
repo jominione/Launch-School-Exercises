@@ -2,10 +2,11 @@
 // in the string, and returns the result as a new string.
 
 //  Explicit Requirements:
-//   - 
+//   - Doubles every character in the string, and returns the result as a 
+//     new string.
 
 //  Implicit Requirements:
-//   - 
+//   - White space is considered a character.
 
 // E - Examples/Test Cases:
 
@@ -14,12 +15,30 @@ console.log(repeater('Good job!'));    // "GGoooodd  jjoobb!!"
 console.log(repeater(''));             // ""
 
 // D - Data Structures: 
-// - Input:
-// - Output:
+// - Input: string
+// - Output: string
 // - Intermediate:
 
 // A - Algorithm:
-
+// - Loop through each character of string and double and push to result to
+//   result variable.
 
 // C - Implementation/Implementing (a solution in Code):
 
+function repeater(str) {
+  let result = '';
+  for (let i = 0; i < str.length; i++) {
+    result += str[i].repeat(2);
+  }
+  return result;
+}
+
+// Alternative solution:
+
+function repeater2(str) {
+  let result = [];
+  for (let i = 0; i < str.length; i++) {
+    result.push(str[i], str[i]);
+  }
+  return result.join('');
+}
