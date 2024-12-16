@@ -1,10 +1,14 @@
-// P - Problem:
+// P - Problem: Write a function that takes one argument, a positive integer, 
+// and returns the sum of its digits. Do this without using for, while, or 
+// do...while loops - instead, use a series of method calls to perform the 
+// sum.
 
 //  Explicit Requirements:
-//   - 
+//   - Given a positive integer, and returns the sum of its digits.
 
 //  Implicit Requirements:
-//   - 
+//   - Do this without using for, while, or do...while loops - instead, use 
+//     a series of method calls to perform the sum.
 
 // E - Examples/Test Cases:
 
@@ -13,12 +17,15 @@ console.log(sum(496));          // 19
 console.log(sum(123456789));    // 45
 
 // D - Data Structures: 
-// - Input:
-// - Output:
-// - Intermediate:
+// - Input: integer
+// - Output: integer
+// - Intermediate: array
 
 // A - Algorithm:
-
+// - Turn integer into string.
+// - Split into characters.
+// - Sum array of characters.
+// - Return sum.
 
 // C - Implementation/Implementing (a solution in Code):
 

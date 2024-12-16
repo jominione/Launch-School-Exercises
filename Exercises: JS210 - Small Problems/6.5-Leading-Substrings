@@ -1,0 +1,44 @@
+// P - Problem: Write a function that takes a string argument and returns 
+// a list of substrings of that string. Each substring should begin with the 
+// first letter of the word, and the list should be ordered from shortest 
+// to longest.
+
+//  Explicit Requirements:
+//   - Given a string argument and returns a list of substrings of that string.
+//   - Each substring should begin with the first letter of the word.
+//   - List should be ordered from shortest to longest.
+
+//  Implicit Requirements:
+//   - No whitespace.
+
+// E - Examples/Test Cases:
+
+console.log(leadingSubstrings('abc'));      // ["a", "ab", "abc"]
+console.log(leadingSubstrings('a'));        // ["a"]
+console.log(leadingSubstrings('xyzzy'));    // ["x", "xy", "xyz", "xyzz", "xyzzy"]
+
+// D - Data Structures: 
+// - Input: string
+// - Output: array
+// - Intermediate: array
+
+// A - Algorithm:
+// - Create array of characters of string.
+// - Create an array by iterating through characters with each iteration
+//   increasing length of str by 1 index.
+// - return result.
+
+
+// C - Implementation/Implementing (a solution in Code):
+
+function leadingSubstrings2(str) {
+  let chars = str.split('');
+  let result = chars.map((val, i) => str.slice(0, i+1));
+  return result;
+}
+
+// Alternative solution:
+
+function leadingSubstrings(str) {
+  return [...str].map((_, i) => str.slice(0, i+1));
+}

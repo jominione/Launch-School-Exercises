@@ -1,7 +1,14 @@
-// P - Problem:
+// P - Problem: Write a function that takes two array arguments, each 
+// containing a list of numbers, and returns a new array containing the 
+// products of all combinations of number pairs that exist between the two 
+// arrays. The returned array should be sorted in ascending numerical order.
 
 //  Explicit Requirements:
-//   - 
+//   - Given two arrays of numbers, and returns a new array containing the 
+//     products of all combinations of number pairs that exist between the 
+//     two arrays.
+//   - The returned array should be sorted in ascending numerical order.
+//   - You may assume that neither argument will be an empty array.
 
 //  Implicit Requirements:
 //   - 
@@ -11,12 +18,17 @@
 console.log(multiplyAllPairs([2, 4], [4, 3, 1, 2]));    // [2, 4, 4, 6, 8, 8, 12, 16]
 
 // D - Data Structures: 
-// - Input:
-// - Output:
-// - Intermediate:
+// - Input: array
+// - Output: array
+// - Intermediate: array
 
 // A - Algorithm:
-
+// - Outer loop iterate through first array.
+// - Inner loop iterate through second array.
+// - multiply element of first array with element of second array and push
+//   to results array.
+// - sort result array.
+// - Return sorted results array
 
 // C - Implementation/Implementing (a solution in Code):
 
@@ -30,4 +42,13 @@ function multiplyAllPairs(arr1, arr2) {
 
   let result = product.sort( (a, b) => a - b);
   return result;
+}
+
+// Alternative solution:
+
+function multiplyAllPairs2(arr1, arr2) {
+  let result = [];
+  arr1.forEach(num1 => arr2.forEach(num2 => result.push(num1 * num2)));
+
+  return result.sort((a, b) => a - b);
 }

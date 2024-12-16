@@ -1,10 +1,15 @@
-// P - Problem:
+// P - Problem: Write a function that takes an array of numbers and returns 
+// the sum of the sums of each leading subsequence in that array. Examine 
+// the examples to see what we mean. You may assume that the array always 
+// contains at least one number.
 
 //  Explicit Requirements:
-//   - 
+//   - Given an array of numbers and returns the sum of the sums of each 
+//     leading subsequence in that array.
+//   - Array always contains at least one number.
 
 //  Implicit Requirements:
-//   - 
+//   - Values are integers.
 
 // E - Examples/Test Cases:
 
@@ -14,27 +19,34 @@ console.log(sumOfSums([4]));              // 4
 console.log(sumOfSums([1, 2, 3, 4, 5]));  // 35
 
 // D - Data Structures: 
-// - Input:
-// - Output:
-// - Intermediate:
+// - Input: Array
+// - Output: integer
+// - Intermediate: input -> nested array -> array -> output
 
 // A - Algorithm:
-// - sum the integers of array.
-// - create a string that is sum of sequence of value of length of array.
-//   - outer loop is sequence of length of array.
-//     - add each sequence of length to string.
-//   - inner loop is sequence of actual value for that sequence of length.
-//     - add each val to that sequence length. 
-// - sum sequence of sequence and add to result string.
-// - return result string.
+// - initialise sum variable with value 0.
+//   - outer loop is iteration of length of array.
+//   - inner loop is sequence of actual value for that subsequence.
+//     - add each val to sum.
+// - return sum.
 
 // C - Implementation/Implementing (a solution in Code):
 
 function sumOfSums(nums) {
-  let sequence = nums.reduce( (acc, val) => {
-    acc.join(nums.slice(0, index+1));
-    return acc;
-  }, []);
-  let sum = nums.reduce( (acc, val) => acc += val, 0);
-  return sequence;
+  let sum = 0;
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = 0; j < nums.slice(0,i+1).length; j++) {
+      sum += nums[j];
+    }
+  }
+  return sum;
 }
+
+function sumOfSums2(nums) {
+  let sumNums = nums.map( (val, idx) => nums.slice(0, idx+1)
+                   .reduce( (sum, val) => sum + val ) )
+                   .reduce( (sum, val) => sum + val );
+  return sumNums;
+}
+
+console.log(sumOfSums2([3, 5, 2]));  

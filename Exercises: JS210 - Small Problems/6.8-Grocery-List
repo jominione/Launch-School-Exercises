@@ -1,0 +1,59 @@
+// P - Problem: Write a function that takes a grocery list in a two-dimensional 
+// array and returns a one-dimensional array. Each element in the grocery 
+// list contains a fruit name and a number that represents the desired quantity 
+// of that fruit. The output array is such that each fruit name appears the 
+// number of times equal to its desired quantity.
+
+// In the example below, we want to buy 3 apples, 1 orange, and 2 bananas. 
+// Thus, we return an array that contains 3 apples, 1 orange, and 2 bananas.
+
+//  Explicit Requirements:
+//   - Given a grocery list in a two-dimensional array and returns a 
+//     one-dimensional array.
+//   - Each element in the grocery list contains a fruit name and a number 
+//     that represents the desired quantity of that fruit. 
+//   - The output array is such that each fruit name appears the number of 
+//     times equal to its desired quantity.
+
+//  Implicit Requirements:
+//   - Order of output array follows order of grocery list.
+
+// E - Examples/Test Cases:
+
+console.log(buyFruit([['apple', 3], ['orange', 1], ['banana', 2]]));
+// returns ["apple", "apple", "apple", "orange", "banana", "banana"]
+
+// D - Data Structures: 
+// - Input: nested array
+// - Output: array
+// - Intermediate: input -> nested array -> output
+
+// A - Algorithm:
+// - Helper function that takes fruit and target array and returns array of
+//   fruit with length of target.
+// - iterate through input grocery list to create concatenation of array of
+//   individual fruits.
+// - flatten the concatenated array.
+// - return result.
+
+// C - Implementation/Implementing (a solution in Code):
+
+function repeatFruit(arr) {
+  let [fruit, target] = arr;
+  let result = [];
+  for (let i = 0; i < target; i++) {
+    result.push(fruit);
+  }
+  return result;
+}
+
+function buyFruit2(nestArr) {
+  return nestArr.map(arr => repeatFruit(arr)).flat();
+}
+
+// Alternative solution:
+
+function buyFruit(nestArr) {
+  return nestArr.map(arr => repeatFruit(arr))
+                .reduce((acc, arr) => acc.concat(arr));
+}

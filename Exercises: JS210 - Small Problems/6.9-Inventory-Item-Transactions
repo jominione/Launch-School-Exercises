@@ -1,0 +1,45 @@
+// P - Problem: Write a function that takes two arguments, an inventory item 
+// ID and a list of transactions, and returns an array containing only the 
+// transactions for the specified inventory item.
+
+//  Explicit Requirements:
+//   - Given two arguments, an inventory item ID and a list of transactions, 
+//     returns an array containing only the transactions for the specified 
+//     inventory item.
+
+//  Implicit Requirements:
+//   - 
+
+// E - Examples/Test Cases:
+
+const transactions = [ { id: 101, movement: 'in',  quantity:  5 },
+                       { id: 105, movement: 'in',  quantity: 10 },
+                       { id: 102, movement: 'out', quantity: 17 },
+                       { id: 101, movement: 'in',  quantity: 12 },
+                       { id: 103, movement: 'out', quantity: 15 },
+                       { id: 102, movement: 'out', quantity: 15 },
+                       { id: 105, movement: 'in',  quantity: 25 },
+                       { id: 101, movement: 'out', quantity: 18 },
+                       { id: 102, movement: 'in',  quantity: 22 },
+                       { id: 103, movement: 'out', quantity: 15 }, ];
+
+console.log(transactionsFor(101, transactions));
+// returns
+// [ { id: 101, movement: "in",  quantity:  5 },
+//   { id: 101, movement: "in",  quantity: 12 },
+//   { id: 101, movement: "out", quantity: 18 }, ]
+
+// D - Data Structures: 
+// - Input: array of simple objects and integer.
+// - Output: array of simple objects.
+// - Intermediate: na.
+
+// A - Algorithm:
+// - Filter transactions array by item id.
+// - Return filtered array.
+
+// C - Implementation/Implementing (a solution in Code):
+
+function transactionsFor(itemID, transactions) {
+  return transactions.filter( obj => obj.id === itemID);
+}

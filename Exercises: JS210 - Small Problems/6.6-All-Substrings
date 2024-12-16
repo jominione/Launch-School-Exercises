@@ -1,0 +1,67 @@
+// P - Problem: Write a function that returns a list of all substrings of 
+// a string. Order the returned list by where in the string the substring 
+// begins. This means that all substrings that start at index position 0 should 
+// come first, then all substrings that start at index position 1, and so 
+// on. Since multiple substrings will occur at each position, return the 
+// substrings at a given index from shortest to longest.
+
+// You may (and should) use the leadingSubstrings function you wrote in the 
+// previous exercise.
+
+//  Explicit Requirements:
+//   - Given string, returns a list of all substrings of a string.
+//   - Order the returned list by where in the string the substring begins.
+//   - Return the substrings at a given index from shortest to longest.
+
+//  Implicit Requirements:
+//   - String will not have white space.
+
+// E - Examples/Test Cases:
+
+console.log(substrings('abcde'));
+
+// returns
+// [ "a", "ab", "abc", "abcd", "abcde",
+//   "b", "bc", "bcd", "bcde",
+//   "c", "cd", "cde",
+//   "d", "de",
+//   "e" ]
+
+// D - Data Structures: 
+// - Input: string
+// - Output: array
+// - Intermediate: input -> array -> nested array -> output
+
+// A - Algorithm:
+// - use helper function from 'Leading Substrings'
+// - Create nested array of all leading substrings.
+// - Create helper array to flatten nested array to array.
+// - Return result array.
+
+
+// C - Implementation/Implementing (a solution in Code):
+
+function leadingSubstrings(str) {
+  return [...str].map((_, i) => str.slice(0, i+1));
+}
+
+function flatten(arr) {
+  return arr.reduce((acc, val) => acc.concat(val), []);
+}
+
+function flatten2(arr) {
+  return [].concat(...arr);
+}
+
+function flatten3(arr) {
+  return arr.flat();
+}
+
+function substrings(str) {
+  let nested = [...str].map( (_, i) => {
+    let sub = str.slice(i, str.length);
+    return leadingSubstrings(sub);
+  })
+  let result = flatten3(nested);
+  return result;
+}

@@ -1,7 +1,16 @@
-// P - Problem:
+// P - Problem: Write a function that takes an array of integers between 0 
+// and 19 and returns an array of those integers sorted based on the English 
+// word for each number:
+
+// zero, one, two, three, four, five, six, seven, eight, nine, ten, eleven, 
+// twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen
+
+// Do not mutate the argument.
 
 //  Explicit Requirements:
-//   - 
+//   - Given an array of integers between 0 and 19 and returns an array of 
+//     those integers sorted based on the English word for each number.
+//   - Do not mutate the argument.
 
 //  Implicit Requirements:
 //   - 
@@ -13,12 +22,16 @@ console.log(alphabeticNumberSort(
 // [8, 18, 11, 15, 5, 4, 14, 9, 19, 1, 7, 17, 6, 16, 10, 13, 3, 12, 2, 0]
 
 // D - Data Structures: 
-// - Input:
-// - Output:
-// - Intermediate:
+// - Input: array
+// - Output: array
+// - Intermediate: simple object.
 
 // A - Algorithm:
-
+// - Create array of numbers in word.
+// - Create a object mapping word and respective integer.
+// - Sort the array of words alphabetically.
+// - Use the order of sorted array to create array of integers orderded by
+//   sorted word.
 
 // C - Implementation/Implementing (a solution in Code):
 

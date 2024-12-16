@@ -1,0 +1,95 @@
+// P - Problem: Write a function that returns a list of all substrings of 
+// a string that are palindromic. That is, each substring must consist of 
+// the same sequence of characters forwards as backwards. The substrings in 
+// the returned list should be sorted by their order of appearance in the 
+// input string. Duplicate substrings should be included multiple times.
+
+// You may (and should) use the substrings function you wrote in the previous 
+// exercise.
+
+// For the purpose of this exercise, you should consider all characters and 
+// pay attention to case; that is, 'AbcbA' is a palindrome, but 'Abcba' and 
+// 'Abc-bA' are not. In addition, assume that single characters are not 
+// palindromes.
+
+//  Explicit Requirements:
+//   - Given string, return a list of all substrings of a string that are 
+//     palindromic.
+//   - Each substring must consist of the same sequence of characters forwards 
+//     as backwards.
+//   - The substrings in the returned list should be sorted by their order 
+//     of appearance in the input string.
+//   - Duplicate substrings should be included multiple times.
+//   - Consider all characters and pay attention to case; that is, 'AbcbA' 
+//     is a palindrome, but 'Abcba' and 'Abc-bA' are not.
+//   - Assume that single characters are not palindromes.
+
+//  Implicit Requirements:
+//   - 
+
+// E - Examples/Test Cases:
+
+console.log(palindromes('abcd'));       // []
+console.log(palindromes('madam'));      // [ "madam", "ada" ]
+
+console.log(palindromes('hello-madam-did-madam-goodbye'));
+/* returns
+[ "ll", "-madam-", "-madam-did-madam-", "madam", "madam-did-madam", "ada",
+  "adam-did-mada", "dam-did-mad", "am-did-ma", "m-did-m", "-did-", "did",
+  "-madam-", "madam", "ada", "oo" ]
+*/
+
+console.log(palindromes('knitting cassettes'));
+// returns
+// [ "nittin", "itti", "tt", "ss", "settes", "ette", "tt" ]
+
+// D - Data Structures: 
+// - Input: string
+// - Output: array
+// - Intermediate: input -> array -> nested array -> array -> output
+
+// A - Algorithm:
+// - Use isPalindrome helper function given string from Ex3.4.
+//   - Single character strings are not plaindromes.
+//   - Consider all cases.
+//   - Is case-sensitive.
+// - Use all-substrings as helper function to create array of sub-strings from Ex6.6.
+// - filter sub-strings array wiht isPalindrome helper function.
+// - return filtered results array.
+
+// C - Implementation/Implementing (a solution in Code):
+
+function leadingSubstrings(str) {
+  return [...str].map((_, i) => str.slice(0, i+1));
+}
+
+function flatten(arr) {
+  return arr.reduce((acc, val) => acc.concat(val), []);
+}
+
+function flatten2(arr) {
+  return [].concat(...arr);
+}
+
+function flatten3(arr) {
+  return arr.flat();
+}
+
+function substrings(str) {
+  let nested = [...str].map( (_, i) => {
+    let sub = str.slice(i, str.length);
+    return leadingSubstrings(sub);
+  })
+  let result = flatten3(nested);
+  return result;
+}
+
+function isPalindrome(str) {
+  return str.length > 1 && str === str.split('').reverse().join('');
+}
+
+function palindromes(str) {
+  let sub = substrings(str);
+  let result = sub.filter(isPalindrome);
+  return result;
+}
