@@ -1,0 +1,38 @@
+// P - Problem: Write a function that takes a string as an argument and returns 
+// that string with the first character of every word capitalized and all 
+// subsequent characters in lowercase.
+
+// You may assume that a word is any sequence of non-whitespace characters.
+
+//  Explicit Requirements:
+//   - Given string return that string with the first character of every word 
+//     capitalized and 
+//   - all subsequent characters in lowercase.
+
+//  Implicit Requirements:
+//   - Treat words as starting from first character even if character is not
+//     a letter.
+
+// E - Examples/Test Cases:
+
+console.log(wordCap('four score and seven'));      // "Four Score And Seven"
+console.log(wordCap('the javaScript language'));   // "The Javascript Language"
+console.log(wordCap('this is a "quoted" word'));   // 'This Is A "quoted" Word'
+
+// D - Data Structures: 
+// - Input: string
+// - Output: string
+// - Intermediate: input -> array -> array -> output
+
+// A - Algorithm:
+// - split string into words with separator white space.
+// - Iterate through words and replace first letter with uppercase.
+// - turn array into string and return.
+
+// C - Implementation/Implementing (a solution in Code):
+
+function wordCap(str) {
+  return str.split(' ')
+            .map(word => word[0].toUpperCase() + word.slice(1).toLowerCase())
+            .join(' ');
+}

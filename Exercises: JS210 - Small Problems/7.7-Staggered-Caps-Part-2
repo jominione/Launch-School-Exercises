@@ -1,0 +1,44 @@
+// P - Problem: Modify the function from the previous exercise so that it 
+// ignores non-alphabetic characters when determining whether a letter should 
+// be upper or lower case. Non-alphabetic characters should still be included 
+// in the output string, but should not be counted when determining the 
+// appropriate case.
+
+//  Explicit Requirements:
+//   - 
+
+//  Implicit Requirements:
+//   - 
+
+// E - Examples/Test Cases:
+
+console.log(staggeredCase('I Love Launch School!'));        // "I lOvE lAuNcH sChOoL!"
+console.log(staggeredCase('ALL CAPS'));                     // "AlL cApS"
+console.log(staggeredCase('ignore 77 the 444 numbers'));    // "IgNoRe 77 ThE 444 nUmBeRs"
+
+// D - Data Structures: 
+// - Input:
+// - Output:
+// - Intermediate:
+
+// A - Algorithm:
+
+
+// C - Implementation/Implementing (a solution in Code):
+
+function staggeredCase(str) {
+  let upper = false;
+  let chars = [...str];
+  for (let i = 0; i < chars.length; i++) {
+    if (!upper && /[a-z]/gi.test(chars[i])) {
+      chars[i] = chars[i].toUpperCase();
+      upper = true;
+    } else if (upper && /[a-z]/gi.test(chars[i])) {
+      chars[i] = chars[i].toLowerCase();
+      upper = false;
+    } else {
+      continue;
+    }
+  }
+  return chars.join('');
+}

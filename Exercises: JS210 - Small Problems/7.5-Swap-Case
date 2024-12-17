@@ -1,0 +1,46 @@
+// P - Problem: Write a function that takes a string as an argument and returns 
+// that string with every lowercase letter changed to uppercase and every 
+// uppercase letter changed to lowercase. Leave all other characters unchanged.
+
+//  Explicit Requirements:
+//   - Given a string, returns that string with every lowercase letter changed 
+//     to uppercase and 
+//   - every uppercase letter changed to lowercase. 
+//   - Leave all other characters unchanged.
+
+//  Implicit Requirements:
+//   - 
+
+// E - Examples/Test Cases:
+
+console.log(swapCase('CamelCase'));              // "cAMELcASE"
+console.log(swapCase('Tonight on XYZ-TV'));      // "tONIGHT ON xyz-tv"
+
+// D - Data Structures: 
+// - Input: string
+// - Output: string
+// - Intermediate:
+
+// A - Algorithm:
+// - Split string into array of characters.
+// - Iterate through characters and swap case or leave unchanged.
+// - Combine characters back into single string and return string.
+
+// C - Implementation/Implementing (a solution in Code):
+
+function swapCase2(str) {
+  return str.split('').map( char => {
+    if (/[a-z]/.test(char)) {
+      return char.toUpperCase();
+    } else if (/[A-Z]/.test(char)) {
+      return char.toLowerCase();
+    } else {
+      return char;
+    }
+  }).join('');
+}
+
+function swapCase(str) {
+  return [...str].map(char => /[a-z]/.test(char) ? char.toUpperCase() : char.toLowerCase())
+                 .join('');
+}

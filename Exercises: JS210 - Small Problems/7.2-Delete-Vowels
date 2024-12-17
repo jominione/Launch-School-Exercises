@@ -21,12 +21,30 @@ console.log(removeVowels(['ABC', 'AEIOU', 'XYZ']));
 // ["BC", "", "XYZ"]
 
 // D - Data Structures: 
-// - Input:
-// - Output:
-// - Intermediate:
+// - Input: array
+// - Output: array
+// - Intermediate: input -> string -> array -> string -> output
 
 // A - Algorithm:
-
+// - iterate through array of strings.
+// - in each iteration:
+//   - split string, filter out vowels, turn back into string and push into
+//     results array.
+// - return result array.
 
 // C - Implementation/Implementing (a solution in Code):
 
+function removeVowels2(arr) {
+  let result = [];
+  let vowels = 'aeiouAEIOU';
+  arr.forEach( str => result.push(str.split('')
+                                     .filter(char => !vowels.includes(char))
+                                     .join('')) );
+  return result;
+}
+
+// Alternative solution:
+
+function removeVowels(arr) {
+  return arr.map( str => str.replace(/[aeiou]/gi, '') );
+}
