@@ -42,14 +42,14 @@ function alphabeticNumberSort(nums) {
   
   const NUMBER_WORDS = str.split(', ');
   
-  let map = NUMBER_WORDS.reduce( (acc, key, index) => {
+  let numMap = NUMBER_WORDS.reduce( (acc, key, index) => {
     acc[key] = nums[index];
     return acc;
   }, {})
 
   let sortNumberWords = NUMBER_WORDS.sort();
 
-  let sortNums = sortNumberWords.map( key => map[key] );
+  let sortNums = sortNumberWords.map( key => numMap[key] );
 
   return sortNums;
 

@@ -1,0 +1,52 @@
+// P - Problem: Write a function that rotates the last n digits of a number. 
+// For the rotation, rotate by one digit to the left, moving the first digit 
+// to the end.
+
+// Explicit Requirement:
+// - Given input number, rotates the last n digits of a number.
+// - rotate by one digit to the left, moving the first digit to the end.
+
+// Implicit Requirement:
+// - Input is positive integer.
+// - Target is positive integer.
+
+// E - Example/Tests:
+
+console.log(rotateRightmostDigits(735291, 1));      // 735291
+console.log(rotateRightmostDigits(735291, 2));      // 735219
+console.log(rotateRightmostDigits(735291, 3));      // 735912
+console.log(rotateRightmostDigits(735291, 4));      // 732915
+console.log(rotateRightmostDigits(735291, 5));      // 752913
+console.log(rotateRightmostDigits(735291, 6));      // 352917
+
+// D - Data Structure:
+
+// Input: integer
+// Output: integer
+// Intermediate: input -> string -> array -> string -> output
+
+// A - Algorithm:
+// - Create helper function rotateArray from ex8.1.
+// - Convert input into string and then convert string into array of individual
+//   elements.
+// - Divide array into left and right. 
+//   - Select last n elements of array as right.
+//   - Remaining elements as left.
+// - Iterate through right using rotation function on each iteration with input
+//   parameter into rotateArray being the result of previous iteration 
+// - Create new array by combining left and right and convert back into string.
+
+
+// C - Implementing solution in Code:
+
+function rotateString(str) {
+  return str.slice(1) + str.slice(0, 1);
+}
+
+function rotateRightmostDigits(num, target) {
+  let digits = String(num);
+  let left = digits.slice(0, digits.length - target);
+  let right = digits.slice(digits.length - target);
+  let result = left + rotateString(right);
+  return Number(result);
+}

@@ -1,0 +1,53 @@
+// P - Problem: In the previous exercise, we developed a recursive solution 
+// for computing the nth Fibonacci number. In a language that is not optimized 
+// for recursion, some (but not all) recursive functions can be extremely 
+// slow and may require massive quantities of memory and/or stack space. If 
+// you tested for bigger nth numbers, you might have noticed that getting 
+// the 50th fibonacci number already takes a significant amount of time.
+
+// Fortunately, every recursive function can be rewritten as a non-recursive 
+// (or procedural) function.
+
+// Rewrite your recursive fibonacci function so that it computes its results 
+// without using recursion.
+
+
+// Explicit Requirement:
+// - F(1) = 1
+// - F(2) = 1
+// - F(3) = 2
+
+// Implicit Requirements:
+
+
+
+// E - Examples/Test Cases:
+
+console.log(fibonacci(20));       // 6765
+console.log(fibonacci(50));       // 12586269025
+console.log(fibonacci(75));       // 2111485077978050
+
+// D - Data Structure:
+
+// Input: integer
+// Output: integer
+// Intermediate: input -> integer -> integer
+
+// A - Algorithm:
+// - For input 1 or 2,, return 1.
+// - Initialise fibonacci array = [1, 1].
+// - For input greater than 2, iterate up to input number with each iteration
+//   being sum of previous two numbers in fibonacci array and add sum to
+//   fibonacci array.
+// - Return last number in fibonacci array.
+
+// C - Impementation of solution in Code:
+
+function fibonacci(num) {
+  if (num < 3) return 1;
+  let fib = [1, 1];
+  for (let i = 1; i < num - 1; i++) {
+    fib.push(fib[i] + fib[i-1]);
+  }
+  return fib[fib.length - 1];
+}

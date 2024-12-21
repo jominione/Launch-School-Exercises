@@ -1,0 +1,68 @@
+// P - Problem: Write a function that takes a string and returns an object 
+// containing the following three properties:
+
+// * the percentage of characters in the string that are lowercase letters
+// * the percentage of characters that are uppercase letters
+// * the percentage of characters that are neither
+
+// You may assume that the string will always contain at least one character.
+
+// Explicit Requirements:
+// - Given string return an object.
+// - The object contains the following properties.
+// - percentage of characters in the string that are lowercase letters
+// - percentage of characters that are uppercase letters
+// - percentage of characters that are neither
+// - assume that the string will always contain at least one character.
+
+// Implicit Requirements:
+// - Only string input.
+
+
+// E - Examples/Test Cases:
+
+console.log(letterPercentages('abCdef 123'));
+// { lowercase: "50.00", uppercase: "10.00", neither: "40.00" }
+
+console.log(letterPercentages('AbCd +Ef'));
+// { lowercase: "37.50", uppercase: "37.50", neither: "25.00" }
+
+console.log(letterPercentages('123'));
+// { lowercase: "0.00", uppercase: "0.00", neither: "100.00" }
+
+// D - Data Structure:
+// Input: string
+// Output: object
+// Intermediate: input -> integer -> string -> output
+
+
+// A - Algorithm:
+// - Calculate length of string.
+// - Count number of lowercase characters.
+// - Count number of uppercase characters.
+// - count number of characters that are neither.
+// - Calculate percentages of lowercase, uppercase, neither.
+// - Create object.
+
+// C - Implementation of solution in Code:
+
+function letterPercentages(str) {
+  let total = str.length;
+  let lowercase = [...str].reduce( (acc, val) => {
+    acc += /[a-z]/.test(val) ? 1 : 0
+    return acc;
+  }, 0);
+
+  let uppercase = [...str].reduce( (acc, val) => {
+    acc += /[A-Z]/.test(val) ? 1 : 0
+    return acc;
+  }, 0);
+
+  let neither = total - lowercase - uppercase;
+
+  return {
+    'lowercase': `${(100* lowercase / total).toFixed(2)}`,
+    'uppercase': `${(100* uppercase / total).toFixed(2)}`,
+    'neither': `${(100* neither / total).toFixed(2)}`,
+  }
+}

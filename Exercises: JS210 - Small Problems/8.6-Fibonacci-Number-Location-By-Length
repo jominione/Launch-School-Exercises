@@ -1,0 +1,81 @@
+// P - Problem: The Fibonacci series is a series of numbers (1, 1, 2, 3, 5, 
+// 8, 13, 21, ...) such that the first two numbers are 1 by definition, and 
+// each subsequent number is the sum of the two previous numbers. Fibonacci 
+// numbers often appear in mathematics and nature.
+
+// Computationally, the Fibonacci series is a simple series, but the results 
+// grow at an incredibly rapid rate. For example, the 100th Fibonacci number 
+// is 354,224,848,179,261,915,075—that's enormous, especially considering 
+// that it takes six iterations just to find the first 2-digit Fibonacci 
+// number.
+
+// Write a function that calculates and returns the index of the first 
+// Fibonacci number that has the number of digits specified by the argument. 
+// (The first Fibonacci number has an index of 1.)
+
+// You may assume that the argument is always an integer greater than or equal 
+// to 2.
+
+// Explicit Requirement:
+// - Given positive integer, return the index of the first Fibonacci number 
+//   that has the number of digits specified by the argument.
+// - You may assume that the argument is always an integer greater than or 
+//   equal to 2.
+
+// Implicit Requirement:
+
+
+
+// E - Examples/Test Cases:
+
+console.log(findFibonacciIndexByLength(2n)) // === 7n);    // 1 1 2 3 5 8 13
+console.log(findFibonacciIndexByLength(3n)) // === 12n);   // 1 1 2 3 5 8 13 21 34 55 89 144
+console.log(findFibonacciIndexByLength(10n)) // === 45n);
+console.log(findFibonacciIndexByLength(16n)) // === 74n);
+console.log(findFibonacciIndexByLength(100n)) // === 476n);
+console.log(findFibonacciIndexByLength(1000n)) // === 4782n);
+console.log(findFibonacciIndexByLength(10000n)) // === 47847n);
+
+// The last example may take a minute or so to run.
+
+// D - Data Structure:
+// Input: big number
+// Output: big number
+// Intermediate: input -> integer -> output
+
+// A - Algorithm:
+// - Calculate the nth Fibonacci number using helper function from ex8.8.
+// - Create helper function to determine number of digits in number.
+//   - Given integer, convert integer into string and return length of string.
+// - Iterate through each Fibonacci number in ascending order from 1 until
+//   the first Fibonacci number where number of digits is equal to target.
+//   - Use fibonacci function to calculate nth fibonacci number.
+//   - use fibonacciLength helper function to determine length of fibonacci number.
+//   - if fibonacciLength === target return n.
+
+
+// C - Implementation of solution in Code:
+
+function fibonacci(num) {
+  if (num < 3) return 1;
+  let fib = [1, 1];
+  for (let i = 1; i < num - 1; i++) {
+    fib.push(fib[i] + fib[i-1]);
+  }
+  return fib[fib.length - 1];
+}
+
+function fibonacciLength(fibonacci) {
+  return String(fibonacci).length;
+}
+
+function findFibonacciIndexByLength(len) {
+  let counter = 1;
+
+  do {
+    fibonacci(counter);
+    counter++;
+  } while (len > fibonacciLength(fibonacci(counter)));
+
+  return counter;
+}

@@ -1,0 +1,56 @@
+// P - Problem: Write a function that takes a sentence string as an argument 
+// and returns that string with every occurrence of a "number word" — 'zero', 
+// 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine' 
+// — converted to its corresponding digit character.
+
+// Explicit Requirement:
+// - Given sentence string as an argument and returns that string with every 
+//   occurrence of a "number word" converted to its corresponding digit 
+//   character.
+
+
+// Implicit Requirement:
+// - No empty string.
+// - Input always string.
+
+// E - Examples/Test Cases:
+
+console.log(wordToDigit('Please call me at five five five one two three four. Thanks.'));
+// "Please call me at 5 5 5 1 2 3 4. Thanks."
+
+// D - Data Structure:
+// Input: string
+// Output: string
+// Intermediate: input -> array of words -> transform array -> output
+
+
+// A - Algorithm:
+// - Create an object with key being number word and value corresponding
+//   number.
+// - Split string into words.
+// - Iterate through words and check if word is a number word and replace with
+//   corresponding number.
+// - Convert back into string.
+
+// C - Implementation of solution in Code:
+
+function wordToDigit(sentence) {
+  let NUMBER_WORD = {
+    'zero': 0,
+    'one': 1,
+    'two': 2,
+    'three': 3,
+    'four': 4,
+    'five': 5,
+    'six': 6,
+    'seven': 7,
+    'eight': 8,
+    'nine': 9,
+  }
+
+  let words = sentence.split(' ');
+
+  return words.map( val => NUMBER_WORD.hasOwnProperty(val) ? 
+                           NUMBER_WORD[val] : val).join(' ');
+}
+
