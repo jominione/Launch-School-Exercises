@@ -1,0 +1,78 @@
+// Problem: A featured number (something unique to this exercise) is an odd 
+// number that is a multiple of 7, with all of its digits occurring exactly 
+// once each. For example, 49 is a featured number, but 98 is not (it is 
+// not odd), 97 is not (it is not a multiple of 7), and 133 is not (the digit 
+// 3 appears twice).
+
+// Write a function that takes an integer as an argument and returns the next 
+// featured number greater than the integer. Issue an error message if there 
+// is no next featured number.
+
+// NOTE: The largest possible featured number is 9876543201.
+
+// Explicit Requirements:
+// - Feature number must be odd number;
+// - Feature number must be multiple of 7;
+// - Feature number digits must be unique.
+// - Feature number must be less than 9876543202.
+
+// Implicit Requirements:
+// - Non-zero integers;
+// - Number of digits must be less than 11;
+
+// Algorithm:
+// - Check if input number is 9876543201 or greater.
+// - For every integer greater than input check if it is feature:
+//   - Check if number is odd number;
+//   - Check if number is multiple of 7;
+//   - Check if number are unique:
+//     - Convert to string and count occurance.
+//     - if any digit greater than 1 is not a feature.
+// - If feature return that number.
+
+
+// Data Structure:
+
+// Input: number;
+// Output: number or string;
+// Intermediate: input -> object -> boolean -> output
+
+
+// Examples:
+
+console.log(featured(12));           // 21
+console.log(featured(20));           // 21
+console.log(featured(21));           // 35
+console.log(featured(997));          // 1029
+console.log(featured(1029));         // 1043
+console.log(featured(999999));       // 1023547
+console.log(featured(999999987));    // 1023456987
+console.log(featured(9876543186));   // 9876543201
+console.log(featured(9876543200));   // 9876543201
+console.log(featured(9876543201));   
+// "There is no possible number that fulfills those requirements."
+
+// Implementation of solution in Code:
+
+function unique(num) {
+  let digits = String(num).split('');
+  let count = {};
+  digits.forEach( digit => {
+    count[digit] = (count.hasOwnProperty(digit) ? count[digit] : 0) + 1;
+  })
+  return Object.values(count).every( val => val === 1);
+}
+
+function featured(num) {
+  if (num >= 9876543201) {
+    return "There is no possible number that fulfills those requirements.";
+  }
+  let f = num;
+  while (true) {
+    f++;
+    if (f % 2 !== 1) continue;
+    if (f % 7 !== 0) continue;
+    if (!unique(f)) continue;
+    return f;
+  }
+}

@@ -1,0 +1,41 @@
+// Problem: Write a function that takes a year as an argument and returns 
+// the number of 'Friday the 13ths' in that year. You may assume that the 
+// year is greater than 1752 (when the modern Gregorian Calendar was adopted 
+// by the United Kingdom). You may also assume that the same calendar will 
+// remain in use for the foreseeable future.
+
+// Explicit Requirements:
+// - Assume year > 1752;
+// - Calculate how many Friday's are on the 13th of month.
+
+// Examples:
+
+console.log(fridayThe13ths(1986));      // 1
+console.log(fridayThe13ths(2015));      // 3
+console.log(fridayThe13ths(2017));      // 2
+
+// Data Structure:
+
+// Input: number
+// Output: number
+// Intermediate: input -> 
+
+
+// Algorithm:
+// - Given year and date i.e 13, for each month of year find the day
+//   the 13th falls on.
+// - If falls on 13th add to counter.
+// - Once check all the months return counter.
+
+
+
+// Implementation of solution in Code:
+
+function fridayThe13ths(year) {
+  let counter = 0;
+  for (let month = 0; month < 12; month++) {
+    let d = new Date(year, month, 13);
+    if (d.getDay() === 5) { counter++ }
+  }
+  return counter;
+}

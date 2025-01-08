@@ -56,37 +56,3 @@ puts sumOfPairsSquares([]) == []
 // 
 // - When squareRoot > perfect end loop.
 
-
-// Test cases
-console.log(sumOfPairsSquares([0, 1]));
-// Output: [[0, 1]]
-
-console.log(sumOfPairsSquares([1, 2, 3, 4, 5]));
-// Output: [[1, 3], [4, 5]]
-
-console.log(sumOfPairsSquares([1, 9, 16, 402, 528]));
-// Output: [[1, 528], [9, 16]]
-
-console.log(sumOfPairsSquares([2, 4, 6, 8]));
-// Output: []
-
-console.log(sumOfPairsSquares([]));
-
-// Implementation:
-
-function sumOfPairsSquares(numbers) {
-  let results = [];
-
-  return;
-}
-
-function isPerfectNumber(first, second) {
-  let perfect = first + second;
-
-
-  if (perfect % squareRoot === 0) {
-    return true;
-  } else if (squareRoot > perfect) {
-    return false;
-  }
-}

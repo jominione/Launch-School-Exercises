@@ -1,13 +1,14 @@
 // P - Problem: A triangle is classified as follows:
 
+// Explicit Requirements:
 // * Equilateral: All three sides are of equal length.
 // * Isosceles: Two sides are of equal length, while the third is different.
 // * Scalene: All three sides are of different lengths.
 
-// To be a valid triangle, the sum of the lengths of the two shortest sides 
-// must be greater than the length of the longest side, and every side must 
-// have a length greater than 0. If either of these conditions is not 
-// satisfied, the triangle is invalid.
+// - To be a valid triangle, the sum of the lengths of the two shortest sides 
+//   must be greater than the length of the longest side, and 
+// - every side must have a length greater than 0. 
+// - If either of these conditions is not satisfied, the triangle is invalid.
 
 // Write a function that takes the lengths of the three sides of a triangle 
 // as arguments and returns one of the following four strings representing 
@@ -23,14 +24,19 @@ console.log(triangle(0, 3, 3));        // "invalid"
 console.log(triangle(3, 1, 1));        // "invalid"
 
 // D - Data Structure:
-// Input: number
+// Input: array of three numbers
 // Output: string
 // Intermediate: input -> boolean -> output
 
 // A - Algorithm:
 // - Order the input numbers in ascending order and sum first two numbers.
-//   Invalid if sum is equal or smaller than biggest number.
-// - Invalid if any side is zero.
+// - Create guard clauses for the following scenarious:
+//   - Invalid if sum of smallest two sides is equal or smaller than biggest 
+//     number.
+//   - Invalid if any side is zero.
+// - Check if all sides are equal
+// - Check if only two sides are equal
+// - Anything else must be scalene.
 
 
 // C - Implementation of solution in Code:
@@ -38,8 +44,13 @@ console.log(triangle(3, 1, 1));        // "invalid"
 function triangle(num1, num2, num3) {
   let sides = [...arguments].sort( (a, b) => a - b);
   if ((sides[0] + sides[1]) <= sides[2]) return 'invalid';
-  if (!sides.every(val => val > 0)) return 'invalid';
+  if (sides.some(val => val === 0)) return 'invalid';
 
-  
-
+  if (sides[0] === sides[1] && sides[1] === sides[2]) {
+    return 'equilateral';
+  } else if (sides[0] === sides[1] || sides[1] === sides[2]) {
+    return 'isoceles';
+  } else {
+    return "scalene"
+  }
 }
