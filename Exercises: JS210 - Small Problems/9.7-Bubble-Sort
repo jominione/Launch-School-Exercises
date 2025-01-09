@@ -1,0 +1,77 @@
+// Problem: Write a function that takes an array as an argument and sorts 
+// that array using the bubble sort algorithm described above. The sorting 
+// should be done "in-place" — that is, the function should mutate the array. 
+// You may assume that the array contains at least two elements.
+
+// Explicit Requirements:
+// - Given input array, sort array using bubble sort algorithm.
+//   - Iterate through array swapping values if first is greater than second.
+//   - Continue this process until a complete pass is made without a swap
+//     being made.
+// - Must mutate array.
+
+// Implicit Requirements:
+// - Array contains primitive values i.e. string or number.
+// - From test cases when array is number, sorting is ascending numerical.
+// - When array is string sorting is lexicographic that is alphabetical in
+//   ascending order.
+
+// Examples:
+
+const array1 = [5, 3];
+bubbleSort(array1);
+console.log(array1);    // [3, 5]
+
+const array2 = [6, 2, 7, 1, 4];
+bubbleSort(array2);
+console.log(array2);    // [1, 2, 4, 6, 7]
+
+const array3 = ['Sue', 'Pete', 'Alice', 'Tyler', 'Rachel', 'Kim', 'Bonnie'];
+bubbleSort(array3);
+console.log(array3);    // ["Alice", "Bonnie", "Kim", "Pete", "Rachel", "Sue", "Tyler"]
+
+// Data Structure:
+
+// Input: array
+// Output: array
+// Intermeidate: input -> array -> output
+
+// Algorithm:
+// - To implement bubble sort:
+//   - Need to count the amount of swaps in complete pass.
+//   - Stop the loop once the count of swaps is 0.
+//   - Need to have nested loop.
+//   - Outer loop iterates until condition that count of swaps is 0.
+//   - Inner loop iterates through the length of array.
+//     - Each iteration check if first greater than second and swap if true
+//       and add 1 to swap counter.
+//   - At the end of each complete loop of inner loop check if outer condition
+//     met, if counter > 0, reset counter to 0 and continue outer loop.
+//   - If counter === 0 then break out of outer loop.
+//   - Once outer loop condition met return the array.
+
+
+
+// Implementing the solution in Code:
+
+function bubbleSort(arr) {
+
+  let counter = 0;
+
+  while (true) {
+    for (let i = 1; i < arr.length; i++) {
+      if (arr[i-1] > arr[i]) {
+        let temp = arr[i];
+        arr[i] = arr[i-1];
+        arr[i-1] = temp;
+        counter++;
+      }
+    }
+    if (counter > 0) {
+      counter = 0;
+    } else {
+      break;
+    }
+  }
+  return arr;
+}

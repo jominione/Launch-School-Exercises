@@ -1,0 +1,45 @@
+// Problem: Write a function that computes the difference between the square 
+// of the sum of the first n positive integers and the sum of the squares 
+// of the first n positive integers.
+
+// Explicit Requirements:
+// - Find difference between:
+//   - square of sum;
+//   - sum of squares
+
+// Implied requirements:
+// - Input number is non-negative integer.
+
+// Examples:
+
+console.log(sumSquareDifference(3));      // 22 --> (1 + 2 + 3)**2 - (1**2 + 2**2 + 3**2)
+console.log(sumSquareDifference(10));     // 2640
+console.log(sumSquareDifference(1));      // 0
+console.log(sumSquareDifference(100));    // 25164150
+
+// Data Structure:
+
+// Input: number;
+// Output: number;
+// Intermediate: input -> number -> output;
+
+
+// Algorithm:
+// - Calculate the square of sum of first n numbers.
+// - Calculate the sum of squares of first n numbers.
+// - Return the difference between the two numbers.
+
+
+// Implementation of solution in Code:
+
+function sumSquareDifference(num) {
+  let sum = 0;
+  let sumOfSquare = 0;
+
+  for (let i = 1; i <= num; i++) {
+    sum += i;
+    sumOfSquare += i ** 2;
+  }
+
+  return (sum ** 2) - sumOfSquare;
+}

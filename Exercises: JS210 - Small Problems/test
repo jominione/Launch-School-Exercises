@@ -1,0 +1,20 @@
+const isEmpty = value => {
+
+  if (Array.isArray(value)) {
+
+    return value.length === 0 && !Object.keys(value).some( index => index >= 0 && index < value.length );
+  }
+  return Object.keys(value).length === 0;
+};
+
+let arr = [];
+arr["foo"] = "bar";
+arr[-1] = "boo";
+
+let sparseArr = [];
+sparseArr.length = 3;
+
+console.log(isEmpty([])); // true
+console.log(isEmpty(arr)); // true
+console.log(isEmpty(["Janice"])); // false
+console.log(isEmpty(sparseArr)); // false

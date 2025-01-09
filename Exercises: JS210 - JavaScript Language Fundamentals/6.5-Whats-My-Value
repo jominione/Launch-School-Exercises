@@ -1,7 +1,5 @@
 // What will the following program log to the console? Can you explain why?
 
-// Solution:
-
 const array = ['Apples', 'Peaches', 'Grapes'];
 
 array[3.4] = 'Oranges';
