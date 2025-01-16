@@ -48,3 +48,6 @@ function wordLengths(str) {
   return (arguments.length === 0 || str.length === 0) ? 
          [] : str.split(' ').map( word => word + ` ${word.length}`);
 }
+
+// Use arguments.length === 0 for case when no argument is passed and 
+// str.length === 0 for case when '' (i.e. empty string) is passed.
