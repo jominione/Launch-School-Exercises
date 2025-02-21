@@ -20,7 +20,7 @@
 // let person = new Person();
 // let shouter = new Shouter();
 
-// person.greeting("Hello. It's very nice to meet you."); // Hello. It's very nice to meet you
+// person.greeting("Hello. It's very nice to meet you."); // Hello. It's very nice to meet you.
 // shouter.greeting("Hello my friend."); // HELLO MY FRIEND.
 
 // Solution:

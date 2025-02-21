@@ -31,9 +31,9 @@
 // |    |    |    | Remove non-existent item from the buffer (nil)
 // |-----------------------------------------------------------------
 
-// Your task is to write a CircularBuffer class in Python that implements a
-// circular buffer for arbitary objects. The class should be initialised with
-// the buffer size and provide the following methods:
+// Your task is to write a CircularBuffer class that implements a circular 
+// buffer for arbitary objects. The class should be initialised with the buffer 
+// size and provide the following methods:
 
 // * put: Add an object to the buffer
 // * get: Remove (and return) the oldest object in the buffer. Return None

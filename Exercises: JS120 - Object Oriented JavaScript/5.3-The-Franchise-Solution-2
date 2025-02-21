@@ -4,13 +4,30 @@
 // Solve the same problem again by passing a hard-bound anonymous function 
 // to map.
 
+// The method franchise.allMovies is supposed to return the following array:
+
+// let franchise = {
+//   name: 'How to Train Your Dragon',
+//   allMovies: function() {
+//     return [1, 2, 3].map(function(number) {
+//       return this.name + ' ' + number;
+//     });
+//   },
+// };
+
+// [
+//   'How to Train Your Dragon 1',
+//   'How to Train Your Dragon 2',
+//   'How to Train Your Dragon 3'
+// ]
+
 // Solution:
 
 let franchise = {
   name: 'How to Train Your Dragon',
   allMovies: function() {
     return [1, 2, 3].map(function(number) {
-      return fthis.name + ' ' + number;
-    });
+      return this.name + ' ' + number;
+    }).bind(this);
   },
 };
