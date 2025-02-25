@@ -35,7 +35,7 @@ function myFilter(array, func) {
   let result = [];
 
   array.forEach(function(value) {
-    if (func(value)) {
+    if (func.call(thisArg, value)) {
       result.push(value);
     }
   });
